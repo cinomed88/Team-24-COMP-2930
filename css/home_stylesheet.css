@@ -1,0 +1,88 @@
+
+body {
+    margin: 0;
+}
+#container {
+    width: 100%;
+}
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+#startGameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+#topHomeBackground {
+width: 100%;
+}
+#rectangle {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 290px;
+    background-color: black;
+    width: 50%;
+    height: 150px;
+    margin: 0 auto;
+    opacity: .7;
+}
+#rectangle a {
+    position: relative;
+    bottom: 30px;
+    color: white;
+    opacity: 0.7;
+    font-size: 4em;
+    z-index: 1;
+}
+#profileStore {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 150px
+}
+.profile {
+    display: flex;
+    clip-path: polygon(0 0, 0 50%, 100% 0);
+    background-image: url(../pics/Home_Pics/walking_man_edited.jpg);
+    height: 500px;
+}
+.profile a {
+    font-size: 4em;
+    color: white;
+    position: relative;
+    left: 17%;
+    z-index: 1;
+}
+.store {
+    display: flex;
+    clip-path: polygon(100% 0, 0 50%, 100% 50%);
+    background-image: url(../pics/Home_Pics/profile_edited.jpg);
+    height: 500px;
+    position: relative;
+    bottom: 495px;
+}
+.store a {
+    font-size: 4em;
+    color: white;
+    position: relative;
+    left: 65%;
+    top: 50px; 
+    z-index: 1;
+    
+}
+.startGameLink:hover {
+    text-decoration: underline;
+}
+.profileLink:hover{
+    text-decoration: underline;
+}
+.storeLink:hover {
+    text-decoration: underline;
+}
+
+
