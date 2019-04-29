@@ -1,1 +1,40 @@
+ body {
+        background-color:grey;
+        text-align: center;
+        font-size: 18pt;
+        margin: 25px;
+        width: 100vw;
+        height: 100vh;
+      }
+      .row {
+        box-sizing: border-box;
+      }
+      .column {
+        float:left;
+        text-align: center;
+        background-color: black;
+        color: white;
+        width: 50%;
+      }
+      #image {
+        background-color: white;
+        padding: 25px;
+      }
+      .div {
+        background-color: gainsboro;
+        padding: 25px;
+        text-align: center;
+      }
+      .button {
+        background-color: black;
+        width: 50vw;
+        height: 100px;
+        font-size: 22pt;
+        color:white;
+      }
+      .button:hover {
+        background-color: green;
+        color:aqua;
+      }
+      
 
