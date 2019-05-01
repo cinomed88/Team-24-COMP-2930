@@ -1,0 +1,18 @@
+body {
+    margin: 0px;
+}
+
+#landingPageWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#carousel {
+    height: 45vh;
+    width: 100%;
+    background-image: url("../Pics/Landing_Pics/carouselOne.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
