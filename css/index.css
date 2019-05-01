@@ -59,5 +59,12 @@ body {
     border: 2px solid white;
 }
 
+#logInScreen {
+    background-color: darkgray;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+}
+
 
 
