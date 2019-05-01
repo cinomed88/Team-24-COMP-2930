@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
 body {
     margin: 0px;
 }
@@ -8,11 +10,54 @@ body {
 }
 
 #carousel {
+    display: flex;
+    flex-direction: column;
     height: 45vh;
     width: 100%;
     background-image: url("../Pics/Landing_Pics/carouselOne.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    align-items: center;
 }
+
+#logInTitle {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: black;
+    font-size: 10vw;
+    margin-top: 14vh;
+}
+
+
+#carouselSelection {
+    margin-top: 21vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.currentSelection {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.circleSelection {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    background-color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid white;
+}
+
+
+
