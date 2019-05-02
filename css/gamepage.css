@@ -1,7 +1,7 @@
  body {
-        background-color:grey;
+        background-color:darkgrey;
         text-align: center;
-        font-size: 18pt;
+        font-size: 20pt;
         margin: 25px;
         width: 100vw;
         height: 100vh;
@@ -16,9 +16,11 @@
         color: white;
         width: 50%;
       }
+     
       #image {
         background-color: white;
         padding: 25px;
+        height: 50vh;
       }
       .div {
         background-color: gainsboro;
@@ -28,13 +30,55 @@
       .button {
         background-color: black;
         width: 50vw;
-        height: 100px;
+        height: 120px;
         font-size: 22pt;
         color:white;
+        border-radius: 20px;
       }
       .button:hover {
         background-color: green;
         color:aqua;
       }
+      .bar {
+        width: 90px;
+        height: 15px;
+        background-color: black;
+        margin: 12px;
+      }
       
-
+      .rowtable {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+            }
+                 
+      #rectangle1 {
+       width: 85vw;
+       height: 120px;
+       background-color: gainsboro;
+       align-items: center;       
+            }
+      #rectangle2 {
+       width: 15vw;
+       height: 120px;
+       background-color: gainsboro;
+       align-items: center;
+            }
+      .rectangle3 {
+       width: 10vw;
+       height: 750px;
+       display: flex;
+       align-items: center;
+            }
+      #rectangle4 {
+       width: 80vw;
+       height: 750px;
+       text-align: center;
+            }
+  
+      .line{
+        width:100vw;
+        height:40px;
+        background-color:grey;
+      }  
