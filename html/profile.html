@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Profile
+    </title>
+<!--    <link rel="stylesheet" href="profile.css" type="text/css" >-->
+
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        h1 {
+            margin: 0;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin: 0;
+            font-size: 20pt;
+        }
+        #grid_container {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: 100px 1fr 1fr 1fr;
+        }
+        #heading {
+            background-color: aliceblue;
+            font-size: 25pt;
+            grid-area: 1 / 1 / span 1 / span 1;
+        }
+        #heading a {
+            float: left;
+        }
+        #rank {
+            background-color: blue;
+            grid-area: 2 / 1 / span 1 / span 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 70px 1fr;
+        }
+        #rank_heading {
+            background-color: black;
+            color: white;
+        }
+        #rank_body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 30px;
+        }
+        #history {
+            background-color: red;
+            grid-area: 3 / 1 / span 1 / span 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 70px 1fr;
+        }
+        #history_heading {
+            background-color: black;
+            color: white;
+        }
+        #history_body {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        #owned_cards {
+            background-color: green;
+            grid-area: 4 / 1 / span 1 / span 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 70px 1fr;
+        }
+        #owned_cards_heading {
+            background-color: black;
+            color: white;
+        }
+        #owned_cards_body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+        
+        .more {
+            float: right;
+            transform: translate(0, -25px);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="grid_container">
+        <div id="heading">
+            <a href="./home.html"><img src="Pics/back.png"/></a>
+
+            <h1> Michael Jordan</h1>
+        </div>
+
+        <div id="rank">
+            <div id="rank_heading">
+                <h1> RANK </h1>
+                <span class="more">more</span>
+            </div>
+            <div id="rank_body">
+            
+            </div>
+
+        </div>
+
+        <div id="history">
+            <div id="history_heading">
+                <h1> RECENT HISTORY </h1>
+                <span class="more">more</span>
+            </div>
+            <div id="history_body">
+            
+            </div>
+        </div>
+
+        <div id="owned_cards">
+            <div id="owned_cards_heading">
+                <h1> OWNED CARDS </h1>
+                <span class="more">more</span>
+            </div>
+            <div id="owned_cards_body">
+            
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
