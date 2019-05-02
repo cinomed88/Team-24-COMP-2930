@@ -10,7 +10,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-color: #363636;
+    background-color: lightgrey;
+/*    background-color: #363636;*/
 }
 #startGameContainer {
     display: flex;
@@ -30,14 +31,14 @@ width: 100%;
     width: 50%;
     height: 100px;
     margin: 0 auto;
-    opacity: .7;
+    opacity: .50;
 }
 #rectangle a {
     display: flex;
     align-items: center;
     position: relative;
     color: white;
-    opacity: 0.7;
+    opacity: 0.95;
     font-size: 3em;
     z-index: 1;
 }
