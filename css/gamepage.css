@@ -22,10 +22,12 @@
         padding: 25px;
         height: 50vh;
       }
-      .div {
-        background-color: gainsboro;
+      #div {
+        background-image: url(../pics/Home_Pics/profile_edited.jpg);
         padding: 25px;
         text-align: center;
+        background-color: lightblue;
+        color:white;
       }
       .button {
         background-color: black;
@@ -42,28 +44,34 @@
       .bar {
         width: 90px;
         height: 15px;
-        background-color: black;
+        background-color: aliceblue;
         margin: 12px;
       }
       
-      .rowtable {
+      #rowtable1 {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        background-image: url(../pics/Home_Pics/walking_man_edited.jpg);
+            }
+       #rowtable2 {
         display: flex;
         flex-direction: row;
         align-content: center;
         align-items: center;
-            }
-                 
+            }          
       #rectangle1 {
        width: 85vw;
-       height: 120px;
-       background-color: gainsboro;
-       align-items: center;       
+       height: 180px;
+       color:aliceblue;
+       font-size: 25pt;
             }
       #rectangle2 {
        width: 15vw;
-       height: 120px;
-       background-color: gainsboro;
-       align-items: center;
+       height: 180px; 
+       color:aliceblue;
+       text-align: justify;
+       padding-top: 30px;
             }
       .rectangle3 {
        width: 10vw;
@@ -80,5 +88,5 @@
       .line{
         width:100vw;
         height:40px;
-        background-color:grey;
+        background-color:lightblue;
       }  
