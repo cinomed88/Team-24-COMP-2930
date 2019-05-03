@@ -4,10 +4,10 @@
 			#row1 {
 				display:flex;
 				flex-direction: row;
-				background-image: url(../pics/Home_Pics/walking_man_edited.jpg);
 				width: 100vw;
 				height: 80px;
 				color:aliceblue;
+				background-color:lightgray;
 			}
 			#row2 {
 				display:flex;
@@ -22,7 +22,7 @@
 			#row3 {
 				display:flex;
 				flex-direction: row;
-				background-color: lightblue;
+				background-color: grey;
 				width: 100vw;
 				height: 90px;
 				align-content: center;
@@ -55,7 +55,6 @@
 			   width: 50vw;
 			   height: 355px;
 			   align-items: center;
-			   background-image: url(../pics/Home_Pics/profile.jpg);
         	   text-align: center;
                background-color: lightblue;
                color:white;
@@ -85,5 +84,5 @@
 		 .line{
 			width:100vw;
         	height:15px;
-        	background-color:lightblue;
+        	background-color:grey;
       	 }  		
