@@ -1,7 +1,12 @@
 @media only screen and (min-width: 400px) and (max-width: 1079px){
-    header {
+    .navi-bar-desktop {
         display: none;
     }
+    navi-bar-mobile [
+    color: white;
+    ]
+    
+    
 }
 
 @media only screen and (min-width: 1080px){
@@ -10,21 +15,24 @@
         width: 100%;
         height: 45px;
     }
-    .navi-bar {
+    .navi-bar-desktop {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         font-size: 22pt;
         width: 100%;
     }
-    .navi-bar a {
+    .navi-bar-desktop a {
         display: flex;
-        margin-left: 3%;
+        margin-right: 3%;
         align-items: center;
     }
-    .navi-bar div:hover {
+    .navi-bar-desktop div:hover {
         text-decoration: underline;
         background-color: midnightblue;
         color:aliceblue;
+    }
+    .navi-bar-mobile {
+        display: none;
     }
 }
