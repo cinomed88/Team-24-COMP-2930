@@ -27,7 +27,7 @@
             width: 100%;
             height: 100%;
             grid-template-columns: 1fr;
-            grid-template-rows: 100px 1fr 1fr 1fr;
+            grid-template-rows: 100px 1.2fr 1fr 0.8fr;
         }
         #heading {
             background-color: aliceblue;
@@ -42,43 +42,72 @@
             grid-area: 2 / 1 / span 1 / span 1;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 70px 1fr;
+            grid-template-rows: 80px 1fr;
         }
         #rank_heading {
             background-color: black;
             color: white;
+            margin-bottom: 10px;
+            padding: 5px;
         }
         #rank_body {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 30px;
+            grid-template-rows: 1fr 1fr 0.4fr;
+            grid-row-gap: 10px;
+        }
+        #rank_body {
+            font-size: 30pt;
+        }
+        #rank_body div img {
+            width: 280px;
+            height: auto;
         }
         #history {
             background-color: red;
             grid-area: 3 / 1 / span 1 / span 1;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 70px 1fr;
+            grid-template-rows: 80px 1fr;
         }
         #history_heading {
             background-color: black;
             color: white;
+            margin-bottom: 10px;
+            padding: 5px;
         }
         #history_body {
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr 1fr;
         }
+        #history_body > div {
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 200px 1.5fr 1fr; 
+            font-size: 30pt;
+        }
+        #history_body > div > div{
+            margin-top: auto;
+            margin-bottom: auto;
+        
+        }
+        #history_body img {
+            width: 200px;
+            height: auto;
+        }
         #owned_cards {
             background-color: green;
             grid-area: 4 / 1 / span 1 / span 1;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 70px 1fr;
+            grid-template-rows: 80px 1fr;
         }
         #owned_cards_heading {
             background-color: black;
             color: white;
+            margin-bottom: 10px;
+            padding: 5px;
         }
         #owned_cards_body {
             display: grid;
@@ -96,7 +125,7 @@
 <body>
     <div id="grid_container">
         <div id="heading">
-            <a href="./home.html"><img src="Pics/back.png"/></a>
+            <a href="./home.html"><img src="../Pics/Profile_Pics/dummy100.png"/></a>
 
             <h1> Michael Jordan</h1>
         </div>
@@ -107,9 +136,16 @@
                 <span class="more">more</span>
             </div>
             <div id="rank_body">
-            
+                <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                <div> Diamond1<br>LP55</div>
+                <div> Diamond1<br>LP55</div>
+                <div> Diamond1<br>LP55</div>
             </div>
-
         </div>
 
         <div id="history">
@@ -118,7 +154,16 @@
                 <span class="more">more</span>
             </div>
             <div id="history_body">
-            
+                <div>
+                    <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                    <div>
+                        APR 5 (FRI), 15:00<br>BURNABY PARK
+                    </div>
+                    <div>
+                        2:1  WIN
+                    </div>
+                    
+                </div>
             </div>
         </div>
 
