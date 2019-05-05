@@ -5,8 +5,8 @@
 				display:flex;
 				flex-direction: row;
 				width: 100vw;
-				height: 80px;
-				color:aliceblue;
+				height: 70px;
+				color:black;
 				background-color:lightgray;
 			}
 			#row2 {
@@ -65,7 +65,7 @@
 			.bar {
 				width: 60px;
         		height: 8px;
-        		background-color: aliceblue;
+        		background-color:black;
         		margin: 10px;
 			}
 			
