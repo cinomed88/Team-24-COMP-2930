@@ -9,8 +9,9 @@ $(document).ready(function() {
     $('.navi-bar-desktop').append('<a><div>Sign-out</div></a>');
     
     $('header').append('<div class="navi-bar-mobile"></div>');
-    $('.navi-bar-mobile').append('<div id="hamburger" class="naviAnim"><span></span><span></span><span></span></div>')
-    $('.navi-bar-mobile').append('<div id="overlay"</div>');
+    $('.navi-bar-mobile').append('<div id="hamburgerMenu"></div>');
+    $('#hamburgerMenu').append('<div id="hamburger" class="homePageHamburger"><span></span><br><span></span><br><span></span></div>');
+    $('header').after('<div id="overlay"></div>');
     $('.navi-bar-mobile').append('<div id="naviwrap"></div>');
     
     $('#naviwrap').append('<a><div>Map</div></a>');
@@ -18,5 +19,25 @@ $(document).ready(function() {
     $('#naviwrap').append('<a><div>Store</div></a>');
     $('#naviwrap').append('<a><div>Sign-in</div></a>');
     $('#naviwrap').append('<a><div>Sign-out</div></a>');
+    
+     $('.homePageHamburger').click(function(){
+        if($(this).hasClass('open') ){
+            $(this).removeClass('open');
+            $('#overlay').hide();
+            $('#naviwrap').hide();
+            //Normalizes the visibility of Store & Profile when overlay is hidden --Raging--//
+            $('.profileLink').css("opacity", "1");
+            $('.storeLink').css("opacity", "1");
+        } else {
+            $(this).addClass('open');
+            $('#naviwrap').show();
+            $('#overlay').show();
+            //Decreases the visibility of Store & Profile when overlay is shown --Raging--//
+            $('.profileLink').css("opacity", ".5");
+            $('.storeLink').css("opacity", ".5");
+        }
+    });
+    
+    
 });
 
