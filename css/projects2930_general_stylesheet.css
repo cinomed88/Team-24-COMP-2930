@@ -89,7 +89,7 @@ hamburger span:nth-child(1) {
     display: none;
 }
 
-@media only screen and (min-width: 400px) and (max-width: 1079px){
+@media only screen and (min-width: 400px) and (max-width: 810px){
     .navi-bar-desktop {
         display: none;
     }
@@ -100,7 +100,7 @@ hamburger span:nth-child(1) {
     
 }
 
-@media only screen and (min-width: 1080px){
+@media only screen and (min-width: 811px){
     header {
         display: flex;
         width: 100%;
