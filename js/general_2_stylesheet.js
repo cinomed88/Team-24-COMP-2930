@@ -13,6 +13,9 @@ $(document).ready(function() {
     $('#backBTN').append('<img class="backBTN" src="../Pics/General_Pics/back_button.png">');
     
     $('#backBTN').on('click', () => {
+        if($(this).is('.findMatch')){
+            
+        }
         window.location.href = '../html/Home.html';
     });
    
