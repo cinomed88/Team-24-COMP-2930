@@ -4,19 +4,28 @@
         <title> findgame</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../css/findgame.css">
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     </head>
     <body>
         <div id = "row">
             <div id = "rectangle1">
                 <h1> FIND GAME</h1>
             </div>
-            <div id = "rectangle2">
+            <div id = "rectangle2" onclick="document.getElementById('popup').style.display= 'block'">
                 <div class = "bar"></div>
                 <div class = "bar"></div>
                 <div class = "bar"></div>
             </div>
         </div>
-        <div id = "map"></div>
+        <div id = "map">
+            <div id = "popup">
+            <i class="fa fa-close" id = "icon" style="font-size: 50px" onclick="document.getElementById('popup').style.display= 'none'"></i>    
+            <br>
+            <p><a href = "home.html">Home</a></p>
+            <p><a href = "profile.html">Profile</a></p>
+            <p><a href = "store.html">Store</a></p>
+            </div>
+                       
+        </div>
     </body>   
 </html>
