@@ -7,7 +7,9 @@ $(document).ready(function() {
     $('.navi-bar-desktop').append('<a><div>Sign-in</div></a>');
     $('.navi-bar-desktop').append('<a href="./index.html"><div>Sign-out</div></a>');    
     
-    $('body').append('<div class="navi-bar-mobile-2"></div>');
-    $('.navi-bar-mobile-2').append('<div class="backBTN"><a href="./Home.html"><<</a></div>');
+    $('header').after('<div class="navi-bar-mobile-2"></div>');
+    $('.navi-bar-mobile-2').append('<div id="backBTN"></div>');
+    $('#backBTN').append('<img class="backBTN" src="../Pics/General_Pics/back_button.png">');
+   
 
 });
