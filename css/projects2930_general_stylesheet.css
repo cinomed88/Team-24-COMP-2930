@@ -88,19 +88,32 @@ hamburger span:nth-child(1) {
     filter: opacity(65%);
     display: none;
 }
+.navi-bar-mobile-2 {
+    position: absolute;
+    left: 2%;
+    top: 10px;
+}
+  .backBTN {
+      position: absolute;
+      height: 60px;
+}
+.backBTN:hover {
+    background-color: skyblue;
+}
 
-@media only screen and (min-width: 400px) and (max-width: 1079px){
+
+@media only screen and (min-width: 400px) and (max-width: 810px){
     .navi-bar-desktop {
         display: none;
     }
-    navi-bar-mobile [
+    .navi-bar-mobile }
     color: white;
-    ]
-    
-    
-}
+    }   
+    .navi-bar-mobile-2 {
+    display: none;
+    }
 
-@media only screen and (min-width: 1080px){
+@media only screen and (min-width: 811px){
     header {
         display: flex;
         width: 100%;

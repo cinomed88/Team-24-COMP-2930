@@ -4,19 +4,49 @@
         <title> findgame</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../css/findgame.css">
-        
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+<!--                Styling for the navigation bar on landscape--Raging---->
+        <link rel="stylesheet" href="../css/projects2930_general_stylesheet.css">
+        <style>
+            header {
+                display: none;
+            }
+        </style>
+
     </head>
     <body>
         <div id = "row">
             <div id = "rectangle1">
                 <h1> FIND GAME</h1>
             </div>
+        </div>
+
+            <div id = "rectangle2" onclick="document.getElementById('popup').style.display= 'block'">
+
+<!--
             <div id = "rectangle2">
                 <div class = "bar"></div>
                 <div class = "bar"></div>
                 <div class = "bar"></div>
             </div>
+-->
         </div>
+
+        <div id = "map">
+            <div id = "popup">
+            <i class="fa fa-close" id = "icon" style="font-size: 50px" onclick="document.getElementById('popup').style.display= 'none'"></i>    
+            <br>
+            <p><a href = "home.html">Home</a></p>
+            <p><a href = "profile.html">Profile</a></p>
+            <p><a href = "store.html">Store</a></p>
+            </div>
+                       
+        </div>
+
         <div id = "map"></div>
+<!--                The JQuery library and the js-stylesheet for the landscape navi-bar --Raging---->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script rel="stylesheet" src="../js/general_2_stylesheet.js"></script>
     </body>   
 </html>
