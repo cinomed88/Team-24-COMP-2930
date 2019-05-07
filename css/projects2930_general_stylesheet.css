@@ -88,17 +88,19 @@ hamburger span:nth-child(1) {
     filter: opacity(65%);
     display: none;
 }
-  .backBTN {
-        font-size: 26pt;
-        font-weight: bold;
-        position: absolute;
-        top: 10px;
-        left: 2%;
-    }
-.backBTN:hover {
-    background-color: darkslateblue;
-    cursor: pointer;
+.navi-bar-mobile-2 {
+    position: absolute;
+    left: 2%;
+    top: 10px;
 }
+  .backBTN {
+      position: absolute;
+      height: 60px;
+}
+.backBTN:hover {
+    background-color: skyblue;
+}
+
 
 @media only screen and (min-width: 400px) and (max-width: 810px){
     .navi-bar-desktop {
