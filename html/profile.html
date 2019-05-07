@@ -2,13 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
     <title>
         Profile
     </title>
 <!--    <link rel="stylesheet" href="profile.css" type="text/css" >-->
 
     <style>
-        html {
+        html, body {
             width: 100%;
             height: 100%;
         }
@@ -16,56 +18,86 @@
             margin: 0;
         }
         body {
-            width: 100%;
-            height: 100%;
             text-align: center;
             margin: 0;
-            font-size: 20pt;
         }
         #grid_container {
             display: grid;
             width: 100%;
             height: 100%;
-            grid-template-columns: 1fr;
-            grid-template-rows: 100px 1.2fr 1fr 0.8fr;
         }
         #heading {
             background-color: aliceblue;
-            font-size: 25pt;
-            grid-area: 1 / 1 / span 1 / span 1;
+            font-size: 2.5vmax;
         }
         #heading a {
             float: left;
+            height: 100%;
+            width: auto;
         }
         #rank {
             background-color: blue;
-            grid-area: 2 / 1 / span 1 / span 1;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 80px 1fr;
+            max-height: 100%;
         }
         #rank_heading {
             background-color: black;
             color: white;
             margin-bottom: 10px;
-            padding: 5px;
+            padding: 10px;
+            font-size: 1.8vmax;
         }
         #rank_body {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 0.4fr;
+            grid-template-rows: 1fr 1fr 0.35fr;
             grid-row-gap: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         #rank_body {
-            font-size: 30pt;
+            font-size: 2vmax;
         }
         #rank_body div img {
-            width: 280px;
+            width: 200px;
             height: auto;
         }
+        #sportsmanship {
+            background-color: green;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 80px 1fr;
+        }
+        #sportsmanship_heading {
+            background-color: black;
+            color: white;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1.8vmax;
+        }
+        #sportsmanship_body {
+            display: grid;
+            grid-template-columns: 120px 1.5fr 1fr ;
+            grid-template-rows: 1fr;
+            grid-row-gap: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        #sportsmanship_body div {
+            margin-top: auto;
+            margin-bottom: auto;
+            font-size: 3vmax;
+        
+        }
+        #sportsmanship_body img {
+            width: 100px;
+            height: auto;
+        }
+        
         #history {
             background-color: red;
-            grid-area: 3 / 1 / span 1 / span 1;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 80px 1fr;
@@ -74,18 +106,22 @@
             background-color: black;
             color: white;
             margin-bottom: 10px;
-            padding: 5px;
+            padding: 10px;
+            font-size: 1.8vmax;
         }
         #history_body {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-row-gap: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         #history_body > div {
             display: grid;
-            grid-template-rows: 1fr;
-            grid-template-columns: 200px 1.5fr 1fr; 
-            font-size: 30pt;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 100px 1.5fr 1fr; 
+            font-size: 2em;
         }
         #history_body > div > div{
             margin-top: auto;
@@ -93,12 +129,13 @@
         
         }
         #history_body img {
-            width: 200px;
+            width: auto;
             height: auto;
         }
+/*
         #owned_cards {
             background-color: green;
-            grid-area: 4 / 1 / span 1 / span 1;
+            grid-area: 5 / 1 / span 1 / span 1;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 80px 1fr;
@@ -114,10 +151,54 @@
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr;
         }
+*/
         
         .more {
             float: right;
             transform: translate(0, -25px);
+            font-size: 2vmax;
+        } 
+        
+        @media screen and (orientation: portrait) {
+            #grid_container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 6vmax 1.2fr 1fr 0.8fr;
+            }
+            #heading {
+                grid-area: 1 / 1 / span 1 / span 1;
+            }
+            #rank {
+                grid-area: 2 / 1 / span 1 / span 1;
+            }
+            #sportsmanship {
+                grid-area: 3 / 1 / span 1 / span 1;
+            }
+            #history {
+                grid-area: 4 / 1 / span 1 / span 1;
+            }
+        }
+        
+        @media screen and (orientation: landscape) {
+            #heading {
+                background-color: bisque;
+            }
+            
+            #grid_container {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 6vmax 1fr 2.5fr;
+            }
+            #heading {
+                grid-area: 1 / 1 / span 1 / span 2;
+            }
+            #rank {
+                grid-area: 2 / 1 / span 2 / span 1;
+            }
+            #sportsmanship {
+                grid-area: 2 / 2 / span 1 / span 1;
+            }
+            #history {
+                grid-area: 3 / 2 / span 1 / span 1;
+            }
         }
 
     </style>
@@ -145,6 +226,17 @@
                 <div> Diamond1<br>LP55</div>
                 <div> Diamond1<br>LP55</div>
                 <div> Diamond1<br>LP55</div>
+            </div>
+        </div>
+        
+        <div id="sportsmanship">
+            <div id="sportsmanship_heading">
+                <h1> SPORTSMANSHIP </h1>
+            </div>
+            <div id="sportsmanship_body">
+                <div><img src="../Pics/Profile_Pics/dummy100.png"/></div>
+                <div>HONOR Level 3</div>
+                <div>3.4 / 5.0</div>
             </div>
         </div>
 
@@ -182,7 +274,8 @@
                 </div>
             </div>
         </div>
-
+        
+<!--
         <div id="owned_cards">
             <div id="owned_cards_heading">
                 <h1> OWNED CARDS </h1>
@@ -192,6 +285,8 @@
             
             </div>
         </div>
+-->
+        
     </div>
 
 </body>
