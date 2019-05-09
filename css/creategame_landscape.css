@@ -1,0 +1,93 @@
+body {
+    background-color: rgb(73, 71, 71);
+    font-size: 15pt;
+    text-align: center;
+    padding:10px;
+}
+#row1 {
+    display: flex;
+    flex-direction: row;
+    height:150px;
+    background-color: lightgray;
+}
+#rectangle1 {
+    width: 85vw;
+    font-size: 20pt;
+}
+#rectangle2 {
+    width:15vw;
+    padding-top:30px;
+}
+.bar {
+    width: 90px;
+    height: 15px;
+    margin: 12px;
+    background-color: black;
+}
+#search {
+    font-size: 25pt;
+    height:80px;
+    width: 100%;
+    border-radius:10px; 
+    text-align:center;
+    background-image:  url(../pics/Creategame_Pics/search.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+#map {
+    background-color:lightblue;
+    width: 100%;
+    height: 65vh;
+}
+#select {
+    background-color:lightslategray;
+    align-items: center;
+    padding:50px;
+}
+#date {
+    width:500px;
+    height:60px;
+    font-size: 20pt;
+    text-align: center;
+    border-radius: 12px;
+}
+#time {
+    width:500px;
+    height:60px;
+    font-size: 20pt;
+    text-align: center;
+    border-radius: 12px;
+}
+#submit {
+    width: 150px;
+    height:70px;
+    background-color:lightblue;
+    color: black;
+    font-size: 22pt;
+}
+@media only screen and (orientation:landscape) {
+    * { font-size: 1.3rem; }
+#row1{
+    display:none;
+}
+#select {
+    display:none;  
+}
+#map {
+    background-color:lightblue;
+    width: 100%;
+    height: 90vh;
+}
+#search {
+    font-size: 20pt;
+    height:50px;
+    width: 100%;
+    border-radius:10px; 
+    text-align:center;
+    background-image:  url(../pics/Creategame_Pics/search.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+
+}
