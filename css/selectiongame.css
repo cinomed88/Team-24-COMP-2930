@@ -38,13 +38,10 @@ body {
     width:25%;
     height:20vh;
     float:right;
-    font-size: 30pt;
-    text-align: center;
-    
+    font-size: 20pt;
+    text-align: center;   
 }
-#icon1 {
-    float:right;
-}
+
 #participants { 
     background: lightgrey;
     border: 1px solid black;
@@ -56,4 +53,10 @@ body {
     float: right;
     margin-top: 20px;
     margin-right: 20px;
+}
+@media only screen and (orientation:landscape) {
+    * { font-size: 0.7rem; }
+    #row {
+        display:none;
+    }
 }
