@@ -220,13 +220,8 @@ body {
     flex-direction: column;
     width: 50%;
     border-radius: 12px;
-<<<<<<< HEAD
     height: 60px;
     background: black;
-=======
-    height: 100%;
-    background: #970009;
->>>>>>> d716148a5f0e4cbf788de4adb5843f6b25e0db56
 }
 #friendsContainer p {
     display: flex;
@@ -296,9 +291,6 @@ body {
     margin-top: 5px;
 }
 
-
-
-<<<<<<< HEAD
 /*
 @media only screen and (min-width: 811px){
     #profileStore {
@@ -369,7 +361,7 @@ body {
     }
     #scheduleContainer {
         height: 60vh;
-        border-right: 1px solid black;
+        border-right: 8px solid black;
 
     }
     #friendsContainer {
@@ -379,7 +371,5 @@ body {
 }
    
 
-=======
->>>>>>> d716148a5f0e4cbf788de4adb5843f6b25e0db56
 
 
