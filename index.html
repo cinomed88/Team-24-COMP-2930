@@ -62,6 +62,7 @@
         });
         </script>
         
+<!--
         <script>
               firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
                 // Handle Errors here.
@@ -94,6 +95,7 @@
                   // [END_EXCLUDE]
                 });
         </script>
+-->
         
         <script>
 	       // Initialize the FirebaseUI Widget using Firebase.
@@ -113,7 +115,7 @@
                 }
               },
               // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-              signInFlow: 'popup',
+              signInFlow: 'redirect',
               signInSuccessUrl: './html/Home.html',
               signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
