@@ -79,6 +79,7 @@ hamburger span:nth-child(1) {
     background-color: darkslateblue;
     cursor: pointer;
 }
+
 #overlay {
     background: black;
     position: absolute;
@@ -87,6 +88,9 @@ hamburger span:nth-child(1) {
     -webkit-filter: opacity(65%);
     filter: opacity(65%);
     display: none;
+}
+.moreBTN {
+    z-index: 9001;
 }
 .navi-bar-mobile-2 {
     position: absolute;

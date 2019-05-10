@@ -164,7 +164,7 @@ body {
     width: 75%;
     height: 60px;
     margin-left: 1%;
-    background-color:aquamarine
+    background-color:aquamarine;
     
 }
 #friendsContainer {
@@ -222,6 +222,14 @@ body {
     border-radius: 12px;
     height: 60px;
     background: black;
+
+
+    height: 60px;
+    background: black;
+
+    height: 100%;
+    background: #970009;
+
 }
 #friendsContainer p {
     display: flex;
@@ -233,6 +241,7 @@ body {
     display: flex;
     justify-content: center;
     position: relative;
+    height: 60px !important;
     color: white;
     font-size: 18pt;
     
@@ -290,6 +299,236 @@ body {
     margin: 0 auto;
     margin-top: 5px;
 }
+/*<!--                    START -- schedule Overlay CSS --Raging---->*/
+
+
+#scheduleWrapperOverLay {
+    display: none;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+    z-index: 9001;
+}
+#scheduleContainerOverLay {
+    display: flex;
+    flex-direction: column;
+    background-color: #970009;
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    height: 100%;
+    z-index: 9001;
+}
+.scheduleTitleOverLay {
+    display: flex;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    border-radius: 12px;
+    background-color: black;
+    height: 60px;
+    z-index: 9001;
+}
+.scheduleTitleOverLay p {
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    z-index: 9001;
+}
+.scheduleOverLay1 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: darkgrey;
+    width: 98%;
+    height: 70px;
+    z-index: 9001;
+}
+.scheduleOverLay2 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: darkgrey;
+    width: 98%;
+    height: 70px;
+    z-index: 9001;
+}
+.scheduleOverLay3 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: darkgrey;
+    width: 98%;
+    height: 70px;
+    z-index: 9001;
+}
+.sportOverLay{
+    position: relative;
+    top: 5px;
+    width: 15%;
+    height: 60px;
+    margin-left: 5%;
+    background-color: pink;
+    z-index: 9001;
+}
+.scheduleDataOverLay {
+    position: relative;
+    top: 5px;
+    width: 75%;
+    height: 60px;
+    margin-left: 1%;
+    background-color:aquamarine;
+    z-index: 9001;
+    
+}
+.buttonOverLay {
+    margin: 0 auto;
+    z-index: 9001;
+}
+/*<!--                    END -- schedule Overlay CSS --Raging---->*/
+/*<!--                    START -- friends Overlay CSS --Raging---->*/
+#friendsWrapperOverLay {
+    display: none;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+    z-index: 9001;
+}
+#friendsContainerOverLay {
+    display: flex;
+    flex-direction: column;
+    background-color: #970009;
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    height: 800px;
+}
+.friendsTitleOverLay {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 12px;
+    height: 60px;
+    background: black;
+}
+#friendsContainerOverLay p {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18pt;
+}
+.friendsOverLay {
+    display: flex;
+    flex-direction: row;
+    width: 97%;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 12px;
+    margin-top: 5px;
+    background-color: darkgrey;
+}
+.avatarOverLay {
+    position: relative;
+    top: 5px;
+    left: 4%;
+    width: 20%;    
+    height: 50px;
+    background-color: pink;
+}
+.userNameOverLay {
+    position: relative;
+    top: 5px;
+    margin-left: 6%;
+    width: 70%;
+    height: 50px;
+    background-color: aquamarine;
+}
+.friendsBTNOverLay {
+    margin: 0 auto;
+    margin-top: 5px;
+}
+/*<!--                    END -- friends Overlay CSS --Raging---->*/
+/*<!--                    START -- recentlyplayed Overlay CSS --Raging---->*/
+#recentlyWrapperOverLay {
+    display: none;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+    z-index: 9001;
+}
+#recentlyPlayedContainerOverLay {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    background-color: #970009;
+}
+.recentPlayersOverLay {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 60px !important;
+    color: white;
+    font-size: 18pt;
+    
+    width: 100%;
+    border-radius: 12px;
+    height: 40px;
+    background: black;
+}
+.recentPlayersOverLay span {
+    display: flex;
+    align-items: center;
+}
+.recentlyPlayedOverLay {
+    display: flex;
+    flex-direction: row;
+    width: 97%;
+    height: 60px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border-radius: 12px;
+    background-color: grey;
+}
+.matchAvatarOverLay {
+    position: relative;
+    top: 5px;
+    left: 4%;
+    width: 20%;    
+    height: 50px;
+    background-color: pink;
+}
+.matchUserOverLay {
+    position: relative;
+    top: 5px;
+    margin-left: 6%;
+    width: 70%;
+    height: 50px;
+    background-color: aquamarine;
+}
+.recentBTNOverLay {
+    margin: 0 auto;
+}
+
+.recentButtonOverLay {
+    margin: 0 auto;
+}
+
+/*<!--                    END -- recentlyplayed Overlay CSS --Raging---->*/
+
 
 /*
 @media only screen and (min-width: 811px){
@@ -370,6 +609,7 @@ body {
 
 }
    
+
 
 
 
