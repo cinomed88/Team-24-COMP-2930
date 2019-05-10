@@ -1,9 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-    
-        <link rel="stylesheet" href="../css/index.css">
-        
+
          <!-- your project snippet here -->
 	
         <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
@@ -26,54 +24,7 @@
         </script>
     </head>
     
-    <body>    
-        <!-- The flex wrap for the content of the login page. -->
-        <div id="landingPageWrap">
-            
-            <!-- The carousel and header for the login page. -->
-            <div id="carousel">
-                
-                <!-- The header for the login page. -->
-                <div id="logInTitle">Got Next</div>
-                
-                <!-- The carousel selectors at the bottom of the carousel -->
-                <div id="carouselSelection">
-                    <div class="currentSelection" id="firstCarImage"></div>
-                    <div class="circleSelection" id="secondCarImage"></div>
-                    <div class="circleSelection" id="thirdCarImage"></div>
-                </div>
-            </div>
-            
-
-            
-            <!-- The log in half of the page is below. -->
-<!--
-            <div id="logInScreen">
-            
-                
-                <div id="logInPortal">Log In Portal</div>
-                
--->
-                <!-- The log in input and submit button. -->
-<!--
-                <div id="logInInput">
-                    <input type="text" class="inputMobile" id="emailLogIn" name="email" placeholder="Email">
-                    
-                    <input type="text" class="inputMobile" id="passwordLogIn" name="password" placeholder="Password">
-                    
-                    <div id="submitButton">Submit</div>
-                </div>
--->
-            
-                <!-- The create account button. -->
-<!--
-                <div id="createAccount">Create Account</div>
-            
-            </div>
--->
-            
-        </div>
-        
+    <body>  
         
         <div id ="logInLandscape"> GOT NEXT</div>
         <br>
@@ -90,6 +41,7 @@
         
         <script>
         var provider = new firebase.auth.GoogleAuthProvider();
+            
         firebase.auth().getRedirectResult().then(function(result) {
           if (result.credential) {
             // This gives you a Google Access Token. You can use it to access the Google API.
