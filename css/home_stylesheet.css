@@ -45,6 +45,10 @@ body {
     opacity: 0.95;
     font-size: 3em;
     z-index: 1;
+    text-decoration: none;
+}
+#rectangle a:hover {
+    text-decoration: underline;
 }
 #profileStore {
     display: flex;
@@ -64,6 +68,7 @@ body {
     left: 14%;
     bottom: 40px; 
     z-index: 1;
+    text-decoration: none;
 }
 .store {
     display: flex;
@@ -93,6 +98,7 @@ body {
 }
 #scheduleContainer {
     display: flex;
+    flex-direction: column;
     background-color: #970009;
     width: 95%;
     margin: 0 auto;
@@ -102,7 +108,7 @@ body {
 }
 .scheduleTitle {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     color: white;
     width: 100%;
     border-radius: 12px;
@@ -113,6 +119,53 @@ body {
     display: flex;
     align-items: center;
     font-size: 18pt
+}
+.schedule1 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: darkgrey;
+    width: 98%;
+    height: 70px;
+}
+.schedule2 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: darkgrey;
+    width: 98%;
+    height: 70px;
+}
+.schedule3 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: darkgrey;
+    width: 98%;
+    height: 70px;
+}
+.sport{
+    position: relative;
+    top: 5px;
+    width: 15%;
+    height: 60px;
+    margin-left: 5%;
+    background-color: pink;
+}
+.scheduleData {
+    position: relative;
+    top: 5px;
+    width: 75%;
+    height: 60px;
+    margin-left: 1%;
+    background-color:aquamarine
+    
 }
 #friendsContainer {
     display: flex;
@@ -136,13 +189,44 @@ body {
     height: 60px;
     background: black;
 }
-.recentlyPlayedTitle {
+.friends {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    width: 97%;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 12px;
+    margin-top: 5px;
+    background-color: darkgrey;
+}
+.avatar {
+    position: relative;
+    top: 5px;
+    left: 4%;
+    width: 20%;    
+    height: 50px;
+    background-color: pink;
+}
+.userName {
+    position: relative;
+    top: 5px;
+    margin-left: 6%;
+    width: 70%;
+    height: 50px;
+    background-color: aquamarine;
+}
+#recentlyPlayedTitle {
+    display: flex;
+    flex-direction: column;
     width: 50%;
     border-radius: 12px;
+<<<<<<< HEAD
     height: 60px;
     background: black;
+=======
+    height: 100%;
+    background: #970009;
+>>>>>>> d716148a5f0e4cbf788de4adb5843f6b25e0db56
 }
 #friendsContainer p {
     display: flex;
@@ -150,12 +234,71 @@ body {
     color: white;
     font-size: 18pt;
 }
+.recentPlayers {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: white;
+    font-size: 18pt;
+    
+    width: 100%;
+    border-radius: 12px;
+    height: 40px;
+    background: black;
+}
+.recentPlayers span {
+    display: flex;
+    align-items: center;
+}
+.recentlyPlayed {
+    display: flex;
+    flex-direction: row;
+    width: 97%;
+    height: 60px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border-radius: 12px;
+    background-color: grey;
+}
+.matchAvatar {
+    position: relative;
+    top: 5px;
+    left: 4%;
+    width: 20%;    
+    height: 50px;
+    background-color: pink;
+}
+.matchUser {
+    position: relative;
+    top: 5px;
+    margin-left: 6%;
+    width: 70%;
+    height: 50px;
+    background-color: aquamarine;
+}
 .lowerWrapper {
     background-color: grey;
+}
+.button {
+    margin: 0 auto;
+}
+.moreBTN {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+}
+.friendsBTN {
+    margin-left: 30%;
+    margin-top: 5px;
+}
+.recentBTN {
+    margin: 0 auto;
+    margin-top: 5px;
 }
 
 
 
+<<<<<<< HEAD
 /*
 @media only screen and (min-width: 811px){
     #profileStore {
@@ -236,5 +379,7 @@ body {
 }
    
 
+=======
+>>>>>>> d716148a5f0e4cbf788de4adb5843f6b25e0db56
 
 

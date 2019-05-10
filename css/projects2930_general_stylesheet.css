@@ -66,8 +66,8 @@ hamburger span:nth-child(1) {
 #naviwrap {
     position: absolute;
     color: white;
-    font-size: 30pt;
-    left: 5%;
+    width: 150px;
+    font-size: 28pt;
     z-index: 2;
     display: none;
 }
@@ -107,10 +107,30 @@ hamburger span:nth-child(1) {
         display: none;
     }
     .navi-bar-mobile }
-    color: white;
+    color: white ;
     }   
     .navi-bar-mobile-2 {
     display: none;
+    }
+    header {
+        display: none ;
+    }
+    .navi-bar-mobile {
+        position: absolute;
+        float: right;
+        right: 1px;
+        top: 5px;
+    }
+    #naviwrap a {
+        text-decoration: none;
+        position: relative;
+        right: 100%;
+        color: white;
+        right: 100px;
+    }
+    #naviwrap a:hover {
+        text-decoration: underline;
+        color:darkslateblue
     }
 
 @media only screen and (min-width: 811px){
@@ -131,6 +151,7 @@ hamburger span:nth-child(1) {
         margin-right: 3%;
         align-items: center;
         cursor: pointer;
+        text-decoration: none;
     }
     .navi-bar-desktop div:hover {
         text-decoration: underline;
@@ -142,5 +163,46 @@ hamburger span:nth-child(1) {
     }
     #overlay {
         display:none !important;
+    }
+    
+    
+/*    trying something out*/
+     #profileStore {
+        display: none;
+    }
+    
+    .lowerWrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .scheduleANDFriendsContainer {
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #scheduleContainer {
+        width: 33.5%;
+        margin: 0;
+        border-right:1px solid black;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+    #friendsContainer {
+        width: 66.5%;
+        margin: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+    .scheduleTitle {
+        width: 100%;
+        
+    }
+    .friendsTitle {
+    }
+    #topHomeBackground {
+        height: 408px;
     }
 }
