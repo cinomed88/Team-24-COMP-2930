@@ -101,10 +101,6 @@ width: 100%;
     border-radius: 12px;
     height: 300px;
 }
-.moreBTN {
-    display: flex;
-    width: 20%;
-}
 .scheduleTitle {
     display: flex;
     justify-content: center;
@@ -273,8 +269,22 @@ width: 100%;
 .lowerWrapper {
     background-color: grey;
 }
-
-
+.button {
+    margin: 0 auto;
+}
+.moreBTN {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+}
+.friendsBTN {
+    margin-left: 30%;
+    margin-top: 5px;
+}
+.recentBTN {
+    margin: 0 auto;
+    margin-top: 5px;
+}
 
 
 
