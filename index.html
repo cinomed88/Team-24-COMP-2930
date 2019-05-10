@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        
+        <link rel="stylesheet" href="./css/index.css">
 
          <!-- your project snippet here -->
 	
@@ -24,7 +26,24 @@
         </script>
     </head>
     
-    <body>  
+    <body>
+                <!-- The flex wrap for the content of the login page. -->
+        <div id="landingPageWrap">
+            
+            <!-- The carousel and header for the login page. -->
+            <div id="carousel">
+                
+                <!-- The header for the login page. -->
+                <div id="logInTitle">Got Next</div>
+                
+                <!-- The carousel selectors at the bottom of the carousel -->
+            <div id="carouselSelection">
+                    <div class="currentSelection" id="firstCarImage"></div>
+                    <div class="circleSelection" id="secondCarImage"></div>
+                    <div class="circleSelection" id="thirdCarImage"></div>
+            </div>
+        </div>
+        </div>
         
         <div id ="logInLandscape"> GOT NEXT</div>
         <br>
@@ -37,7 +56,7 @@
 
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="../js/index.js"></script>
+        <script src="./js/index.js"></script>
         
         <script>
         var provider = new firebase.auth.GoogleAuthProvider();
