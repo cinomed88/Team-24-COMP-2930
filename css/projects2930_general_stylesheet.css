@@ -107,14 +107,15 @@ hamburger span:nth-child(1) {
 
 
 @media only screen and (min-width: 400px) and (max-width: 810px){
+    
     .navi-bar-desktop {
         display: none;
     }
-    .navi-bar-mobile }
-    color: white ;
+    .navi-bar-mobile {
+        color: white ;
     }   
     .navi-bar-mobile-2 {
-    display: none;
+        display: none;
     }
     header {
         display: none ;
@@ -134,8 +135,10 @@ hamburger span:nth-child(1) {
     }
     #naviwrap a:hover {
         text-decoration: underline;
-        color:darkslateblue
+        color:darkslateblue;
     }
+
+}
 
 @media only screen and (min-width: 811px){
     header {
@@ -166,7 +169,7 @@ hamburger span:nth-child(1) {
         display: none;
     }
     #overlay {
-        display:none !important;
+        display: none;
     }
     
     
@@ -200,11 +203,11 @@ hamburger span:nth-child(1) {
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
     }
+    #friendsContainer p{
+    }
     .scheduleTitle {
         width: 100%;
         
-    }
-    .friendsTitle {
     }
     #topHomeBackground {
         height: 408px;
