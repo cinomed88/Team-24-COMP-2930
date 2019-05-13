@@ -3,8 +3,16 @@ var baseballObj = {"sport":"Baseball", "location":"Jas's Backyard", "date":"May"
 var badmintonObj = {"sport":"Badminton", "location":"FML", "date":"December", "time":"21:00"};
 
 module.exports = {
-    getJSON: function() {
+    getJSON1: function() {
         console.log("woo it worked!");
         return bballObj;
+    },
+    getJSON2: function() {
+        console.log("yay this worked too!");
+        return baseballObj;
+    },
+    getJSON3: function() {
+        console.log("guess we're doing something right!");
+        return badmintonObj;
     }
-}
+};
