@@ -11,8 +11,9 @@ body {
     text-align:center;
 }
 #rectangle1 {
-    width: 80vw;
+    width: 100vw;
     font-size: 22pt;
+    
 }
 #rectangle2 {
     width: 20vw;

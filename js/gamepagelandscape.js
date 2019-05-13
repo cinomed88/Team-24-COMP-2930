@@ -1,25 +1,21 @@
-const _C = document.querySelector('.container'), N = _C.children.length;
 
-let i = 0, x0 = null;
+var slideIndex = 1;
+showDivs(slideIndex);
 
-function unify(e) {	return e.changedTouches ? e.changedTouches[0] : e };
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
 
-function lock(e) { x0 = unify(e).clientX };
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
 
-function move(e) {
-	if(x0 || x0 === 0) {
-		let dx = unify(e).clientX - x0, s = Math.sign(dx);
 
-		if((i > 0 || s < 0) && (i < N - 1 || s > 0))
-			_C.style.setProperty('--i', i -= s);
-		x0 = null
-	}
-};
 
-_C.style.setProperty('--n', N);
-
-_C.addEventListener('mousedown', lock, false);
-_C.addEventListener('touchstart', lock, false);
-
-_C.addEventListener('mouseup', move, false);
-_C.addEventListener('touchend', move, false);
