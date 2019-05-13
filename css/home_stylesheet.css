@@ -299,8 +299,6 @@ body {
     margin: 0 auto;
     margin-top: 5px;
 }
-/*<!--                    START -- schedule Overlay CSS --Raging---->*/
-
 
 #scheduleWrapperOverLay {
     display: none;
@@ -393,8 +391,7 @@ body {
     margin: 0 auto;
     z-index: 9001;
 }
-/*<!--                    END -- schedule Overlay CSS --Raging---->*/
-/*<!--                    START -- friends Overlay CSS --Raging---->*/
+
 #friendsWrapperOverLay {
     display: none;
     position: absolute;
@@ -457,8 +454,7 @@ body {
     margin: 0 auto;
     margin-top: 5px;
 }
-/*<!--                    END -- friends Overlay CSS --Raging---->*/
-/*<!--                    START -- recentlyplayed Overlay CSS --Raging---->*/
+
 #recentlyWrapperOverLay {
     display: none;
     position: absolute;
@@ -527,52 +523,7 @@ body {
     margin: 0 auto;
 }
 
-/*<!--                    END -- recentlyplayed Overlay CSS --Raging---->*/
 
-
-/*
-@media only screen and (min-width: 811px){
-    #profileStore {
-        display: none;
-    }
-    
-    .lowerWrapper {
-        width: 100%;
-        margin: 0 auto;
-    }
-    .scheduleANDFriendsContainer {
-        display: flex;
-        flex-direction: row;
-        width: 95%;
-        margin: 0 auto;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    #scheduleContainer {
-        width: 33.5%;
-        margin: 0;
-        border-right:1px solid black;
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-    }
-    #friendsContainer {
-        width: 66.5%;
-        margin: 0;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-    }
-    .scheduleTitle {
-        width: 100%;
-        
-    }
-    .friendsTitle {
-    }
-    #topHomeBackground {
-        height: 408px;
-    }
-    
-}
-*/
 @media only screen and (orientation:landscape) {
     * { font-size: 1.3rem; }
     
