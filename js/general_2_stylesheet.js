@@ -9,7 +9,8 @@ $(document).ready(function() {
     $('#backBTN').on('click', () => {
         var currentURL = window.location.href;
         var urlPath = '/findgame.html';
-        if((currentURL).includes(urlPath)){
+        var urlPath2 = '/creategame_landscape.html';
+        if((currentURL).includes(urlPath) || (currentURL).includes(urlPath2)) {
             window.location.href = '../html/gamelandscape.html';
             console.log("yay it worked!");
         } else {
