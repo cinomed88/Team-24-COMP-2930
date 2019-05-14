@@ -1,4 +1,6 @@
-          // Web app's Firebase configuration
+
+
+    // Web app's Firebase configuration
           var firebaseConfig = {
             apiKey: "AIzaSyCoGe4elAbufN_7O9NL9lIVU1D1mtQEArc",
             authDomain: "gotnextauth.firebaseapp.com",
@@ -15,21 +17,51 @@
         initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-            // User is signed in.
-            var email = user.email;
-            var uid = user.uid;
-            var providerData = user.providerData;
-            user.getIdToken().then(function(accessToken) {
-            var userDetails = {
-                email: email,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }
-            console.log(userDetails); 
-            }, null, '  ');
-            }
-           else {
+              var name = user.displayName.substring(0, user.displayName.indexOf(' ')).toLowerCase();
+              let userData = {
+                  user_id: user.uid,
+                  user_name: name,
+                  honor_point: 0,
+                  rank_point: 0
+               };
+              
+              // User is signed in.   
+              var displayName = user.displayName;
+              var email = user.email;
+              var uid = user.uid;
+              var providerData = user.providerData;
+              user.getIdToken().then(function(accessToken) {
+                  var userDetails = {
+                      displayName: displayName,
+                      email: email,
+                      uid: uid,
+                      accessToken: accessToken,
+                      providerData: providerData
+                }
+                
+                  console.log(userDetails);
+                
+            }, null, '  ');  
+              
+                        
+              
+              
+              if (firebase.auth().currentUser.metadata.creationTime === firebase.auth().currentUser.metadata.lastSignInTime) {
+                  $.ajax({
+                      url: "/create-user",
+                      dataType: "json",
+                      type: "POST",
+                      data: userData,
+                      success: function(userData) {
+                          console.log("SUCCESS JSON:", userData);
+                      },
+                      error: function(jqXHR, textStatus, errorThrown) {
+                      $("#p2").text(jqXHR.statusText);
+                      console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                      }
+                  });         
+               }
+           } else {
                // User is signed out.
                console.log('Signed out');
                window.location.href = "/";
