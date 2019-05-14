@@ -13,7 +13,7 @@ app.use('/js', express.static(path.join(__dirname, 'js')));
 
 
 // Routing for the home-page.
-app.get('/', (req, res) => {
+app.get('/home.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'home.html'));
 });
 
@@ -21,6 +21,12 @@ app.get('/', (req, res) => {
 // Routing for the match-making page.
 app.get('/gamepage.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'gamepage.html'));
+});
+
+
+//Landing page.
+app.get('/', (req, res) => {
+   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 
