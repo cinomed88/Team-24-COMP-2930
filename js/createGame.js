@@ -1,9 +1,4 @@
-        function getLocation() {
-
-
-            return currentPost;
-        }
-
+        var userMarker;
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -11,7 +6,9 @@
                     lat: 49.246292,
                     lng: -123.116226
                 },
-                zoom: 13,
+                streetViewControl: false,
+                mapTypeControl: false,
+                zoom: 15,
                 mapTypeId: 'roadmap'
             });
 
@@ -83,8 +80,27 @@
                 });
                 map.fitBounds(bounds);
             });
-        }
 
+
+            map.addListener('click', function (e) {
+                placeMarkerAndPanTo(e.latLng, map);
+            });
+
+            function placeMarkerAndPanTo(latLng, map) {
+                if (!userMarker) {
+                    userMarker = new google.maps.Marker({
+                        position: latLng,
+                        map: map
+                    });
+                } else {
+                    userMarker.setPosition(latLng);
+                }
+
+                map.panTo(latLng);
+                console.log(userMarker.getPosition().lat());
+                console.log(userMarker.getPosition().lng());
+            }
+        }
 
 
 
