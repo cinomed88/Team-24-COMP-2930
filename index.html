@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        
         <link rel="stylesheet" href="./css/index.css">
 
          <!-- your project snippet here -->
 	
         <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+<!--        <link type="text/css" rel="stylesheet" href="./css/firebaseUI.css" />-->
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css">
         <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
         
         <script>
@@ -45,10 +45,8 @@
                 </div>
               </div>
         </div>
-        
-<!--        <div id="loader">Loading...</div>-->
+                
         <div id="quickstart-sign-in"></div>
-
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="./js/index.js"></script>
@@ -75,42 +73,7 @@
           // ...
         });
         </script>
-        
-<!--
-        <script>
-              firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // [START_EXCLUDE]
-                if (errorCode == 'auth/weak-password') {
-                  alert('The password is too weak.');
-                } else {
-                  alert(errorMessage);
-                }
-                console.log(error);
-                // [END_EXCLUDE]
-              });
-        </script>
-        
-        <script>
-                firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-                  // Handle Errors here.
-                  var errorCode = error.code;
-                  var errorMessage = error.message;
-                  // [START_EXCLUDE]
-                  if (errorCode === 'auth/wrong-password') {
-                    alert('Wrong password.');
-                  } else {
-                    alert(errorMessage);
-                  }
-                  console.log(error);
-                  document.getElementById('quickstart-sign-in').disabled = false;
-                  // [END_EXCLUDE]
-                });
-        </script>
--->
-        
+ 
         <script>
             firebase.auth().onAuthStateChanged(function(user) {
                 if(user){
