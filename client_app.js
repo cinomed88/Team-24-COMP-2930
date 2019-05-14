@@ -1,5 +1,7 @@
+const data = require('./js/home_data');
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 
 const app = express();
@@ -10,6 +12,12 @@ const app = express();
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/pics', express.static(path.join(__dirname, 'pics')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 
 // Routing for the home-page.
