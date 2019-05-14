@@ -1,7 +1,32 @@
 const express = require('express');
 const path = require('path');
+const Sequelize = require('sequelize');
 
 
+
+const sequelize = new Sequelize('GotNextDB', 'kobebryant', '123Cats$', {
+    host: 'gotnextdb.database.windows.net',
+    dialect: 'mssql',
+    dialectOptions: {
+        options: {
+            encrypt: true
+        }
+    }
+});
+
+sequelize.authenticate().then(() => {
+    console.log('Connection has been established successfully.');
+}).catch(err => {
+    console.error('Unable to connect to the databse:', err);
+});
+
+
+
+
+
+
+
+//Below is the routing via express.
 const app = express();
 
 
