@@ -30,8 +30,9 @@
             }, null, '  ');
             }
            else {
-            // User is signed out.
-            console.log('Signed out');
+               // User is signed out.
+               console.log('Signed out');
+               window.location.href = "/";
           }
         }, function(error) {
           console.log(error);
