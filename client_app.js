@@ -1,25 +1,37 @@
-const data = require('./home_data');
 const express = require('express');
-const { JSDOM } = require('jsdom');
 const path = require('path');
+
+
 const app = express();
-const fs = require("fs");
-const bodyParser = require('body-parser');
 
 
+
+//All static allocations.
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/pics', express.static(path.join(__dirname, 'pics')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 
-app.get('/', (req, res) => {
-    let doc = fs.readFileSync('../html/Home.html', "utf8");
-    res.send(doc);
+
+// Routing for the home-page.
+app.get('/home.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'home.html'));
 });
 
-app.use(bodyParser.json());
+
+// Routing for the match-making page.
+app.get('/gamepage.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'gamepage.html'));
+});
+
+
+//Landing page.
+app.get('/', (req, res) => {
+   res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 
         
-app.get('/ajaxa-GET-data', function (req, res) {
+app.get('/ajax-GET-data', function (req, res) {
         let formatOfResponse = req.query['format'];
         let dataList = null;
         
