@@ -82,6 +82,9 @@
             });
 
 
+            //The below function is the event-handler for the user 
+            //clicking a position on the map and creating a 
+            //relevant marker.
             map.addListener('click', function (e) {
                 placeMarkerAndPanTo(e.latLng, map);
             });
@@ -103,5 +106,5 @@
         }
 
 
-
+        console.log(localStorage.getItem('userSport'));
         initMap();
