@@ -49,14 +49,13 @@ app.get('/ajax-GET-data', function (req, res) {
             res.send(dataList);
             console.log(dataList);
             
-        } 
-         else {
+        } else {
             res.send({msg: 'Wrong Format'});
         }
     
 });
 
-app.get('/ajax-GET-data2', function (req, res) {
+app.get('/ajax-GET-data', function (req, res) {
         let formatOfResponse = req.query['format'];
         let dataList = null;
 

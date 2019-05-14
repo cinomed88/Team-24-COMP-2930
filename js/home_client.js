@@ -34,7 +34,7 @@ $(document).ready(function(){
     
     $('.test2').on('click', function() {
         $.ajax({
-            url: "/ajax-GET-data2",
+            url: "/ajax-GET-data",
             type: "GET",
             dataType: "json",
             data: {format: 'json-list4'},
