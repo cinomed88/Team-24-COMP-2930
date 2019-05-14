@@ -13,17 +13,18 @@
         <script>
           // Your web app's Firebase configuration
           var firebaseConfig = {
-            apiKey: "AIzaSyAZyaTdC9CPM_Se41HE55iOiDbMqQ9-w7o",
-            authDomain: "comp2930-95207.firebaseapp.com",
-            databaseURL: "https://comp2930-95207.firebaseio.com",
-            projectId: "comp2930-95207",
-            storageBucket: "comp2930-95207.appspot.com",
-            messagingSenderId: "816167145948",
-            appId: "1:816167145948:web:d7e5c7be0253f066"
+            apiKey: "AIzaSyCoGe4elAbufN_7O9NL9lIVU1D1mtQEArc",
+            authDomain: "gotnextauth.firebaseapp.com",
+            databaseURL: "https://gotnextauth.firebaseio.com",
+            projectId: "gotnextauth",
+            storageBucket: "gotnextauth.appspot.com",
+            messagingSenderId: "770260580099",
+            appId: "1:770260580099:web:5dc0ca1ca414f174"
           };
           // Initialize Firebase
           firebase.initializeApp(firebaseConfig);
         </script>
+
     </head>
     
     <body>
@@ -48,7 +49,7 @@
         <div id ="logInLandscape"> GOT NEXT</div>
         <br>
         <br>
-        <div id="firebaseui-auth-container"></div>
+        <div id="firebaseui-auth-container" class="logInContainer"></div>
         <br>
         <br>
 <!--        <div id="loader">Loading...</div>-->
@@ -117,6 +118,12 @@
 -->
         
         <script>
+            firebase.auth().onAuthStateChanged(function(user) {
+                if(user){
+                    window.location.href = "/home.html";
+                }
+            });
+            
 	       // Initialize the FirebaseUI Widget using Firebase.
 	        var ui = new firebaseui.auth.AuthUI(firebase.auth());
             var uiConfig = {
@@ -135,7 +142,7 @@
               },
               // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
               signInFlow: 'redirect',
-              signInSuccessUrl: './html/Home.html',
+              signInSuccessUrl: '/home.html',
               signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -146,9 +153,9 @@
 //                firebase.auth.PhoneAuthProvider.PROVIDER_ID
               ],
               // Terms of service url.
-              tosUrl: './html/Home.html',
+              //tosUrl: './html/Home.html',
               // Privacy policy url.
-              privacyPolicyUrl: './html/Home.html'
+              //privacyPolicyUrl: './html/Home.html'
             };
             // The start method will wait until the DOM is loaded.
             ui.start('#firebaseui-auth-container', uiConfig);

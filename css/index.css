@@ -167,6 +167,7 @@ body {
         background-size: cover;
         align-items: center;  
     }
+    
     #logInLandscape {
         font-family: 'Roboto', sans-serif;
         color:white;
@@ -182,4 +183,7 @@ body {
     }
 	
 }
+
+
+
 

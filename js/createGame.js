@@ -11,15 +11,24 @@
                 zoom: 15,
                 mapTypeId: 'roadmap'
             });
-
+            
+            userMarker = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map
+            });
+            
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
                     map.setCenter({
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     });
-                });
+                    userMarker.setPosition(map.getCenter());
+                    });
+                    
             }
+            
+            
 
 
             // Create the search box and link it to the UI element.
