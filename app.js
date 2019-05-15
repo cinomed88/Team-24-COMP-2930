@@ -1,3 +1,4 @@
+const data = require('./js/home_data');
 const express = require('express');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -78,6 +79,29 @@ app.post('/create-user', (req, res) => {
     });
     
 });
+
+app.get('/ajax-GET-data', function (req, res) {
+        let formatOfResponse = req.query['format'];
+        let dataList = null;
+        
+        if(formatOfResponse == 'json-list') {
+            res.setHeader('Content-Type', 'text/html');
+            dataList = data.getJSON1();
+            res.send(dataList);
+            console.log(dataList);
+            
+        } else if(formatOfResponse == 'json-list4'){
+            res.setHeader('Content-Type', 'text/html');
+            dataList = data.getJSON4();
+            res.send(dataList);
+            console.log(dataList);
+    } else {
+            res.send({msg: 'Wrong Format'});
+        }
+    
+});
+
+
 
 
 

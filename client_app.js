@@ -48,11 +48,27 @@ app.get('/ajax-GET-data', function (req, res) {
             dataList = data.getJSON1();
             res.send(dataList);
             console.log(dataList);
+            
         } else {
             res.send({msg: 'Wrong Format'});
         }
     
 });
+
+app.get('/ajax-GET-data', function (req, res) {
+        let formatOfResponse = req.query['format'];
+        let dataList = null;
+
+        if(formatOfResponse == 'json-list4'){
+            res.setHeader('Content-Type', 'text/html');
+            dataList = data.getJSON4();
+            res.send(dataList);
+            console.log(dataList);
+       
+    } else {
+            res.send({msg: 'Wrong Format'});
+        }
+    });
 
 let port = 8000;
 app.listen(port, function () {
