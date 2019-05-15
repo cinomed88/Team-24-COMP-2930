@@ -3,6 +3,7 @@ body {
     font-size: 15pt;
     text-align: center;
     padding:10px;
+    overflow-y: hidden;
 }
 #row1 {
     display: flex;
@@ -42,7 +43,7 @@ body {
 
 
 #map {
-    height: 90%;
+    height: 100%;
 }
 
 
