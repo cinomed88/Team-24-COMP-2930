@@ -2,6 +2,7 @@
 module.exports = function(sequelize, Sequelize) {
    const matches = sequelize.define('MATCHES', {
        match_id: {
+           autoIncrement: true,
            primaryKey: true,
            type: Sequelize.INTEGER,
        },

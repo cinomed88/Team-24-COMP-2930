@@ -17,7 +17,7 @@
         initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-              var name = user.displayName.substring(0, user.displayName.indexOf(' ')).toLowerCase();
+              var name = user.displayName;
               let userData = {
                   user_id: user.uid,
                   user_name: name,

@@ -1,5 +1,11 @@
         var userMarker;
 
+
+
+        // The below function creates the Google Maps API object on the 
+        // page and appends it to the div called "map". The initial coordinates
+        // of the map's centre is either that of the centre of Vancouver, B.C.
+        // or that of the device the user is currently using. 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
@@ -17,6 +23,9 @@
                 map: map
             });
             
+            // Checks if the user device's location is enabled, if so it 
+            // sets the map and marker initial center locations to that 
+            // of the device's longitude and latitude.
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
                     map.setCenter({
@@ -116,7 +125,10 @@
 
 
         
-        //The function used to create a match.
+        // The function used to create a match. It checks to verify that the data
+        // the user imported is in-fact valid data for a match to be created on,
+        // and then uses this data to host a match and call an AJAX POST request
+        // to send the match's data to the SQL database.
         function createMatch(){
             var date = $('#date').val();
             var time = $('#time').val();
@@ -126,8 +138,10 @@
             if(date === 'Day' || time === 'Time') {
                 window.alert('Enter a valid day and time!');
             } else {
+                
+                
+                
                 matchMade = {
-                    match_id: Math.floor(Math.random() * 10001),
                     lat: userMarker.getPosition().lat(),
                     lng: userMarker.getPosition().lng(),
                     time: time,
@@ -137,6 +151,24 @@
             }
             console.log(matchMade);
             return matchMade;
+        }
+
+
+        // A method to convert a day input from the user into SQL's date format
+        // as a JavaScript String. We do this by comparing their chosen day to
+        // the current date of creation. It then will output a relevant date, 
+        // either on a day during the current week or on a different week.
+        //
+        // @params dayConversion - the day the user selected as a string.
+        // @return date format of the match the user wants to create.
+        function convertToSQLDateFormat(dayConversion){
+            var userDay = 0;
+            if (dayConversion === 'Tuesday') {
+                userDay = 1;
+            }
+            if (dayConversion === 'Wednesday') {
+                
+            }
         }
 
 
