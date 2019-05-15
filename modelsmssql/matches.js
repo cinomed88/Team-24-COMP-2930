@@ -5,19 +5,27 @@ module.exports = function(sequelize, Sequelize) {
            primaryKey: true,
            type: Sequelize.INTEGER,
        },
-       user_name: {
+       lat: {
+           type: Sequelize.DECIMAL(18, 0),
+           notEmpty: true
+       },
+       lng: {
+           type: Sequelize.DECIMAL(18, 0),
+           notEmpty: true
+       },
+       time: {
+           type: Sequelize.TIME(7),
+           notEmpty: true,
+       },
+       date: {
+           type: Sequelize.DATE,
+           notEmpty: true,
+       },
+       sport: {
            type: Sequelize.STRING(50),
-           notEmpty: true
-       },
-       honor_point: {
-           type: Sequelize.INTEGER,
-           notEmpty: true
-       },
-       rank_point: {
-           type: Sequelize.INTEGER,
            notEmpty: true,
        },
    });
 
-   return users;
+   return matches;
 }
