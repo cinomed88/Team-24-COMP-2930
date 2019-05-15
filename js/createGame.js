@@ -115,5 +115,30 @@
         }
 
 
+        
+        //The function used to create a match.
+        function createMatch(){
+            var date = $('#date').val();
+            var time = $('#time').val();
+            var userSport = localStorage.getItem('userSport');
+            var matchMade = {};
+            console.log(date, time);
+            if(date === 'Day' || time === 'Time') {
+                window.alert('Enter a valid day and time!');
+            } else {
+                matchMade = {
+                    match_id: Math.floor(Math.random() * 10001),
+                    lat: userMarker.getPosition().lat(),
+                    lng: userMarker.getPosition().lng(),
+                    time: time,
+                    date: date,
+                    sport: userSport
+                };
+            }
+            console.log(matchMade);
+            return matchMade;
+        }
+
+
         console.log(localStorage.getItem('userSport'));
         initMap();
