@@ -7,8 +7,9 @@ body {
     flex-direction: row;
     width: 100%;
     height: 150px; 
-    background-color: lightgrey; 
+    background-color:#0173BC; 
     text-align:center;
+    color:white;
 }
 #rectangle1 {
     width: 100vw;
