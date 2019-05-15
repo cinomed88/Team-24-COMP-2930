@@ -162,7 +162,13 @@
         // @params dayConversion - the day the user selected as a string.
         // @return date format of the match the user wants to create.
         function convertToSQLDateFormat(dayConversion){
-            
+            var userDay = 0;
+            if (dayConversion === 'Tuesday') {
+                userDay = 1;
+            }
+            if (dayConversion === 'Wednesday') {
+                
+            }
         }
 
 
