@@ -56,8 +56,8 @@
                           console.log("SUCCESS JSON:", userData);
                       },
                       error: function(jqXHR, textStatus, errorThrown) {
-                      $("#p2").text(jqXHR.statusText);
-                      console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                          $("#p2").text(jqXHR.statusText);
+                          console.log("ERROR:", jqXHR, textStatus, errorThrown);
                       }
                   });         
                }

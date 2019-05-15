@@ -67,7 +67,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// Create a new user.
+// The POST request to create a new user and insert it into our SQL database.
 app.post('/create-user', (req, res) => {
     console.log(req.body);
     sequelize.query(`INSERT INTO USERS (user_id, user_name, honor_point, rank_point) VALUES ('${req.body.user_id}', '${req.body.user_name}', 0, 0)`,
