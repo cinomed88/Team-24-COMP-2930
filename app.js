@@ -50,8 +50,8 @@ app.get('/home.html', (req, res) => {
 
 
 // Routing for the match-making page.
-app.get('/gamepage.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'html', 'gamepage.html'));
+app.get('/gamelandscape.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'gamelandscape.html'));
 });
 
 
@@ -60,6 +60,10 @@ app.get('/', (req, res) => {
    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+
+app.get('/creategame.html', (req, res) => {
+   res.sendFile(path.join(__dirname, 'html', 'creategame_landscape.html'));     
+});
 
 
 // parse application/x-www-form-urlencoded
