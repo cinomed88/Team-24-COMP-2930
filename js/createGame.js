@@ -116,7 +116,10 @@
 
 
         
-        //The function used to create a match.
+        // The function used to create a match. It checks to verify that the data
+        // the user imported is in-fact valid data for a match to be created on,
+        // and then uses this data to host a match and call an AJAX POST request
+        // to send the match's data to the SQL database.
         function createMatch(){
             var date = $('#date').val();
             var time = $('#time').val();
@@ -126,8 +129,10 @@
             if(date === 'Day' || time === 'Time') {
                 window.alert('Enter a valid day and time!');
             } else {
+                
+                
+                
                 matchMade = {
-                    match_id: Math.floor(Math.random() * 10001),
                     lat: userMarker.getPosition().lat(),
                     lng: userMarker.getPosition().lng(),
                     time: time,
@@ -137,6 +142,13 @@
             }
             console.log(matchMade);
             return matchMade;
+        }
+
+
+        // A method to convert a day input from the user into SQL's date
+        // format as a JavaScript String. 
+        function convertToSQLDateFormat(dayConversion){
+            
         }
 
 
