@@ -151,7 +151,10 @@ app.post('/assign-host', (req, res) => {
 
 
 
+
 });
+        
+
 
 
 app.get('/ajax-GET-data', function (req, res) {
@@ -184,6 +187,28 @@ app.get('/get-matches', (req, res) => {
 
 });
 
+app.get('/ajax-GET-data2', function (req, res) {
+        let formatOfResponse = req.query['format'];
+        let dataList2 = null;
+        
+        if(formatOfResponse == 'json-list') {
+            res.setHeader('Content-Type', 'text/html');
+            sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
+                res.send(users);
+                console.log(users);
+                console.log(users[0].dataValues.user_id);
+            }).catch(function(err) {
+                console.log("Error occurred at Ajax-get2", err);
+                        // print the error details
+            });
+//            res.send(dataList2);
+//            console.log('testing', dataList2);
+            
+    } else {
+            res.send({msg: 'Wrong Format'});
+        }
+    
+});
 
 
 

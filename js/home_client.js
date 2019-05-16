@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url: "/ajax-GET-data",
+        url: "/ajax-GET-data2",
         type: "GET",
         dataType: "json",
         data: {format: 'json-list'},
@@ -24,8 +24,9 @@ $(document).ready(function(){
 
                     $('.button').before(outerDiv);
                 }
-                console.log(data.sport);
-                $('.2').html(data.sport);
+                console.log('esketit', data);
+                console.log(data[0].user_name + " ");
+                $('.2').html(data[0].user_name + "  " + data[0].honor_point);
             }
     });
     
