@@ -150,6 +150,7 @@
                 };
             }
             console.log(matchMade);
+            convertToSQLDateFormat(date);
             return matchMade;
         }
 
@@ -162,13 +163,26 @@
         // @params dayConversion - the day the user selected as a string.
         // @return date format of the match the user wants to create.
         function convertToSQLDateFormat(dayConversion){
-            var userDay = 0;
-            if (dayConversion === 'Tuesday') {
-                userDay = 1;
+            var todayDate = new Date();
+            var today = todayDate.getDay();
+            var dayOffset = 0;
+            
+            if (dayConversion < today) {
+                dayOffset = dayConversion - today + 7;
+            } else if (dayConversion > today) {
+                dayOffset = dayConversion - today;
             }
-            if (dayConversion === 'Wednesday') {
-                
-            }
+            
+            todayDate.setDate(todayDate.getDate() + dayOffset);
+            console.log(todayDate);
+            
+            var dateConverted;
+            
+            dateConverted = `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`;
+            
+            console.log(dateConverted);
+            
+        
         }
 
 
