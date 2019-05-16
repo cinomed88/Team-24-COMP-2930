@@ -55,21 +55,21 @@ body {
 }
 #date {
     width:500px;
-    height:60px;
-    font-size: 20pt;
+    height:80px;
+    font-size: 24pt;
     text-align: center;
     border-radius: 12px;
 }
 #time {
     width:500px;
-    height:60px;
-    font-size: 20pt;
+    height:80px;
+    font-size: 24pt;
     text-align: center;
     border-radius: 12px;
 }
 #submit {
     width: 150px;
-    height:70px;
+    height:80px;
     background-color:#F9A828;
     color: black;
     font-size: 22pt;
