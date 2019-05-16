@@ -1,17 +1,17 @@
 
 module.exports = function(sequelize, Sequelize) {
-   const matches = sequelize.define('MATCHES', {
+   const match = sequelize.define('MATCH', {
        match_id: {
            autoIncrement: true,
            primaryKey: true,
            type: Sequelize.INTEGER,
        },
        lat: {
-           type: Sequelize.DECIMAL(18, 0),
+           type: Sequelize.FLOAT,
            notEmpty: true
        },
        lng: {
-           type: Sequelize.DECIMAL(18, 0),
+           type: Sequelize.FLOAT,
            notEmpty: true
        },
        time: {
@@ -28,5 +28,5 @@ module.exports = function(sequelize, Sequelize) {
        },
    });
 
-   return matches;
+   return match;
 }
