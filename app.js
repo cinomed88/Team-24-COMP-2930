@@ -103,7 +103,7 @@ app.post('/create-match', (req, res) => {
     });
         
 
-    })
+    });
 
 
 
@@ -131,22 +131,20 @@ app.get('/ajax-GET-data', function (req, res) {
 
 app.get('/ajax-GET-data2', function (req, res) {
         let formatOfResponse = req.query['format'];
-        let dataList = null;
-//        let dataList2 = null;
+        let dataList2 = null;
         
         if(formatOfResponse == 'json-list') {
             res.setHeader('Content-Type', 'text/html');
-            dataList = data.getJSON1();
-//            dataList2 = sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
-//                console.log(users);
-//                console.log(users[0].dataValues.user_id);
-//            }).catch(function(err) {
-//                console.log("Error occurred at Ajax-get2", err);
-//                        // print the error details
-//            });
-//            res.send(dataList + dataList2);
-            res.send(dataList);
-            console.log(dataList2);
+            sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
+                res.send(users);
+                console.log(users);
+                console.log(users[0].dataValues.user_id);
+            }).catch(function(err) {
+                console.log("Error occurred at Ajax-get2", err);
+                        // print the error details
+            });
+//            res.send(dataList2);
+//            console.log('testing', dataList2);
             
     } else {
             res.send({msg: 'Wrong Format'});
@@ -160,4 +158,4 @@ app.get('/ajax-GET-data2', function (req, res) {
 
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => console.log(`Overlord Jas has entered on port ${PORT}`));
+app.listen(PORT, () => console.log(`OVERLORD Jas has entered on port ${PORT}`));
