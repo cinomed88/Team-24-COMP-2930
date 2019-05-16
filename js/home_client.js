@@ -24,8 +24,9 @@ $(document).ready(function(){
 
                     $('.button').before(outerDiv);
                 }
-                console.log(data.sport + data.location);
-                $('.2').html(data.sport + " " + data.location);
+                console.log('esketit', data);
+                console.log(data[0].user_name + " ");
+                $('.2').html(data[0].user_name + "  " + data[0].honor_point);
             }
     });
     
