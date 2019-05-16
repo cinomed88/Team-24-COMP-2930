@@ -102,7 +102,9 @@ app.post('/create-match', (req, res) => {
     }).catch(function(err){
         
     })
-})
+});
+
+app.get('/')
 
 app.get('/ajax-GET-data', function (req, res) {
         let formatOfResponse = req.query['format'];
