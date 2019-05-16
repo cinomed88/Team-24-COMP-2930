@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url: "/ajax-GET-data",
+        url: "/ajax-GET-data2",
         type: "GET",
         dataType: "json",
         data: {format: 'json-list'},
@@ -24,8 +24,8 @@ $(document).ready(function(){
 
                     $('.button').before(outerDiv);
                 }
-                console.log(data.sport);
-                $('.2').html(data.sport);
+                console.log(data.sport + data.location);
+                $('.2').html(data.sport + " " + data.location);
             }
     });
     
