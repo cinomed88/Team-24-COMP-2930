@@ -1,4 +1,6 @@
         var userMarker;
+        var currentLat = 49.246292;
+        var currentLat = -123.116226;
 
 
 
@@ -113,6 +115,8 @@
                         position: latLng,
                         map: map
                     });
+                    currentLat = userMarker.getPosition().lat();
+                    currentLng = userMarker.getPosition().lng();
                 } else {
                     userMarker.setPosition(latLng);
                 }
@@ -120,6 +124,8 @@
                 map.panTo(latLng);
                 console.log(userMarker.getPosition().lat());
                 console.log(userMarker.getPosition().lng());
+                currentLat = userMarker.getPosition().lat();
+                currentLng = userMarker.getPosition().lng();            
             }
         }
 
@@ -142,8 +148,8 @@
                 var dateSQL = convertToSQLDateFormat(date);
                 
                 matchMade = {
-                    lat: userMarker.getPosition().lat(),
-                    lng: userMarker.getPosition().lng(),
+                    lat: currentLat,
+                    lng: currentLng,
                     time: timeSQL,
                     date: dateSQL,
                     sport: userSport
@@ -152,7 +158,21 @@
             console.log(matchMade);
             convertToSQLDateFormat(date);
             convertToSQLTimeFormat(time);
-            return matchMade;
+            
+            $.ajax({
+                url: "/create-match",
+                dataType: "json",
+                type: "POST",
+                data: matchMade,
+                success: function(userData) {
+                    console.log("SUCCESS: ", matchMade);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $("#p2").text(jqXHR.statusText);
+                   console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                }
+            });
+            
         }
 
 

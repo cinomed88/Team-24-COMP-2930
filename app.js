@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const Sequelize = require('sequelize');
 const usersModel = require('./modelsmssql/users');
-const matchesModel = require('./modelsmssql/matches');
+const matchModel = require('./modelsmssql/match');
 const bodyParser = require('body-parser');
 
 
@@ -30,7 +30,7 @@ sequelize.authenticate().then(() => {
 
 // Below creates the schema we need.
 const users = usersModel(sequelize, Sequelize);
-const matches = matchesModel(sequelize, Sequelize);
+const match = matchModel(sequelize, Sequelize);
 
 
 //Below is the routing via express.
@@ -93,15 +93,14 @@ app.post('/create-user', (req, res) => {
 app.post('/create-match', (req, res) => {
     console.log(req.body);
     sequelize.query(
-        `INSERT INTO MATCHES (lat, lng, time, date, sport) VALUES 
-            (${req.body.lat}, ${req.body.lng}, ${req.body.time},
-                ${req.body.date}, ${req.body.sport})`, 
-        { model: matches }).then(function(users){
+        `INSERT INTO MATCH (lat, lng, time, date, sport) VALUES (${req.body.lat}, ${req.body.lng}, '${req.body.time}', '${req.body.date}', '${req.body.sport}')`, 
+        { model: match }).then(function(users){
+        console.log('Success!');
         
         
     }).catch(function(err){
-        
-    }
+        console.log('ERROR:', err);
+    });
 })
 
 app.get('/ajax-GET-data', function (req, res) {
