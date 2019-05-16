@@ -138,19 +138,20 @@
             if(date === 'Day' || time === 'Time') {
                 window.alert('Enter a valid day and time!');
             } else {
-                
-                
+                var timeSQL = convertToSQLTimeFormat(time);
+                var dateSQL = convertToSQLDateFormat(date);
                 
                 matchMade = {
                     lat: userMarker.getPosition().lat(),
                     lng: userMarker.getPosition().lng(),
-                    time: time,
-                    date: date,
+                    time: timeSQL,
+                    date: dateSQL,
                     sport: userSport
                 };
             }
             console.log(matchMade);
             convertToSQLDateFormat(date);
+            convertToSQLTimeFormat(time);
             return matchMade;
         }
 
@@ -177,22 +178,48 @@
             console.log(todayDate);
             
             
-            var monthFormat = todayDate.getMonth();
+            // Storing the month and day, for preliminary conversion to
+            // an SQL-friendly format. JavaScript's Date.getMonth() method
+            // returns the number of the month from 0 - 11, hence the 
+            // addition to account for it.
+            var monthFormat = todayDate.getMonth() + 1;
             var dayFormat = todayDate.getDate();
             
             
-                        
-            if(todayDate.getMonth() < 10) {
-                monthFormat = `0${todayDate.getMonth()}`;
+            // The added 0 at the beginning if the month or date number is
+            // less than two digits long.
+            if(monthFormat < 10) {
+                monthFormat = `0${monthFormat}`;
             }
             
-            if(todayDate.getDate() < 10) {
+            if(dayFormat < 10) {
                 dayFormat = `0${todayDate.getDate()}`;
             }
 
+            // The final, fully converted date ready for SQL querying.
             var dateConverted = `${todayDate.getFullYear()}-${monthFormat}-${dayFormat}`;
             
             console.log(dateConverted);
+            return dateConverted;
+        }
+
+
+        // A method to convert an 24 hour time input to one that is
+        // SQL-friendly. This is important for querying our database.
+        //
+        // @params timeConversion the time for the user to input, an int from 0-23
+        // @return the time converted to SQL's format "00.00:00.0000000".
+        function convertToSQLTimeFormat(timeConversion) {
+            var userHour = timeConversion;
+            var convertedTime = 0;
+            if(userHour < 10) {
+                convertedTime = `0${userHour}:00:00.0000000`;
+            } else {
+                convertedTime = `${userHour}:00:00.0000000`;
+            }
+            
+            console.log(convertedTime);
+            return convertedTime;
         }
 
 
