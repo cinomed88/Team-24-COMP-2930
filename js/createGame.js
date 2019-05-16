@@ -176,13 +176,23 @@
             todayDate.setDate(todayDate.getDate() + dayOffset);
             console.log(todayDate);
             
-            var dateConverted;
             
-            dateConverted = `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`;
+            var monthFormat = todayDate.getMonth();
+            var dayFormat = todayDate.getDate();
+            
+            
+                        
+            if(todayDate.getMonth() < 10) {
+                monthFormat = `0${todayDate.getMonth()}`;
+            }
+            
+            if(todayDate.getDate() < 10) {
+                dayFormat = `0${todayDate.getDate()}`;
+            }
+
+            var dateConverted = `${todayDate.getFullYear()}-${monthFormat}-${dayFormat}`;
             
             console.log(dateConverted);
-            
-        
         }
 
 
