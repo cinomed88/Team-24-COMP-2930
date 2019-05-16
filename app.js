@@ -93,6 +93,7 @@ app.post('/create-user', (req, res) => {
 
 });
 
+
 app.post('/create-match', (req, res) => {
     console.log(req.body);
 
@@ -112,7 +113,7 @@ app.post('/create-match', (req, res) => {
                     `INSERT INTO MATCH (match_id, lat, lng, time, date, sport) VALUES (${matchId}, ${req.body.lat}, ${req.body.lng}, '${req.body.time}', '${req.body.date}', '${req.body.sport}')`, {
                         model: matches
                     }).then(function (users) {
-                    console.log('Success!');
+                    console.log('Success!', users);
                 }).catch(function (err) {
                     console.log('ERROR CREATING MATCH:', err);
                 });
@@ -130,30 +131,6 @@ app.post('/create-match', (req, res) => {
 });
 
 
-app.post('/assign-host', (req, res) => {
-    sequelize.query(`SELECT TOP (1) * FROM MATCH ORDER BY match_id DESC`, {
-        model: match
-    }).then(function (match) {
-        console.log(match);
-        recentMatch = match[0].dataValues.match_id;
-    }).catch(function (err) {
-        console.log('ERROR OBTAINING MATCH ID WHEN ASSIGNING HOST:', err);
-    });
-
-    sequelize.query(`INSERT INTO MATCH_PARTICIPANTS (user_id, match_id, is_host) VALUES ('${req.body.host_id}', '${recentMatch}', 1)`, {
-        model: matchListModel
-    }).then(function (matchCreation) {
-        console.log('Success!');
-    }).catch(function (err) {
-        console.log('ERROR ASSIGNING HOST TO MATCH:', err);
-    });
-
-
-
-
-
-});
-        
 
 
 
