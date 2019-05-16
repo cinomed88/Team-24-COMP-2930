@@ -7,7 +7,7 @@ body {
 #row3 {
 	display:flex;
 	flex-direction: row;
-	background-color: grey;
+	background-color:white;
 	width: 100vw;
 	height: 100px;
 	align-content: center;
@@ -17,8 +17,9 @@ body {
 	width:100vw;
 	height: 150px;
 	text-align: center;	
-	background-color:lightgray;	
-	padding-top:15px;	
+	background-color:#0173BC;	
+	padding-top:15px;
+	color:white;	
 }
 
 .container {
@@ -33,7 +34,7 @@ body {
    height: 50vh;
    align-items: center;
    text-align: center;
-   background-color: lightblue;
+   background-color: #F3F9FB;
    color:white;
    font-size: 21pt;
    padding-top:25px;
@@ -41,7 +42,7 @@ body {
 		}
 
 .button {
-	background-color: black;
+	background-color:#0173BC;
 	width: 50vw;
 	height: 100px;
 	font-size: 25pt;
@@ -55,14 +56,14 @@ body {
 .line{
 	width:100vw;
 	height:15px;
-	background-color:grey;
+	background-color:white;
 } 
 #div {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	text-align: center;
-	background-color: lightblue;
-	color:white;
+	background-color: #F3F9FB;
+	color:black;
 	width:100vw;
 	height:500px;
 	font-size:25pt;
@@ -82,7 +83,7 @@ body {
 	}
 .black:hover{
 	color:#fff!important;
-	background-color:grey!important
+	background-color:#0173BC!important
 }
 
 @media only screen and (orientation:landscape) {
@@ -95,6 +96,7 @@ body {
 	display: block;
 	font-size:25pt;
 	height:345px;
+	color:black;
 }
 #row2 {
 	display:flex;
@@ -128,10 +130,10 @@ body {
 	width:100vw;
 	height: 60px;
 	text-align: center;	
-	background-color:lightgray;		
+	background-color:#0173BC;		
 }
 .button {
-	background-color: black;
+	background-color:#0173BC;
 	width: 50vw;
 	height: 70px;
 	font-size: 17pt;
@@ -141,7 +143,7 @@ body {
 #row3 {
 	display:flex;
 	flex-direction: row;
-	background-color: grey;
+	background-color:white;
 	width: 100vw;
 	height: 40px;
 	align-content: center;
