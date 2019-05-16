@@ -152,10 +152,12 @@
                     lng: currentLng,
                     time: timeSQL,
                     date: dateSQL,
-                    sport: userSport
+                    sport: userSport,
+                    host_id: firebase.auth().currentUser.uid
                 };
             }
             console.log(matchMade);
+            console.log(firebase.auth().currentUser.uid);
             convertToSQLDateFormat(date);
             convertToSQLTimeFormat(time);
             
