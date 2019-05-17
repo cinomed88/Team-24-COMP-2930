@@ -171,11 +171,11 @@ app.get('/get-matches', (req, res) => {
 
 });
 
-app.get('/ajax-GET-data2', function (req, res) {
+app.get('/ajax-GET-match-data', function (req, res) {
         let formatOfResponse = req.query['format'];
         let dataList2 = null;
         
-        if(formatOfResponse == 'json-list') {
+        if(formatOfResponse == 'json-match-list') {
             res.setHeader('Content-Type', 'text/html');
             sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
                 res.send(users);
