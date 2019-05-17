@@ -1,9 +1,9 @@
 $(document).ready(function(){
     $.ajax({
-        url: "/ajax-GET-data2",
+        url: "/ajax-GET-match-data",
         type: "GET",
         dataType: "json",
-        data: {format: 'json-list'},
+        data: {format: 'json-match-list'},
         success: function(data) {
             console.log("SUCCESS JSON:", data); 
                 let outerDiv = "";
@@ -27,6 +27,8 @@ $(document).ready(function(){
                 console.log('esketit', data);
                 console.log(data[0].user_name + " ");
                 $('.2').html(data[0].user_name + "  " + data[0].honor_point);
+                $('.2').html(data[1].user_name + "  " + data[1].honor_point);
+
             }
     });
     
