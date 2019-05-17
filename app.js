@@ -94,26 +94,33 @@ app.post('/create-user', (req, res) => {
 });
 
 
+// An AJAX POST request for creating a match, taking data from the user in the form of a JavaScript
+// object, holding the following properties: user_id, lat, lng, date, time, and sport.
+// It then inserts the relevant data into the SQL database, using sequelize to query. 
 app.post('/create-match', (req, res) => {
     console.log(req.body);
 
+    // Query to insert a unique primary key and match for the database, with the relevant host.
     sequelize.query(`INSERT INTO MATCH_PARTICIPANTS (user_id, is_host) VALUES ('${req.body.host_id}', 1)`, {
         model: matchParticipants
     }).then(function (match) {
-        console.log('Successful creation of match particpants!');
+        console.log('Host and match_id successfully assigned!');
         var matchId = 0;
-
+        
+        // Upon successful creation of a match, this query to get the primary key is ran.
         sequelize.query(`SELECT TOP (1) * FROM MATCH_PARTICIPANTS ORDER BY match_id DESC`, {
                 model: matchParticipants
             })
             .then(function (match) {
-                console.log('Success!');
+                console.log('match_id of recently created match obtained!');
                 matchId = match[0].dataValues.match_id;
+                
+                //This query inserts the match's full details into the database, complete with coordinates.
                 sequelize.query(
                     `INSERT INTO MATCH (match_id, lat, lng, time, date, sport) VALUES (${matchId}, ${req.body.lat}, ${req.body.lng}, '${req.body.time}', '${req.body.date}', '${req.body.sport}')`, {
                         model: matches
                     }).then(function (users) {
-                    console.log('Success!', users);
+                    console.log('Successfully created our match!', users);
                 }).catch(function (err) {
                     console.log('ERROR CREATING MATCH:', err);
                 });
