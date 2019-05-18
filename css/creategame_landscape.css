@@ -69,8 +69,9 @@ body {
 #submit {
     width: 160px;
     height:80px;
-    background-color:#F9A828;
-    color: black;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
     font-size: 24pt;
 }
 @media only screen and (orientation:landscape) {
