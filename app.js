@@ -166,9 +166,36 @@ app.get('/ajax-GET-data', function (req, res) {
 
 
 app.get('/get-matches', (req, res) => {
+    
+    let sport = req.query['sport'];
+    console.log(sport);
+    sequelize.query(`SELECT * FROM MATCH WHERE sport LIKE '%${sport}%'`, {
+                model: matches
+            }).then(match => {
+                    console.log(match);
+                    res.send(match);    
+    }).catch(err => {
+       console.log('ERROR CAUGHT WHILE TRYING TO RETRIEVE MATCHES:', err); 
+    });
+});
 
 
 
+// The current user and his details are obtained 
+// through this AJAX call, using their firebase id
+// as the primary key.
+app.get('/get-user-profile', (req, res) => {
+    
+    let userId = req.query['userId'];
+    
+    sequelize.query(`SELECT * FROM USERS WHERE user_id LIKE '%${userId}%'`, {
+        model: users
+    }).then(profile => {
+        res.send(profile);
+    }).catch(err => {
+        console.log('ERROR CAUGHT WHILE ATTEMPTING TO OBTAIN CURRENT USER PROFILE:', err);
+    });
+    
 });
 
 app.get('/ajax-GET-match-data', function (req, res) {

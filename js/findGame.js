@@ -85,5 +85,30 @@
         }
 
 
-        
+
+        // This is a function that retrieves the matches made that
+        // are of the user's requested sport.
+        function retrieveUserMatch() {
+            
+            $.ajax({
+                url: '/get-matches',
+                dataType: 'json',
+                type: 'GET',
+                data: {sport: localStorage.getItem('userSport')},
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $("#p2").text(jqXHR.statusText);
+                   console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                }                
+
+            });
+            
+            
+        }
+
+
+        retrieveUserMatch();
         initMap();
+
