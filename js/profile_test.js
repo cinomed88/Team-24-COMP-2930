@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
 $(document).ready(function () {
-    console.log("hihi");
+    console.log("request start");
     //aa // should change by userId
     let userID = "C3fd4AdJhTQmrvzYmaQIHpcyTsZ2";
     $.ajax({
@@ -22,7 +22,7 @@ $(document).ready(function () {
         success: function (data) {
             console.log("data load success");
             console.log(data);
-            $("#p1").text(data[user_name]);
+            $("#user_name").text(data.user_name);
             console.log("SUCCESS:", data);
 
         },
