@@ -72,6 +72,10 @@ app.get('/findgame.html', (req, res) => {
 });
 
 
+app.get('/profile.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'profile.html'));
+});
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
     extended: false
