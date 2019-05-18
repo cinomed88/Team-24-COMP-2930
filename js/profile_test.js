@@ -2,9 +2,8 @@ var userId = 0;
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log(firebase.auth().currentUser.uid);
         userId = firebase.auth().currentUser.uid;
-        console.log(userId);
+        // console.log(userId);
     } else {
 
     }
@@ -13,7 +12,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 $(document).ready(function () {
     console.log("hihi");
-    //aa
+    //aa // should change by userId
     let userID = "C3fd4AdJhTQmrvzYmaQIHpcyTsZ2";
     $.ajax({
         url: "/ajax-GET-Profile",
@@ -21,6 +20,7 @@ $(document).ready(function () {
         type: "GET",
         data: { name: userID },
         success: function (data) {
+            console.log("data load success");
             console.log(data);
             $("#p1").text(data[user_name]);
             console.log("SUCCESS:", data);
