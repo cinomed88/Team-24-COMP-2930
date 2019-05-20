@@ -48,7 +48,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 0.3fr;
     grid-row-gap: 10px;
-    grid-column-gap: 10px;
+    grid-column-gap: 20px;
     margin: 20px;
     font-size: 2vmax;
 }
@@ -59,6 +59,7 @@ body {
 #rank_body img {
     width: 100%;
     height: auto;
+    max-height: 240px;
 }
 #sportsmanship {
     background-color: white;
@@ -92,7 +93,6 @@ body {
     width: 100%;
     height: auto;
 }
-
 #history {
     background-color: white;
     display: grid;
@@ -110,7 +110,7 @@ body {
 }
 #history_body {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 125px 125px 125px;
     grid-template-columns: 125px 1.5fr 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
@@ -120,17 +120,8 @@ body {
     font-size: 2em;
     margin-top: auto;
     margin-bottom: auto;
+    max-height: 127px;
 }
-/* #history_body > div {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 130px 1.5fr 1fr; 
-    font-size: 2em;
-}
-#history_body > div > div{
-    margin-top: auto;
-    margin-bottom: auto;
-} */
 #history_body img {
     width: 100%;
     height: auto;
@@ -139,22 +130,19 @@ body {
     font-size: 3vmax;
 }
 
-/* .more {
-    float: right;
-    transform: translate(0, -25px);
-    font-size: 2vmax;
-}  */
-
 @media screen and (orientation: portrait) {
     #grid_container {
         grid-template-columns: 1fr;
-        grid-template-rows: 6vmax 1.2fr 0.5fr 1fr;
+        grid-template-rows: 6vmax 1.1fr 0.4fr 1fr;
     }
     #heading {
         grid-area: 1 / 1 / span 1 / span 1;
     }
     #rank {
         grid-area: 2 / 1 / span 1 / span 1;
+    }
+    #rank_body {
+        grid-row-gap: 20px;
     }
     #sportsmanship {
         grid-area: 3 / 1 / span 1 / span 1;
