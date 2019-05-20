@@ -6,31 +6,62 @@ $(document).ready(function(){
         data: {format: 'json-match-list'},
         success: function(data) {
             console.log("SUCCESS JSON:", data); 
+            for(let z = 0; z <= data.length && z <= 2; z++){
                 let outerDiv = "";
-                    for(let i = 2; i < 3; i++) {
                     outerDiv = document.createElement('div');
-                    outerDiv.className += 'schedule' + i;
+                    outerDiv.className += 'schedule' + " " + z;
 
                     var sport = document.createElement('div');
-                    sport.className += 'sport';
+                    sport.className += 'sport' + " " + z;
 
                     var scheduleData = document.createElement('div');
 
-                        for(let k = 2; k < 3; k++) {
-                            scheduleData.className += 'scheduleData' + " " + k;
-                        }
+                            scheduleData.className += 'scheduleData' + " " + z;
                     outerDiv.appendChild(sport);
                     outerDiv.appendChild(scheduleData);
 
                     $('.button').before(outerDiv);
+                
+                console.log(data[z].user_name);
+                $(scheduleData).html(data[z].user_name + "  " + data[z].honor_point);
                 }
                 console.log('esketit', data);
-                console.log(data[0].user_name + " ");
-                $('.2').html(data[0].user_name + "  " + data[0].honor_point);
-                $('.2').html(data[1].user_name + "  " + data[1].honor_point);
+
+        }
+    });
+    $('.scheduleButton').on('click', () => {
+    $.ajax({
+        url: "/ajax-GET-match-data",
+        type: "GET",
+        dataType: "json",
+        data: {format: 'json-match-list'},
+        success: function(data) {
+            console.log("SUCCESS JSON:", data); 
+            for(let z = 0; z <= data.length; z++){
+                let outerDiv = "";
+                    outerDiv = document.createElement('div');
+                    outerDiv.className += 'scheduleOverLay' + " " + z;
+
+                    var sport = document.createElement('div');
+                    sport.className += 'sportOverLay' + " " + z;
+
+                    var scheduleData = document.createElement('div');
+
+                            scheduleData.className += 'scheduleDataOverLay' + " " + z;
+                    outerDiv.appendChild(sport);
+                    outerDiv.appendChild(scheduleData);
+
+                    $('#scheduleContainerOverLay').append(outerDiv);
+                
+                console.log(data[z].user_name);
+                $(scheduleData).html(data[z].user_name + "  " + data[z].honor_point);
+                }
+                console.log('esketit', data);
 
             }
+        });
     });
+    scheduleContainerOverLay
     
     $('.test').on('click', function() {
         $.ajax({

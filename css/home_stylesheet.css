@@ -130,7 +130,7 @@ body {
     width: 98%;
     height: 70px;
 }
-.schedule2 {
+.schedule {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -140,6 +140,7 @@ body {
     width: 98%;
     height: 70px;
 }
+/*
 .schedule3 {
     display: flex;
     flex-direction: row;
@@ -150,6 +151,7 @@ body {
     width: 98%;
     height: 70px;
 }
+*/
 .sport{
     position: relative;
     top: 5px;
@@ -335,6 +337,7 @@ body {
     font-size: 18pt;
     z-index: 9001;
 }
+/*
 .scheduleOverLay1 {
     display: flex;
     flex-direction: row;
@@ -357,7 +360,8 @@ body {
     height: 70px;
     z-index: 9001;
 }
-.scheduleOverLay3 {
+*/
+.scheduleOverLay {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
