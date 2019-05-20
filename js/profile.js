@@ -10,7 +10,7 @@ $(document).ready(function () {
                 dataType: "json",
                 type: "GET",
                 beforeSend: function () {
-                    console.log("beforeSend function");
+                    //console.log("beforeSend function");
                     //var userId = "C3fd4AdJhTQmrvzYmaQIHpcyTsZ2";
                 },
                 // data: { name: userId },
@@ -18,6 +18,12 @@ $(document).ready(function () {
                     console.log("data load success");
                     console.log(data);
                     $("#user_name").text(data.user_name);
+                    
+                    var honor_lev = parseInt(data.honor_point/100) + 1;
+                    console.log(honor_lev);
+                    document.getElementById("honor_img").src="../Pics/Profile_Pics/honor_rank0" +honor_lev.toString()+".png";
+                    $("#user_honor_lev").text("Honer Lev. " + honor_lev);
+                    $("#user_honor_pt").text((data.honor_point) % 100 + " pt");
                     console.log("SUCCESS:", data);
     
                 },
