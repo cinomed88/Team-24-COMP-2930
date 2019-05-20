@@ -189,7 +189,7 @@ $(document).ready(function(){
             for(let z = 0; z < data.length; z++){
                 let outerRecentlyDiv = "";
                     outerRecentlyDiv = document.createElement('div');
-                    outerRecentlyDiv.className += 'recentlyPlayed' + " " + z;
+                    outerRecentlyDiv.className += 'recentlyPlayedOverLay' + " " + z;
 
                     var matchAvatar = document.createElement('div');
                     matchAvatar.className += 'matchAvatarOverLay' + " " + z;
@@ -212,8 +212,8 @@ $(document).ready(function(){
         });
     });
     //Removes all divs from the friends container --Raging--
-    $('.friendsButtonOverLay').on('click', () => {
-        $('.greaterOuterFriendsDiv').html('');
+    $('.recentButtonOverLay').on('click', () => {
+        $('.greaterOuterRecentlyDiv').html('');
     });
     //END - recently played ajax
 
