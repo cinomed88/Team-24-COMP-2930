@@ -174,8 +174,12 @@ app.get('/ajax-GET-data', function (req, res) {
 app.get('/get-matches', (req, res) => {
     
     let sport = req.query['sport'];
+    let time = req.query['time'];
+    let date = req.query['date'];
     console.log(sport);
-    sequelize.query(`SELECT * FROM MATCH WHERE sport LIKE '%${sport}%'`, {
+    console.log('ajax', time);
+    console.log('ajax', date);
+    sequelize.query(`SELECT * FROM MATCH WHERE sport LIKE '%${sport}%' AND date >= '${date}'`, {
                 model: matches
             }).then(match => {
                     console.log(match);
