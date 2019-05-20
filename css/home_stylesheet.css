@@ -342,30 +342,7 @@ body {
     font-size: 18pt;
     z-index: 9001;
 }
-/*
-.scheduleOverLay1 {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    border-radius: 12px;
-    background-color: rgb(253, 247, 247);
-    width: 98%;
-    height: 50px;
-    z-index: 9001;
-}
-.scheduleOverLay2 {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    border-radius: 12px;
-    background-color: rgb(253, 247, 247);
-    width: 98%;
-    height: 50px;
-    z-index: 9001;
-}
-*/
+
 .scheduleOverLay {
     display: flex;
     flex-direction: row;
