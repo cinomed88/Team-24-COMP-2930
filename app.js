@@ -58,17 +58,17 @@ app.get('/gamelandscape.html', (req, res) => {
 });
 
 
-//Landing page.
+// Landing page.
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-
+// The routing for the create game page.
 app.get('/creategame.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'creategame_landscape.html'));
 });
 
-
+// The routing for the find game page.
 app.get('/findgame.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'findgame.html'));
 });
@@ -174,8 +174,12 @@ app.get('/ajax-GET-data', function (req, res) {
 app.get('/get-matches', (req, res) => {
     
     let sport = req.query['sport'];
+    let time = req.query['time'];
+    let date = req.query['date'];
     console.log(sport);
-    sequelize.query(`SELECT * FROM MATCH WHERE sport LIKE '%${sport}%'`, {
+    console.log('ajax', time);
+    console.log('ajax', date);
+    sequelize.query(`SELECT * FROM MATCH WHERE sport LIKE '%${sport}%' AND date >= '${date}'`, {
                 model: matches
             }).then(match => {
                     console.log(match);
@@ -250,6 +254,18 @@ app.get('/ajax-GET-match-data', function (req, res) {
             res.send({msg: 'Wrong Format'});
         }
     
+});
+
+app.get('/ajax-GET-friends-data', function (req, res) {
+    let formatOfResponse = req.query['format'];
+    let friendsData = null;
+    
+    if(formatOfResponse == 'json-friends-list') {
+        res.setHeader('Content-Type', 'text/html');
+//        sequelize.query(`liasuhiaubdg;iuasdu`)
+    } else {
+        res.send({msg: 'Wrong Format'});
+    }
 });
 
 
