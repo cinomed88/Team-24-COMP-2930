@@ -46,14 +46,17 @@ body {
 #rank_body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 0.35fr;
+    grid-template-rows: 1fr 1fr 0.3fr;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
     margin: 20px;
     font-size: 2vmax;
 }
+#rank_body div {
+    height: 100%;
+}
 
-#rank_body div img {
+#rank_body img {
     width: 100%;
     height: auto;
 }
@@ -74,7 +77,7 @@ body {
 }
 #sportsmanship_body {
     display: grid;
-    grid-template-columns: 130px 1.5fr 1fr ;
+    grid-template-columns: 125px 1.5fr 1fr ;
     grid-template-rows: 1fr;
     grid-row-gap: 10px;
     margin: 20px;
@@ -107,12 +110,18 @@ body {
 }
 #history_body {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 125px 1.5fr 1fr;
     grid-column-gap: 10px;
+    grid-row-gap: 10px;
     margin: 20px;
 }
-#history_body > div {
+#history_body > div { 
+    font-size: 2em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* #history_body > div {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 130px 1.5fr 1fr; 
@@ -121,8 +130,7 @@ body {
 #history_body > div > div{
     margin-top: auto;
     margin-bottom: auto;
-
-}
+} */
 #history_body img {
     width: 100%;
     height: auto;
@@ -130,26 +138,6 @@ body {
 .game_result {
     font-size: 3vmax;
 }
-/*
-#owned_cards {
-    background-color: green;
-    grid-area: 5 / 1 / span 1 / span 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 1fr;
-}
-#owned_cards_heading {
-    background-color: black;
-    color: white;
-    margin-bottom: 10px;
-    padding: 5px;
-}
-#owned_cards_body {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-}
-*/
 
 /* .more {
     float: right;
@@ -177,13 +165,9 @@ body {
 }
 
 @media screen and (orientation: landscape) {
-    #heading {
-        background-color: bisque;
-    }
-    
     #grid_container {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 6vmax 1fr 2.5fr;
+        grid-template-rows: 6vmax 1fr 3fr;
     }
     #heading {
         grid-area: 1 / 1 / span 1 / span 2;
@@ -191,11 +175,24 @@ body {
     #rank {
         grid-area: 2 / 1 / span 2 / span 1;
     }
+    #rank_body {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
     #sportsmanship {
         grid-area: 2 / 2 / span 1 / span 1;
     }
+    #sportsmanship_body {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
     #history {
         grid-area: 3 / 2 / span 1 / span 1;
+    }
+    #history_body {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
 
