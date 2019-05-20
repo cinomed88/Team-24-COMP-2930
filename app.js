@@ -6,6 +6,8 @@ const usersModel = require('./modelsmssql/users');
 const matchModel = require('./modelsmssql/match');
 const matchListModel = require('./modelsmssql/match_participants');
 const bodyParser = require('body-parser');
+//aa
+const url = require('url');
 
 
 // Below establishes a connection to our SQL Server, hosted
@@ -71,6 +73,10 @@ app.get('/findgame.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'findgame.html'));
 });
 
+
+app.get('/profile.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'profile.html'));
+});
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
@@ -166,10 +172,62 @@ app.get('/ajax-GET-data', function (req, res) {
 
 
 app.get('/get-matches', (req, res) => {
-
-
-
+    
+    let sport = req.query['sport'];
+    console.log(sport);
+    sequelize.query(`SELECT * FROM MATCH WHERE sport LIKE '%${sport}%'`, {
+                model: matches
+            }).then(match => {
+                    console.log(match);
+                    res.send(match);    
+    }).catch(err => {
+       console.log('ERROR CAUGHT WHILE TRYING TO RETRIEVE MATCHES:', err); 
+    });
 });
+
+
+
+// The current user and his details are obtained 
+// through this AJAX call, using their firebase id
+// as the primary key.
+// app.get('/get-user-profile', (req, res) => {
+    
+//     let userId = req.query['userId'];
+    
+//     sequelize.query(`SELECT * FROM USERS WHERE user_id LIKE '%${userId}%'`, {
+//         model: users
+//     }).then(profile => {
+//         res.send(profile);
+//     }).catch(err => {
+//         console.log('ERROR CAUGHT WHILE ATTEMPTING TO OBTAIN CURRENT USER PROFILE:', err);
+//     });
+    
+// });
+
+
+app.get('/ajax-GET-Profile', function (req, res) {
+
+    //aa
+    let q = url.parse(req.url, true);
+    console.log(q.query["name"]);
+    // set the type of response:
+    res.setHeader('Content-Type', 'application/json');
+
+    let qs = 'SELECT user_name, honor_point, rank_point FROM USERS WHERE user_id = ' + '\'' + q.query["name"] + '\'';
+
+    sequelize.query(qs, { model: users })
+        .then(function (userdata) {
+            console.log(userdata);
+            let userInfo = userdata[0].dataValues;
+            console.log(userInfo);
+            res.send(userInfo);
+        }).catch(function (err) {
+            console.log('ERROR ENCOUNTERED WHEN OBTAINING USERS: ', err);
+            res.sendStatus(500);
+        });
+
+})
+
 
 app.get('/ajax-GET-match-data', function (req, res) {
         let formatOfResponse = req.query['format'];

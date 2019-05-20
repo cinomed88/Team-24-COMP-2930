@@ -30,9 +30,9 @@ body {
     display: flex;
     justify-content: center;
     position: absolute;
-    left: 25%;
+    left: 15%;
     background-color: black;
-    width: 50%;
+    width: 70%;
     height: 75px;
     margin: 0 auto;
     opacity: .50;
@@ -99,7 +99,7 @@ body {
 #scheduleContainer {
     display: flex;
     flex-direction: column;
-    background-color: #970009;
+    background-color:#0173BC;
     width: 95%;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -126,9 +126,10 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
     border-radius: 12px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
     width: 98%;
-    height: 70px;
+    height: 50px;
+    margin-top:5px;
 }
 .schedule {
     display: flex;
@@ -136,9 +137,9 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
     border-radius: 12px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
     width: 98%;
-    height: 70px;
+    height: 50px;
 }
 /*
 .schedule3 {
@@ -147,32 +148,32 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
     border-radius: 12px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
     width: 98%;
-    height: 70px;
+    height: 50px;
 }
 */
 .sport{
     position: relative;
     top: 5px;
     width: 15%;
-    height: 60px;
+    height: 40px;
     margin-left: 5%;
-    background-color: pink;
+    background-color:rgb(253, 247, 247);
 }
 .scheduleData {
     position: relative;
     top: 5px;
     width: 75%;
-    height: 60px;
+    height: 40px;
     margin-left: 1%;
-    background-color:aquamarine;
+    background-color:rgb(253, 247, 247);;
     
 }
 #friendsContainer {
     display: flex;
     flex-direction: row;
-    background-color: #970009;
+    background-color: #0173BC;
     width: 95%;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -195,27 +196,27 @@ body {
     display: flex;
     flex-direction: row;
     width: 97%;
-    height: 60px;
+    height: 50px;
     margin: 0 auto;
     border-radius: 12px;
     margin-top: 5px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
 }
 .avatar {
     position: relative;
     top: 5px;
     left: 4%;
     width: 20%;    
-    height: 50px;
-    background-color: pink;
+    height: 40px;
+    background-color:rgb(253, 247, 247);
 }
 .userName {
     position: relative;
     top: 5px;
     margin-left: 6%;
     width: 70%;
-    height: 50px;
-    background-color: aquamarine;
+    height: 40px;
+    background-color: rgb(253, 247, 247);
 }
 #recentlyPlayedTitle {
     display: flex;
@@ -230,7 +231,7 @@ body {
     background: black;
 
     height: 100%;
-    background: #970009;
+    background: #0173BC;
 
 }
 #friendsContainer p {
@@ -249,7 +250,7 @@ body {
     
     width: 100%;
     border-radius: 12px;
-    height: 40px;
+    height: 60px;
     background: black;
 }
 .recentPlayers span {
@@ -260,27 +261,27 @@ body {
     display: flex;
     flex-direction: row;
     width: 97%;
-    height: 60px;
+    height: 50px;
     margin: 0 auto;
     margin-top: 5px;
     border-radius: 12px;
-    background-color: grey;
+    background-color:rgb(253, 247, 247);
 }
 .matchAvatar {
     position: relative;
     top: 5px;
     left: 4%;
     width: 20%;    
-    height: 50px;
-    background-color: pink;
+    height: 40px;
+    background-color:rgb(253, 247, 247);
 }
 .matchUser {
     position: relative;
     top: 5px;
     margin-left: 6%;
     width: 70%;
-    height: 50px;
-    background-color: aquamarine;
+    height: 40px;
+    background-color: rgb(253, 247, 247);
 }
 .lowerWrapper {
     background-color: grey;
@@ -291,7 +292,11 @@ body {
 .moreBTN {
     display: flex;
     justify-content: center;
-    width: 80px;
+    width: 100px;
+    height:40px;
+    border-radius:10px;
+    background-color: green;
+    font-size:20pt;
 }
 .friendsBTN {
     margin-left: 30%;
@@ -313,7 +318,7 @@ body {
 #scheduleContainerOverLay {
     display: flex;
     flex-direction: column;
-    background-color: #970009;
+    background-color: #0173BC;
     width: 95%;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -344,9 +349,9 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
     border-radius: 12px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
     width: 98%;
-    height: 70px;
+    height: 50px;
     z-index: 9001;
 }
 .scheduleOverLay2 {
@@ -355,9 +360,9 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
     border-radius: 12px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
     width: 98%;
-    height: 70px;
+    height: 50px;
     z-index: 9001;
 }
 */
@@ -367,27 +372,27 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
     border-radius: 12px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
     width: 98%;
-    height: 70px;
+    height: 50px;
     z-index: 9001;
 }
 .sportOverLay{
     position: relative;
     top: 5px;
     width: 15%;
-    height: 60px;
+    height: 40px;
     margin-left: 5%;
-    background-color: pink;
+    background-color:rgb(253, 247, 247);
     z-index: 9001;
 }
 .scheduleDataOverLay {
     position: relative;
     top: 5px;
     width: 75%;
-    height: 60px;
+    height: 40px;
     margin-left: 1%;
-    background-color:aquamarine;
+    background-color:rgb(253, 247, 247);
     z-index: 9001;
     
 }
@@ -407,7 +412,7 @@ body {
 #friendsContainerOverLay {
     display: flex;
     flex-direction: column;
-    background-color: #970009;
+    background-color: #0173BC;
     width: 95%;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -432,27 +437,27 @@ body {
     display: flex;
     flex-direction: row;
     width: 97%;
-    height: 60px;
+    height: 50px;
     margin: 0 auto;
     border-radius: 12px;
     margin-top: 5px;
-    background-color: darkgrey;
+    background-color: rgb(253, 247, 247);
 }
 .avatarOverLay {
     position: relative;
     top: 5px;
     left: 4%;
     width: 20%;    
-    height: 50px;
-    background-color: pink;
+    height: 40px;
+    background-color:rgb(253, 247, 247);
 }
 .userNameOverLay {
     position: relative;
     top: 5px;
     margin-left: 6%;
     width: 70%;
-    height: 50px;
-    background-color: aquamarine;
+    height: 40px;
+    background-color:rgb(253, 247, 247);
 }
 .friendsBTNOverLay {
     margin: 0 auto;
@@ -474,13 +479,13 @@ body {
     height: 800px;
     margin: 0 auto;
     border-radius: 12px;
-    background-color: #970009;
+    background-color: #0173BC;
 }
 .recentPlayersOverLay {
     display: flex;
     justify-content: center;
     position: relative;
-    height: 60px !important;
+    height: 40px !important;
     color: white;
     font-size: 18pt;
     
@@ -497,27 +502,27 @@ body {
     display: flex;
     flex-direction: row;
     width: 97%;
-    height: 60px;
+    height: 50px;
     margin: 0 auto;
     margin-top: 5px;
     border-radius: 12px;
-    background-color: grey;
+    background-color:rgb(253, 247, 247);
 }
 .matchAvatarOverLay {
     position: relative;
     top: 5px;
     left: 4%;
     width: 20%;    
-    height: 50px;
-    background-color: pink;
+    height: 40px;
+    background-color:rgb(253, 247, 247);
 }
 .matchUserOverLay {
     position: relative;
     top: 5px;
     margin-left: 6%;
     width: 70%;
-    height: 50px;
-    background-color: aquamarine;
+    height: 40px;
+    background-color:rgb(253, 247, 247);
 }
 .recentBTNOverLay {
     margin: 0 auto;
@@ -529,16 +534,16 @@ body {
 
 
 @media only screen and (orientation:landscape) {
-    * { font-size: 1.3rem; }
+    * { font-size: 1.1rem; }
     
     .scheduleANDFriendsContainer {
         display: flex;
         flex-direction: row;
-        width: 100%;
+        width: 98%;
         margin: 0 auto;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        height:60vh;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height:100vh;
     }
     #topHomeBackground {
         display:none;
@@ -551,18 +556,35 @@ body {
         display:none;
     }
     #rectangle {
-        height: 50px;   
+        height: 50px; 
     }
     #scheduleContainer {
-        height: 60vh;
-        border-right: 8px solid black;
+        height: 100vh;
+        border-right: 2px solid black;    
 
     }
     #friendsContainer {
-        height:60vh;
+        height:100vh;
     }
+    .startGameLink p {
+        font-size: 30pt;
+    }
+    .moreBTN {
+        width: 90px;
+        height:35px;
+        font-size:18pt;
+    }
+    .schedule1,.schedule2, .schedule3 .recentlyPlayed, .friends, .scheduleOverLay1, .recentlyPlayedOverLay, .friendsOverLay {
+        height:40px;
+    }
+    .sport, .scheduleData, .avatar ,.userName, .matchAvatar, .matchUser,.avatarOverLay, .matchUserOverLay,.userNameOverLay,.matchAvatarOverLay {
+        height:30px;
+    }    
+    
+    }
+    
 
-}
+
    
 
 
