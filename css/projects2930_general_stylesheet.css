@@ -106,7 +106,7 @@ hamburger span:nth-child(1) {
 }
 
 
-@media only screen and (min-width: 400px) and (max-width: 810px){
+@media only screen and (min-width: 200px) and (max-width: 810px){
     
     .navi-bar-desktop {
         display: none;

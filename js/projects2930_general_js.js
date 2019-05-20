@@ -4,6 +4,7 @@ $(document).ready(function() {
     
     $('.navi-bar-desktop').append('<a href="profile.html"><div>Profile</div></a>');
     $('.navi-bar-desktop').append('<a><div>Store</div></a>');
+    $('.navi-bar-desktop').append('<a><div>About Us</div></a>');
     $('.navi-bar-desktop').append('<a href="#" onclick="firebase.auth().signOut()"><div>Sign-out</div></a>');
     
     $('header').after('<div class="navi-bar-mobile"></div>');
@@ -13,6 +14,7 @@ $(document).ready(function() {
     $('.navi-bar-mobile').append('<div id="naviwrap"></div>');
     
     $('#naviwrap').append('<a href="#" onclick="firebase.auth().signOut()"><div class="sing-out">Sign-out</div></a>');
+    $('#naviwrap').append('<a><div>About Us</div></a>');
     
      $('.homePageHamburger').click(function(){
         if($(this).hasClass('open') ){
