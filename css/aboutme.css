@@ -13,7 +13,7 @@ img.backBTN {
     background-color: skyblue;
 }
 
-#columnFlexWrap {
+.columnFlexWrap {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,10 +28,12 @@ img.backBTN {
 
 .bioWrap {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     margin-right: 10px;
     height: 400px;
-    margin-bottom: 10px;
+    margin-bottom: 200px;
 }
 
 
@@ -39,6 +41,24 @@ img.backBTN {
     width: 300px;
     height: auto;
     border: 2px solid white;
+}
+
+.role {
+    margin-top: 10px;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.name {
+    font-size: 15pt;
+    font-style: italic;
+}
+
+.bio {
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 10pt;
 }
 
 
@@ -51,9 +71,16 @@ img.backBTN {
         flex-direction: row;
     }
     
+    .bioWrap {
+        margin-bottom: 10px;
+    }
+    
     .bioPic {
         width: 15vw;
         height: auto;
+    }
+    .bio {
+        margin-bottom: 15px;
     }
     
 }
