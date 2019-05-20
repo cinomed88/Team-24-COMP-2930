@@ -56,17 +56,17 @@ app.get('/gamelandscape.html', (req, res) => {
 });
 
 
-//Landing page.
+// Landing page.
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-
+// The routing for the create game page.
 app.get('/creategame.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'creategame_landscape.html'));
 });
 
-
+// The routing for the find game page.
 app.get('/findgame.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'findgame.html'));
 });

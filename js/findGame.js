@@ -109,6 +109,5 @@
         }
 
 
-        retrieveUserMatch();
         initMap();
 
