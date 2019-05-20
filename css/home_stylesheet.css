@@ -131,7 +131,7 @@ body {
     height: 50px;
     margin-top:5px;
 }
-.schedule2 {
+.schedule {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -141,6 +141,7 @@ body {
     width: 98%;
     height: 50px;
 }
+/*
 .schedule3 {
     display: flex;
     flex-direction: row;
@@ -151,6 +152,7 @@ body {
     width: 98%;
     height: 50px;
 }
+*/
 .sport{
     position: relative;
     top: 5px;
@@ -340,7 +342,7 @@ body {
     font-size: 18pt;
     z-index: 9001;
 }
-.scheduleOverLay1 {
+.scheduleOverLay {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -351,26 +353,14 @@ body {
     height: 50px;
     z-index: 9001;
 }
-.scheduleOverLay2 {
+.greaterOuterDiv {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 0 auto;
     margin-bottom: 5px;
     border-radius: 12px;
-    background-color: rgb(253, 247, 247);
+    background-color: #0173BC;
     width: 98%;
-    height: 50px;
-    z-index: 9001;
-}
-.scheduleOverLay3 {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    border-radius: 12px;
-    background-color: rgb(253, 247, 247);
-    width: 98%;
-    height: 50px;
     z-index: 9001;
 }
 .sportOverLay{
