@@ -1,5 +1,4 @@
 body {
-	background-color: darkgrey;
 	font-size: 20pt;
 	width: 100vw;
 		
@@ -9,13 +8,13 @@ body {
 	flex-direction: row;
 	background-color:white;
 	width: 100vw;
-	height: 100px;
+	height: 115px;
 	align-content: center;
 	align-items: center;
 }
 #rectangle1 {
 	width:100vw;
-	height: 150px;
+	height: 120px;
 	text-align: center;	
 	background-color:#0173BC;	
 	padding-top:15px;
@@ -23,7 +22,7 @@ body {
 }
 
 .container {
-   width: 100%;
+   width: 100vw;
    height: 44vh;
    display: flex;
    align-items: center;
@@ -33,13 +32,13 @@ body {
    width: 50vw;
    height: 50vh;
    align-items: center;
-   text-align: center;
+   text-align: left;
    background-color: #F3F9FB;
    color:white;
-   font-size: 21pt;
+   font-size: 15pt;
    padding-top:25px;
    display:none;
-   overflow:hidden;
+   overflow:scroll;
 		}
 
 .button {
@@ -62,12 +61,15 @@ body {
 #div {
 	padding-top: 25px;
 	padding-bottom: 25px;
-	text-align: center;
+	text-align: left;
 	background-color: #F3F9FB;
 	color:black;
-	width:100vw;
+	width:97.5vw;
 	height:38vh;
-	font-size:25pt;
+	font-size:35pt;
+	overflow:scroll;
+	padding-left: 25px;
+	
 } 
 
 .left{position:absolute;
@@ -86,6 +88,9 @@ body {
 	color:#fff!important;
 	background-color:#0173BC!important
 }
+.h2 {
+text-align:center;
+}
 
 @media only screen and (orientation:landscape) {
  * { font-size: 1.3rem; }
@@ -95,10 +100,11 @@ body {
 }
 #rectangle5 {
 	display: block;
-	font-size:25pt;
+	font-size:16pt;
 	height:340px;
 	color:black;
-	overflow-x: hidden;
+	overflow-x: scroll;
+	padding-left: 25px;
 }
 #row2 {
 	display:flex;
@@ -159,6 +165,14 @@ body {
 .line{
 	height:6px;
 }
+.h2 {
+	text-align:center;
+	}
+img.backbtn {
+width:50px;
+height:50px;
+}
+	
 
 }			
 			
