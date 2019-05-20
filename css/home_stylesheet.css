@@ -419,6 +419,16 @@ body {
     color: white;
     font-size: 18pt;
 }
+.greaterOuterFriendsDiv {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: #0173BC;
+    width: 98%;
+    z-index: 9001;
+}
 .friendsOverLay {
     display: flex;
     flex-direction: row;
@@ -484,7 +494,7 @@ body {
     display: flex;
     align-items: center;
 }
-.recentlyPlayedOverLay {
+.recentlyPlayed {
     display: flex;
     flex-direction: row;
     width: 97%;
