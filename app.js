@@ -252,6 +252,18 @@ app.get('/ajax-GET-match-data', function (req, res) {
     
 });
 
+app.get('/ajax-GET-friends-data', function (req, res) {
+    let formatOfResponse = req.query['format'];
+    let friendsData = null;
+    
+    if(formatOfResponse == 'json-friends-list') {
+        res.setHeader('Content-Type', 'text/html');
+//        sequelize.query(`liasuhiaubdg;iuasdu`)
+    } else {
+        res.send({msg: 'Wrong Format'});
+    }
+});
+
 
 
 
