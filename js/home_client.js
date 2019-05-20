@@ -216,38 +216,5 @@ $(document).ready(function(){
         $('.greaterOuterFriendsDiv').html('');
     });
     //END - recently played ajax
-//    $('.test2').on('click', function() {
-//        $.ajax({
-//            url: "/ajax-GET-data",  
-//            type: "GET",
-//            dataType: "json",
-//            data: {format: 'json-list4'},
-//            success: function(data) {
-//                               console.log("Test2 SUCCESS JSON:", data);
-//                var user = data; 
-//                var firstName = user.firstName;
-//                console.log(user);
-//                let friendsOuterDiv = "";
-//                for(let i = 1; i < 2; i++) {
-//                    friendsOuterDiv = document.createElement('div');
-//                    friendsOuterDiv.className += 'friends';
-//
-//                    var avatar = document.createElement('div');
-//                    avatar.className += 'avatar';
-//
-//                    var userName = document.createElement('div');
-//                    userName.className += 'userName U2';
-//
-//                    friendsOuterDiv.appendChild(avatar);
-//                    friendsOuterDiv.appendChild(userName);
-//
-//                    $('.friendsBTN').before(friendsOuterDiv);
-//                }
-//                console.log("does this output???", data);
-//                console.log(data);
-//                $('.userName').html(data.firstName);
-//                
-//                }
-//            });
-//        });
+
     });
