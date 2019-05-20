@@ -342,7 +342,6 @@ body {
     font-size: 18pt;
     z-index: 9001;
 }
-
 .scheduleOverLay {
     display: flex;
     flex-direction: row;
@@ -352,6 +351,16 @@ body {
     background-color: rgb(253, 247, 247);
     width: 98%;
     height: 50px;
+    z-index: 9001;
+}
+.greaterOuterDiv {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: #0173BC;
+    width: 98%;
     z-index: 9001;
 }
 .sportOverLay{
@@ -409,6 +418,16 @@ body {
     align-items: center;
     color: white;
     font-size: 18pt;
+}
+.greaterOuterFriendsDiv {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: #0173BC;
+    width: 98%;
+    z-index: 9001;
 }
 .friendsOverLay {
     display: flex;
@@ -475,7 +494,7 @@ body {
     display: flex;
     align-items: center;
 }
-.recentlyPlayedOverLay {
+.recentlyPlayed {
     display: flex;
     flex-direction: row;
     width: 97%;

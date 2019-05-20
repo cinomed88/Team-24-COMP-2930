@@ -87,14 +87,36 @@
 
 
         // This is a function that retrieves the matches made that
-        // are of the user's requested sport.
+        // are of the user's requested sport, and start after the 
+        // user's current date and time.
         function retrieveUserMatch() {
+            
+            
+            var todayDate = new Date();
+            var time = `${todayDate.getHours()}:00:00.0000000`;
+            var month = todayDate.getMonth() + 1;
+            var date = 0;
+            
+            if (month < 10) {
+                date = `${todayDate.getFullYear()}-0${month}-${todayDate.getDate()}`;
+            } else {
+                date = `${todayDate.getFullYear()}-${month}-${todayDate.getDate()}`;
+            }
+            console.log(date);
+            console.log(time);
+            
+            
             
             $.ajax({
                 url: '/get-matches',
                 dataType: 'json',
                 type: 'GET',
-                data: {sport: localStorage.getItem('userSport')},
+                data: 
+                {
+                    sport: localStorage.getItem('userSport'),
+                    time: time,
+                    date: date
+                },
                 success: function(data) {
                     console.log(data);
                 },
@@ -104,10 +126,8 @@
                 }                
 
             });
-            
-            
+        
         }
-
 
         retrieveUserMatch();
         initMap();
