@@ -19,6 +19,14 @@ module.exports = function(sequelize, Sequelize) {
            type: Sequelize.INTEGER,
            notEmpty: true,
        },
+       rank_point2: {
+           type: Sequelize.INTEGER,
+           notEmpty: true,
+       },
+       rank_point3: {
+           type: Sequelize.INTEGER,
+           notEmpty: true,
+       }
    });
 
    return users;
