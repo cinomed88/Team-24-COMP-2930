@@ -1,0 +1,29 @@
+#columnFlexWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#biographies {
+    display: flex;
+    flex-direction: row;
+}
+
+.bioWrap {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+    height: 400px;
+}
+
+
+.bioPic {
+    width: 15vw;
+    height: auto;
+}
+
+
+
+
