@@ -91,6 +91,7 @@ hamburger span:nth-child(1) {
 }
 .moreBTN {
     z-index: 9001;
+    cursor: pointer !important;
 }
 .navi-bar-mobile-2 {
     position: absolute;

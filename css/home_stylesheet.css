@@ -58,7 +58,7 @@ body {
 .profile {
     display: flex;
     clip-path: polygon(0 0, 0 50%, 100% 0);
-    background-image: url(../pics/Home_Pics/walking_man_edited2.jpg);
+    background-image: url(../pics/Home_Pics/walking_man_edited3.jpg);
     height: 250px;
 }
 .profile a {
@@ -73,7 +73,7 @@ body {
 .store {
     display: flex;
     clip-path: polygon(100% 0, 0 50%, 100% 50%);
-    background-image: url(../pics/Home_Pics/profile_black_edited.jpg);
+    background-image: url(../pics/Home_Pics/profile_edited2.jpg);
     height: 250px;
     position: relative;
     bottom: 124px;
@@ -118,7 +118,7 @@ body {
 .scheduleTitle p {
     display: flex;
     align-items: center;
-    font-size: 18pt
+    font-size: 22pt;
 }
 .schedule {
     display: flex;
@@ -132,21 +132,18 @@ body {
 }
 .sport{
     position: relative;
-    top: 5px;
+    top: 13px;
     width: 15%;
     height: 40px;
     margin-left: 5%;
-    background-color:rgb(253, 247, 247);
 }
 .scheduleData {
     display: flex;
-    justify-content: center;
     position: relative;
     top: 13px;
     width: 75%;
     height: 40px;
     margin-left: 1%;
-    background-color:rgb(253, 247, 247);;
     
 }
 #friendsContainer {
@@ -180,22 +177,21 @@ body {
     border-radius: 12px;
     margin-top: 5px;
     background-color: rgb(253, 247, 247);
+
 }
 .avatar {
     position: relative;
-    top: 5px;
+    top: 13px;
     left: 4%;
     width: 20%;    
     height: 40px;
-    background-color:rgb(253, 247, 247);
 }
 .userName {
     position: relative;
-    top: 5px;
+    top: 13px;
     margin-left: 6%;
     width: 70%;
     height: 40px;
-    background-color: rgb(253, 247, 247);
 }
 #recentlyPlayedTitle {
     display: flex;
@@ -217,7 +213,7 @@ body {
     display: flex;
     align-items: center;
     color: white;
-    font-size: 18pt;
+    font-size: 22pt;
 }
 .recentPlayers {
     display: flex;
@@ -235,6 +231,7 @@ body {
 .recentPlayers span {
     display: flex;
     align-items: center;
+    font-size: 22pt;
 }
 .recentlyPlayed {
     display: flex;
@@ -248,19 +245,17 @@ body {
 }
 .matchAvatar {
     position: relative;
-    top: 5px;
+    top: 13px;
     left: 4%;
     width: 20%;    
     height: 40px;
-    background-color:rgb(253, 247, 247);
 }
 .matchUser {
     position: relative;
-    top: 5px;
+    top: 13px;
     margin-left: 6%;
     width: 70%;
     height: 40px;
-    background-color: rgb(253, 247, 247);
 }
 .lowerWrapper {
     background-color: grey;
@@ -318,7 +313,7 @@ body {
 .scheduleTitleOverLay p {
     display: flex;
     align-items: center;
-    font-size: 18pt;
+    font-size: 22pt;
     z-index: 9001;
 }
 .scheduleOverLay {
@@ -330,7 +325,7 @@ body {
     border-radius: 12px;
     background-color: rgb(253, 247, 247);
     width: 98%;
-    height: 50px;
+    height: 60px;
     z-index: 9001;
 }
 .greaterOuterDiv {
@@ -345,20 +340,18 @@ body {
 }
 .sportOverLay{
     position: relative;
-    top: 5px;
+    top: 13px;
     width: 15%;
-    height: 40px;
+    height: 50px;
     margin-left: 5%;
-    background-color:rgb(253, 247, 247);
     z-index: 9001;
 }
 .scheduleDataOverLay {
     position: relative;
-    top: 5px;
+    top: 21px;
     width: 75%;
-    height: 40px;
+    height: 50px;
     margin-left: 1%;
-    background-color:rgb(253, 247, 247);
     z-index: 9001;
     
 }
@@ -397,7 +390,7 @@ body {
     display: flex;
     align-items: center;
     color: white;
-    font-size: 18pt;
+    font-size: 22pt;
 }
 .greaterOuterFriendsDiv {
     display: flex;
@@ -413,7 +406,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 97%;
-    height: 50px;
+    height: 60px;
     margin: 0 auto;
     border-radius: 12px;
     margin-top: 5px;
@@ -421,19 +414,17 @@ body {
 }
 .avatarOverLay {
     position: relative;
-    top: 5px;
+    top: 13px;
     left: 4%;
     width: 20%;    
-    height: 40px;
-    background-color:rgb(253, 247, 247);
+    height: 50px;
 }
 .userNameOverLay {
     position: relative;
-    top: 5px;
+    top: 21px;
     margin-left: 6%;
     width: 70%;
-    height: 40px;
-    background-color:rgb(253, 247, 247);
+    height: 50px;
 }
 .friendsBTNOverLay {
     margin: 0 auto;
@@ -473,12 +464,13 @@ body {
 .recentPlayersOverLay span {
     display: flex;
     align-items: center;
+    font-size: 22pt;
 }
-.recentlyPlayed {
+.recentlyPlayedOverLay {
     display: flex;
     flex-direction: row;
     width: 97%;
-    height: 50px;
+    height: 60px;
     margin: 0 auto;
     margin-top: 5px;
     border-radius: 12px;
@@ -486,19 +478,17 @@ body {
 }
 .matchAvatarOverLay {
     position: relative;
-    top: 5px;
+    top: 13px;
     left: 4%;
-    width: 20%;    
-    height: 40px;
-    background-color:rgb(253, 247, 247);
+    width: 10%;    
+    height: 50px;
 }
 .matchUserOverLay {
     position: relative;
-    top: 5px;
+    top: 21px;
     margin-left: 6%;
-    width: 70%;
-    height: 40px;
-    background-color:rgb(253, 247, 247);
+    width: 80%;
+    height: 50px;
 }
 .recentBTNOverLay {
     margin: 0 auto;
@@ -509,13 +499,14 @@ body {
 }
 
 
+
 @media only screen and (orientation:landscape) {
     * { font-size: 1.1rem; }
     
     .scheduleANDFriendsContainer {
         display: flex;
         flex-direction: row;
-        width: 98%;
+        width: 96%;
         margin: 0 auto;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -536,7 +527,8 @@ body {
     }
     #scheduleContainer {
         height: 100vh;
-        border-right: 2px solid black;    
+        border-right: 1px solid black;
+        width: 50%;
 
     }
     #friendsContainer {
@@ -550,14 +542,8 @@ body {
         height:35px;
         font-size:18pt;
     }
-    .schedule1,.schedule2, .schedule3 .recentlyPlayed, .friends, .scheduleOverLay1, .recentlyPlayedOverLay, .friendsOverLay {
-        height:40px;
-    }
-    .sport, .scheduleData, .avatar ,.userName, .matchAvatar, .matchUser,.avatarOverLay, .matchUserOverLay,.userNameOverLay,.matchAvatarOverLay {
-        height:30px;
-    }    
     
-    }
+}
     
 
 
