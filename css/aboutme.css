@@ -1,3 +1,18 @@
+body {
+    margin: 0;
+    background-color: #708090;
+}
+
+img.backBTN {
+    width: 50px;
+    height: auto; 
+    display: block;
+}
+
+.backBTN:hover {
+    background-color: skyblue;
+}
+
 #columnFlexWrap {
     display: flex;
     flex-direction: column;
@@ -8,7 +23,7 @@
 
 #biographies {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .bioWrap {
@@ -16,14 +31,32 @@
     flex-direction: row;
     margin-right: 10px;
     height: 400px;
+    margin-bottom: 10px;
 }
 
 
 .bioPic {
-    width: 15vw;
+    width: 300px;
     height: auto;
+    border: 2px solid white;
 }
 
+
+@media only screen and (orientation:landscape) {
+    img.backBTN {
+        display: none;
+    }
+    
+    #biographies {
+        flex-direction: row;
+    }
+    
+    .bioPic {
+        width: 15vw;
+        height: auto;
+    }
+    
+}
 
 
 
