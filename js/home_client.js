@@ -7,7 +7,7 @@ $(document).ready(function(){
         data: {format: 'json-match-list'},
         success: function(data) {
             console.log("SUCCESS JSON:", data); 
-            for(let z = 0; z <= data.length && z <= 3; z++){
+            for(let z = 0; z < data.length && z <= 3; z++){
                 let outerDiv = "";
                     outerDiv = document.createElement('div');
                     outerDiv.className += 'schedule' + " " + z;
@@ -41,7 +41,7 @@ $(document).ready(function(){
             greaterOuterDiv = document.createElement('div');
             greaterOuterDiv.className += 'greaterOuterDiv';
             
-            for(let z = 0; z <= data.length; z++){
+            for(let z = 0; z < data.length; z++){
                 let outerDiv = "";
                     outerDiv = document.createElement('div');
                     outerDiv.className += 'scheduleOverLay' + " " + z;
@@ -79,7 +79,7 @@ $(document).ready(function(){
         data: {format: 'json-match-list'},
         success: function(data) {
             console.log("SUCCESS JSON:", data); 
-            for(let z = 0; z <= data.length && z <= 3; z++){
+            for(let z = 0; z < data.length && z <= 3; z++){
                 let outerFriendsDiv = "";
                     outerFriendsDiv = document.createElement('div');
                     outerFriendsDiv.className += 'friends' + " " + z;
@@ -114,7 +114,7 @@ $(document).ready(function(){
             greaterOuterFriendsDiv = document.createElement('div');
             greaterOuterFriendsDiv.className += 'greaterOuterFriendsDiv';
             
-            for(let z = 0; z <= data.length; z++){
+            for(let z = 0; z < data.length; z++){
                 let outerFriendsDiv = "";
                     outerFriendsDiv = document.createElement('div');
                     outerFriendsDiv.className += 'friendsOverLay' + " " + z;
@@ -152,7 +152,7 @@ $(document).ready(function(){
         data: {format: 'json-match-list'},
         success: function(data) {
             console.log("SUCCESS JSON:", data); 
-            for(let z = 0; z <= data.length && z <= 3; z++){
+            for(let z = 0; z < data.length && z <= 3; z++){
                 let outerRecentlyDiv = "";
                     outerRecentlyDiv = document.createElement('div');
                     outerRecentlyDiv.className += 'recentlyPlayed' + " " + z;
@@ -174,7 +174,7 @@ $(document).ready(function(){
                 console.log('esketit', data);
         }
     });
-    $('.friendsButton').on('click', () => {
+    $('.recentButton').on('click', () => {
     $.ajax({
         url: "/ajax-GET-match-data",
         type: "GET",
@@ -186,7 +186,7 @@ $(document).ready(function(){
             greaterOuterRecentlyDiv = document.createElement('div');
             greaterOuterRecentlyDiv.className += 'greaterOuterRecentlyDiv';
             
-            for(let z = 0; z <= data.length; z++){
+            for(let z = 0; z < data.length; z++){
                 let outerRecentlyDiv = "";
                     outerRecentlyDiv = document.createElement('div');
                     outerRecentlyDiv.className += 'recentlyPlayed' + " " + z;
