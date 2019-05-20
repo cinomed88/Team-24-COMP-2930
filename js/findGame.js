@@ -126,8 +126,7 @@
                 }                
 
             });
-            
-            
+        
         }
 
         retrieveUserMatch();
