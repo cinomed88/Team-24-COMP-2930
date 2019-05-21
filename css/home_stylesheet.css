@@ -132,10 +132,11 @@ body {
 }
 .sport{
     position: relative;
-    top: 13px;
+    top: 2px;
     width: 15%;
-    height: 40px;
+    height: 45px;
     margin-left: 5%;
+    border-radius: 50%;
 }
 .scheduleData {
     display: flex;
@@ -497,7 +498,6 @@ body {
 .recentButtonOverLay {
     margin: 0 auto;
 }
-
 
 
 @media only screen and (orientation:landscape) {
