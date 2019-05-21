@@ -1,4 +1,13 @@
+        // The below function creates the map and populates it with markers that fit the
+        // user's wanted sport and times that make sense. The map's origin point is either
+        // the user's current location or the centre of Downtown Vancouver, British Columbia.
         function initMap() {
+            
+            
+            if (localStorage.getItem('userSport') == null) {
+                window.location.href = "/gamelandscape.html"
+            }
+            
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: 49.246292,
@@ -10,6 +19,8 @@
                 mapTypeId: 'roadmap'
             });
                         
+            // Geo-location to find the user's current location and set the centre of the map
+            // to it accordingly.
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
                     map.setCenter({
@@ -33,6 +44,12 @@
                 searchBox.setBounds(map.getBounds());
             });
 
+            
+            
+            retrieveUserMatch(map);
+           // localStorage.clear();
+            
+            
             var markers = [];
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
@@ -89,7 +106,9 @@
         // This is a function that retrieves the matches made that
         // are of the user's requested sport, and start after the 
         // user's current date and time.
-        function retrieveUserMatch() {
+        //
+        // @param mapAppend - a Google Maps API Object.
+        function retrieveUserMatch(mapAppend) {
             
             
             var todayDate = new Date();
@@ -119,6 +138,22 @@
                 },
                 success: function(data) {
                     console.log(data);
+                    for(let i = 0; i < data.length; i++) {
+                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        var marker = new google.maps.Marker({position: latlng});
+                        marker.setMap(mapAppend);
+                        var address = 'ERROR, ADDRESS NOT DETECTED';
+                        var geocoder = new google.maps.Geocoder;
+                        geocoder.geocode({'latLng': latlng}, (results, status) => {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                if (results[0]) {
+                                    console.log(results[0].formatted_address);
+                                    var address = results[0].formatted_address;
+                                }
+                            }
+                            
+                        });
+                    }                
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $("#p2").text(jqXHR.statusText);
@@ -129,6 +164,6 @@
         
         }
 
-        retrieveUserMatch();
+
         initMap();
 

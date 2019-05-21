@@ -46,6 +46,14 @@ app.use('/pics', express.static(path.join(__dirname, 'pics')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 
 
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/////////////////////ALL ROUTING DONE BELOW///////////////////
+/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+
 // Routing for the home-page.
 app.get('/home.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'home.html'));
@@ -73,10 +81,24 @@ app.get('/findgame.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'findgame.html'));
 });
 
-
+// The routing for the profile page.
 app.get('/profile.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'profile.html'));
 });
+
+// The routing for the 'About Us' page.
+app.get('/aboutus.html', (req, res) => {
+   res.sendFile(path.join(__dirname, 'html', 'aboutme.html')); 
+});
+
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////ALL AJAX SERVER-SIDE CODE BELOW////////////////
+/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
@@ -85,6 +107,7 @@ app.use(bodyParser.urlencoded({
 
 // parse application/json
 app.use(bodyParser.json());
+
 
 // The POST request to create a new user and insert it into our SQL database.
 app.post('/create-user', (req, res) => {
@@ -171,6 +194,9 @@ app.get('/ajax-GET-data', function (req, res) {
 });
 
 
+// The below AJAX call takes the user's current selected sport and date,
+// and then queries to find relevant matches, before sending that data
+// back to the client-side to be placed on the map as markers.
 app.get('/get-matches', (req, res) => {
     
     let sport = req.query['sport'];
@@ -209,6 +235,8 @@ app.get('/get-matches', (req, res) => {
 // });
 
 
+// The below AJAX call gets the details for the current user, using their firebase UID as the
+// primary key.
 app.get('/ajax-GET-Profile', function (req, res) {
 
     //aa
