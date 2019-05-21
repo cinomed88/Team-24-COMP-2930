@@ -284,7 +284,7 @@ WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(functi
 
 //            res.send(dataList2);
 //            console.log('testing', dataList2);
-    
+    }    
 });
 
 // The below AJAX call that queries for the users friends and associated 
