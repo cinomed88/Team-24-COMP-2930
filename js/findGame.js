@@ -18,7 +18,21 @@
                 zoom: 15,
                 mapTypeId: 'roadmap'
             });
-                        
+            
+            // Checks if the user device's location is enabled, if so it 
+            // sets the map and marker initial center locations to that 
+            // of the device's longitude and latitude.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    map.setCenter({
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    });
+                    userMarker.setPosition(map.getCenter());
+                    });
+                    
+            }
+            
             // Geo-location to find the user's current location and set the centre of the map
             // to it accordingly.
             if (navigator.geolocation) {
