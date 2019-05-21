@@ -52,6 +52,7 @@ body {
 .button:hover {
 	background-color: green;
 	color:aqua;
+    cursor:pointer;
 }
 .line{
 	width:100vw;
@@ -86,7 +87,8 @@ body {
 	}
 .black:hover{
 	color:#fff!important;
-	background-color:#0173BC!important
+	background-color:#0173BC!important;
+    cursor: pointer;
 }
 .h2 {
 text-align:center;

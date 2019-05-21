@@ -25,15 +25,22 @@ $(document).ready(function () {
                     rank02_lev = (rank02_lev > 7) ? 7 : rank02_lev;
                     rank03_lev = (rank03_lev > 7) ? 7 : rank03_lev;
 
+                    var rank01_LP = (data.rank_point) % 100;
+                    var rank02_LP = (data.rank_point2) % 100;
+                    var rank03_LP = (data.rank_point3) % 100;
+                    rank01_LP = (rank01_lev == 7) ? 0 : rank01_LP;
+                    rank02_LP = (rank02_lev == 7) ? 0 : rank02_LP;
+                    rank03_LP = (rank03_lev == 7) ? 0 : rank03_LP;
+
                     document.getElementById("user_rank01_img").src="../Pics/Profile_Pics/rank0" + rank01_lev.toString() + ".png";
                     document.getElementById("user_rank02_img").src="../Pics/Profile_Pics/rank0" + rank02_lev.toString() + ".png";
                     document.getElementById("user_rank03_img").src="../Pics/Profile_Pics/rank0" + rank03_lev.toString() + ".png";
                     $("#user_rank01").text("Lev. " + rank01_lev);
-                    $("#user_rank01_pt").text((data.rank_point) % 100 + " pt");
+                    $("#user_rank01_LP").text("LP " + rank01_LP);
                     $("#user_rank02").text("Lev. " + rank02_lev);
-                    $("#user_rank02_pt").text((data.rank_point2) % 100 + " pt");
+                    $("#user_rank02_LP").text("LP " + rank02_LP);
                     $("#user_rank03").text("Lev. " + rank03_lev);
-                    $("#user_rank03_pt").text((data.rank_point3) % 100 + " pt");
+                    $("#user_rank03_LP").text("LP " + rank03_LP);
 
                     var honor_lev = parseInt(data.honor_point/100) + 1;
                     honor_lev = (honor_lev > 5) ? 5 : honor_lev;

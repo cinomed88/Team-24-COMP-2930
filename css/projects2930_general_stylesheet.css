@@ -20,7 +20,7 @@
   background: black;
   border-radius: 9px;
   opacity: 1;
-  left: 0;
+  right: 5px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -65,14 +65,17 @@ hamburger span:nth-child(1) {
 
 #naviwrap {
     position: absolute;
+    float: right;
     color: white;
     width: 150px;
-    font-size: 28pt;
+    font-size: 26pt;
     z-index: 2;
+/*    left: 10px;*/
     display: none;
 }
 #naviwrap a {
    margin-bottom: 10px;
+    
 }
 #naviwrap a:hover {
     text-decoration: underline;
@@ -104,6 +107,7 @@ hamburger span:nth-child(1) {
 }
 .backBTN:hover {
     background-color: skyblue;
+    cursor: pointer;
 }
 
 
