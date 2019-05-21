@@ -383,3 +383,9 @@ bt {
 #g > div > div > div.col-lg-8 > p {
   text-align: center;
 }
+img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  width: 120px;
+  height: auto;
+}
