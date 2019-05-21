@@ -1,4 +1,13 @@
+        // The below function creates the map and populates it with markers that fit the
+        // user's wanted sport and times that make sense. The map's origin point is either
+        // the user's current location or the centre of Downtown Vancouver, British Columbia.
         function initMap() {
+            
+            
+            if (localStorage.getItem('userSport') == null) {
+                window.location.href = "/gamelandscape.html"
+            }
+            
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: 49.246292,
@@ -10,6 +19,8 @@
                 mapTypeId: 'roadmap'
             });
                         
+            // Geo-location to find the user's current location and set the centre of the map
+            // to it accordingly.
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
                     map.setCenter({
@@ -36,6 +47,7 @@
             
             
             retrieveUserMatch(map);
+           // localStorage.clear();
             
             
             var markers = [];
