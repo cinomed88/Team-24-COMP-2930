@@ -106,6 +106,8 @@
         // This is a function that retrieves the matches made that
         // are of the user's requested sport, and start after the 
         // user's current date and time.
+        //
+        // @param mapAppend - a Google Maps API Object.
         function retrieveUserMatch(mapAppend) {
             
             
