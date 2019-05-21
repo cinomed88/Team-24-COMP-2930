@@ -266,7 +266,7 @@ app.get('/ajax-GET-match-data', function (req, res) {
                 console.log(users);
                 console.log(users[0].dataValues.user_id);
             }).catch(function(err) {
-                console.log("Error occurred at Ajax-get2", err);
+                console.log("Error occurred at Ajax-get", err);
                         // print the error details
             });
 //            res.send(dataList2);
