@@ -33,6 +33,11 @@
                 searchBox.setBounds(map.getBounds());
             });
 
+            
+            
+            retrieveUserMatch(map);
+            
+            
             var markers = [];
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
@@ -89,7 +94,7 @@
         // This is a function that retrieves the matches made that
         // are of the user's requested sport, and start after the 
         // user's current date and time.
-        function retrieveUserMatch() {
+        function retrieveUserMatch(mapAppend) {
             
             
             var todayDate = new Date();
@@ -119,6 +124,22 @@
                 },
                 success: function(data) {
                     console.log(data);
+                    for(let i = 0; i < data.length; i++) {
+                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        var marker = new google.maps.Marker({position: latlng});
+                        marker.setMap(mapAppend);
+                        var address = 'ERROR, ADDRESS NOT DETECTED';
+                        var geocoder = new google.maps.Geocoder;
+                        geocoder.geocode({'latLng': latlng}, (results, status) => {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                if (results[0]) {
+                                    console.log(results[0].formatted_address);
+                                    var address = results[0].formatted_address;
+                                }
+                            }
+                            
+                        });
+                    }                
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $("#p2").text(jqXHR.statusText);
@@ -129,6 +150,6 @@
         
         }
 
-        retrieveUserMatch();
+
         initMap();
 
