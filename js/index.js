@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-    
-    
-    
     //The carousel selections are handled by the following lines of code.
     $('#carouselSelection').on('click', '.circleSelection', function(){
         $('.currentSelection').addClass('circleSelection').removeClass('currentSelection');

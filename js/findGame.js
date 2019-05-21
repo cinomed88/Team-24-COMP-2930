@@ -111,21 +111,29 @@
         function retrieveUserMatch(mapAppend) {
             
             
+            // The below few lines of code take the current time and date and converts
+            // it to the time and date format used by Transact-SQL.
             var todayDate = new Date();
             var time = `${todayDate.getHours()}:00:00.0000000`;
             var month = todayDate.getMonth() + 1;
             var date = 0;
             
+            // Checks if a trailing zero is required or not for the full SQL date.
             if (month < 10) {
                 date = `${todayDate.getFullYear()}-0${month}-${todayDate.getDate()}`;
             } else {
                 date = `${todayDate.getFullYear()}-${month}-${todayDate.getDate()}`;
             }
+            
+            // Console logs to verify that the time and date are correctly translated,
+            // for the purposes of debugging etc.
             console.log(date);
             console.log(time);
             
             
-            
+            // The below AJAX call retrieves the user's matches, using the selected sport, current time, 
+            // and current day of the user, and then uses the data to create clickable markers on the map
+            // with the sport, time, and date of the match. 
             $.ajax({
                 url: '/get-matches',
                 dataType: 'json',
@@ -141,13 +149,14 @@
                     console.log(data);
                     var marker = [];
                     for(let i = 0; i < data.length; i++) {
-                        content = `Sport: ${data[i].sport}`;
+
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                         marker[i] = new google.maps.Marker({position: latlng});
                         marker[i].setMap(mapAppend);
                         var infoWindow = [];
                         
-                        
+                        // Converts the address into a readable, human-friendly version.
+                        // And then adds an infoWindow to the relevant marker.
                         var geocoder = new google.maps.Geocoder;
                         geocoder.geocode({'latLng': latlng}, (results, status) => {
                             if (status == google.maps.GeocoderStatus.OK) {
@@ -156,7 +165,7 @@
                                     var address = results[0].formatted_address;
                                     var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
                                     console.log(time);
-                                    var contentString = `Sport: ${data[i].sport}, Time: ${time}, Address: ${address}`;
+                                    var contentString = `Sport: ${data[i].sport}, Date: ${date}, Time: ${time}, Address: ${address}`;
                                     infoWindow[i] = new google.maps.InfoWindow({
                                         content: contentString
                                     });

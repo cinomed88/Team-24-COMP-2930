@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //START - Schedule container ajax
+    //Ansynchronous call to the database to request user's match/event data.
     $.ajax({
         url: "/ajax-GET-match-data",
         type: "GET",
@@ -29,6 +30,8 @@ $(document).ready(function(){
                 console.log('esketit', data);
         }
     });
+    //Method that shows more match/event data.
+    //Ansynchronous call to the database to request user's match data.
     $('.scheduleButton').on('click', () => {
     $.ajax({
         url: "/ajax-GET-match-data",
@@ -71,7 +74,10 @@ $(document).ready(function(){
         $('.greaterOuterDiv').html('');
     });
     //END - schedule container ajax
+    
+    
     //START - friends list ajax
+    //Ansynchronous call to the database to request user's friends list.
     $.ajax({
         url: "/ajax-GET-match-data",
         type: "GET",
@@ -102,6 +108,8 @@ $(document).ready(function(){
         }
     });
     
+    //Method that shows more of the users friends list
+    //Ansynchronous call to the database to request user's friends list.
     $('.friendsButton').on('click', () => {
     $.ajax({
         url: "/ajax-GET-match-data",
@@ -144,7 +152,11 @@ $(document).ready(function(){
         $('.greaterOuterFriendsDiv').html('');
     });
     //END - friends list container ajax
+    
+    
     //START - Recently played ajax
+    //Ansynchronous call to the database to request user's recently played
+    //players data.
     $.ajax({
         url: "/ajax-GET-match-data",
         type: "GET",
@@ -174,6 +186,10 @@ $(document).ready(function(){
                 console.log('esketit', data);
         }
     });
+    
+    //Method that shows more of the users recently played players
+    //Ansynchronous call to the database to request user's list of recently
+    //played players.
     $('.recentButton').on('click', () => {
     $.ajax({
         url: "/ajax-GET-match-data",
