@@ -22,9 +22,9 @@ $(document).ready(function () {
                     var rank01_lev = parseInt(data.rank_point/100) + 1;
                     var rank02_lev = parseInt(data.rank_point2/100) + 1;
                     var rank03_lev = parseInt(data.rank_point3/100) + 1;
-                    rank01_lev = (rank01_lev > 5) ? 5 : rank01_lev;
-                    rank02_lev = (rank02_lev > 5) ? 5 : rank02_lev;
-                    rank03_lev = (rank03_lev > 5) ? 5 : rank03_lev;
+                    rank01_lev = (rank01_lev > 7) ? 7 : rank01_lev;
+                    rank02_lev = (rank02_lev > 7) ? 7 : rank02_lev;
+                    rank03_lev = (rank03_lev > 7) ? 7 : rank03_lev;
 
                     document.getElementById("user_rank01_img").src="../Pics/Profile_Pics/rank0" + rank01_lev.toString() + ".png";
                     document.getElementById("user_rank02_img").src="../Pics/Profile_Pics/rank0" + rank02_lev.toString() + ".png";
