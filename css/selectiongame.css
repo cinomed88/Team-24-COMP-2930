@@ -46,7 +46,21 @@
     width:60vw;
     height: 50vh;
     margin: auto; 
+    z-index: 30000;
 }
+
+.participants { 
+    background: lightgrey;
+    display: none;
+    border: 1px solid black;
+    font-size: 45pt;
+    width:60vw;
+    height: 50vh;
+    margin: auto; 
+    z-index: 30000;
+}
+
+
 #rectangle3 {
     float: right;
     margin-top: 20px;

@@ -165,10 +165,14 @@
                     for(let i = 0; i < data.length; i++) {
 
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                        marker[i] = new google.maps.Marker({position: latlng});
-                        marker[i].setMap(mapAppend);
                         var infoWindow = [];
                         
+                        var participantsDiv = document.createElement('div');
+                        participantsDiv.setAttribute('class', 'participants');
+                        participantsDiv.setAttribute('id', `${data[i].match_id}`);
+                        var map = document.getElementById('map');
+                        map.appendChild(participantsDiv);                        
+
                         // Converts the address into a readable, human-friendly version.
                         // And then adds an infoWindow to the relevant marker.
                         var geocoder = new google.maps.Geocoder;
@@ -179,17 +183,26 @@
                                     var address = results[0].formatted_address;
                                     var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
                                     console.log(time);
-                                    var contentString = `Sport: ${data[i].sport}, Date: ${date}, Time: ${time}, Address: ${address}`;
-                                    infoWindow[i] = new google.maps.InfoWindow({
-                                        content: contentString
-                                    });
+                                    content = `Address: ${address}`;
                                 }
                             }  
                         });
                         
+                        marker[i] = new google.maps.Marker({position: latlng});
+                        marker[i].setMap(mapAppend);
                         marker[i].addListener('click', function() {
-                            infoWindow[i].open(mapAppend, marker[i]);
+                            var popUps = document.getElementsByClassName('participants');
+                            for(let i = 0; i < popUps.length; i++) {
+                                popUps[i].style.display = 'none';
+                            }
+                            document.getElementById(`${data[i].match_id}`).style.display = 'block';
                         });
+                    }
+                    
+                    for (var i = 0; i < data.length; i++) {
+                        var popUps = document.getElementsByClassName('participants');
+                        var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
+                        popUps[i].innerHTML = `Sport: ${data[i].sport}, Date: ${data[i].date}, Time: ${time}, ${content}`;
                     }
                         
                 },

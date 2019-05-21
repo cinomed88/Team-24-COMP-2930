@@ -188,6 +188,25 @@ app.get('/get-matches', (req, res) => {
 });
 
 
+// The below AJAX call takes the match id in question and then queries it to
+// find all participants.
+app.get('/get-match-participants', (req, res) => {
+    
+    let matchId = req.query['matchId'];
+    
+    sequelize.query(`SELECT user_id FROM MATCH_PARTICIPANTS WHERE match_id IS ${matchId}`, {
+        model: matchParticipants
+    }).then(players => {
+        console.log(players);
+        res.send(players);
+    }).catch(err => {
+        console.log(`ERROR CAUGHT WHILE TRYING TO GET PARTICIPANTS FOR ${matchID}`);
+    });
+    
+    
+});
+
+
 
 // The current user and his details are obtained 
 // through this AJAX call, using their firebase id
