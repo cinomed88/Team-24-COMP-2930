@@ -52,7 +52,7 @@ $(document).ready(function(){
 
                     var sport = document.createElement('div');
                     sport.className += 'sportOverLay' + " " + z;
-                    $(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
+                    $(sport).css('background-image','url(../Pics/Home_Pics/female_4.jpg)');
 
                     var scheduleData = document.createElement('div');
 
