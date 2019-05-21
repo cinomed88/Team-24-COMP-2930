@@ -67,12 +67,13 @@ hamburger span:nth-child(1) {
     position: absolute;
     color: white;
     width: 150px;
-    font-size: 28pt;
+    font-size: 26pt;
     z-index: 2;
     display: none;
 }
 #naviwrap a {
    margin-bottom: 10px;
+    
 }
 #naviwrap a:hover {
     text-decoration: underline;
