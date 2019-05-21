@@ -11,7 +11,6 @@ $(document).ready(function () {
                 type: "GET",
                 beforeSend: function () {
                     //console.log("beforeSend function");
-                    //var userId = "C3fd4AdJhTQmrvzYmaQIHpcyTsZ2";
                 },
                 // data: { name: userId },
                 success: function (data) {
