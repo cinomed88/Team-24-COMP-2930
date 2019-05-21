@@ -67,6 +67,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-size: 25pt;
     overflow-y: auto;
 }
@@ -94,7 +95,7 @@ ul.scrollable {
 .joinButton {
     font-size: 25pt;
     background-color: blue;
-    margin-top: 100px;
+    margin-top: 25px;
     margin-right: 10px;
     text-align: center;
     width: 200px;
