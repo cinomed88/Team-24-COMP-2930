@@ -245,7 +245,7 @@ app.get('/ajax-GET-Profile', function (req, res) {
     // set the type of response:
     res.setHeader('Content-Type', 'application/json');
 
-    let qs = 'SELECT user_name, honor_point, rank_point FROM USERS WHERE user_id = ' + '\'' + q.query["name"] + '\'';
+    let qs = 'SELECT user_name, honor_point, rank_point, rank_point2, rank_point3 FROM USERS WHERE user_id = ' + '\'' + q.query["name"] + '\'';
 
     sequelize.query(qs, { model: users })
         .then(function (userdata) {
