@@ -104,6 +104,7 @@ hamburger span:nth-child(1) {
 }
 .backBTN:hover {
     background-color: skyblue;
+    cursor: pointer;
 }
 
 
