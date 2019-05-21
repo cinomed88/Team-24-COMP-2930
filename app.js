@@ -200,7 +200,7 @@ app.get('/get-match-participants', (req, res) => {
         console.log(players);
         res.send(players);
     }).catch(err => {
-        console.log(`ERROR CAUGHT WHILE TRYING TO GET PARTICIPANTS FOR ${matchID}`);
+        console.log(`ERROR CAUGHT WHILE TRYING TO GET PARTICIPANTS FOR ${matchID}`, err);
     });
     
     

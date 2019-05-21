@@ -28,23 +28,9 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     });
-                    userMarker.setPosition(map.getCenter());
-                    });
-                    
-            }
-            
-            // Geo-location to find the user's current location and set the centre of the map
-            // to it accordingly.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    map.setCenter({
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    });
                 });
-                    
             }
-            
+
             
 
 
@@ -62,6 +48,7 @@
             
             retrieveUserMatch(map);
            // localStorage.clear();
+            
             
             
             var markers = [];
@@ -164,7 +151,6 @@
                     var marker = [];
                     for(let i = 0; i < matches.length; i++) {
 
-                        var latlng = new google.maps.LatLng(matches[i].lat, matches[i].lng);
                         var infoWindow = [];
                         
                         var participantsDiv = document.createElement('div');
@@ -175,6 +161,7 @@
 
                         // Converts the address into a readable, human-friendly version.
                         // And then adds an infoWindow to the relevant marker.
+                        var latlng = new google.maps.LatLng(matches[i].lat, matches[i].lng);
                         var geocoder = new google.maps.Geocoder;
                         geocoder.geocode({'latLng': latlng}, (results, status) => {
                             if (status == google.maps.GeocoderStatus.OK) {
@@ -220,6 +207,8 @@
                                         JOIN
                                 </div>
                             </div>`;
+                        addPlayers(popUps[i], i);
+                        
                     }
                         
                 },
@@ -228,13 +217,39 @@
                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
                 }                
 
-            });
-            
-            
-            
-        
+            });            
         }
+                
+                
+        function addPlayers(divMatch, int) {
+            console.log(divMatch.id);
+            $.ajax({
+                url: '/get-match-participants',
+                dataType: 'json',
+                data: {matchId: divMatch.id},
+                success: function(data) {
+                    console.log(data);
+                    var list = document.getElementsByClassName('scrollable');
+                    for (let k = 0; k < data.length; k++){
+                        list[int].innerHTML += `<li><div class = "playerDetails">${data[k].user_name}</div></li>` 
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $("#p2").text(jqXHR.statusText);
+                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                }                
+
+
+            });
+        }
+
+    
+
+
+
+        
+        
 
 
         initMap();
-
+        addPlayers();
