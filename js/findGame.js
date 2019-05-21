@@ -137,23 +137,38 @@
                     date: date
                 },
                 success: function(data) {
+                    var content = 0;
                     console.log(data);
+                    var marker = [];
                     for(let i = 0; i < data.length; i++) {
+                        content = `Sport: ${data[i].sport}`;
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                        var marker = new google.maps.Marker({position: latlng});
-                        marker.setMap(mapAppend);
-                        var address = 'ERROR, ADDRESS NOT DETECTED';
+                        marker[i] = new google.maps.Marker({position: latlng});
+                        marker[i].setMap(mapAppend);
+                        var infoWindow = [];
+                        
+                        
                         var geocoder = new google.maps.Geocoder;
                         geocoder.geocode({'latLng': latlng}, (results, status) => {
                             if (status == google.maps.GeocoderStatus.OK) {
                                 if (results[0]) {
                                     console.log(results[0].formatted_address);
                                     var address = results[0].formatted_address;
+                                    var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
+                                    console.log(time);
+                                    var contentString = `Sport: ${data[i].sport}, Time: ${time}, Address: ${address}`;
+                                    infoWindow[i] = new google.maps.InfoWindow({
+                                        content: contentString
+                                    });
                                 }
-                            }
-                            
+                            }  
                         });
-                    }                
+                        
+                        marker[i].addListener('click', function() {
+                            infoWindow[i].open(mapAppend, marker[i]);
+                        });
+                    }
+                        
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $("#p2").text(jqXHR.statusText);
