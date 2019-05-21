@@ -43,6 +43,7 @@
 #participants { 
     background: lightgrey;
     border: 1px solid black;
+    overflow-y: auto;
     width:60vw;
     height: 50vh;
     margin: auto; 
@@ -58,6 +59,58 @@
     height: 50vh;
     margin: auto; 
     z-index: 30000;
+}
+
+.matchDetails {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25pt;
+    overflow-y: auto;
+}
+
+.players {
+    margin-top: 10px;
+    text-align: center;
+    width: 85%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+ul.scrollable {
+    height: 50%;
+    width: 100%;
+    margin-left: 20px;
+    padding: 0;
+    list-style-type: none;
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.joinButton {
+    font-size: 25pt;
+    background-color: blue;
+    margin-top: 100px;
+    margin-right: 10px;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+}
+
+.joinText {
+    margin: 0 auto;
+}
+
+
+.playerDetail {
+    margin-top: 10px;
+    width: 75%;
+    height: 100px;
+    background-color: darkgray;
 }
 
 

@@ -202,7 +202,27 @@
                     for (var i = 0; i < data.length; i++) {
                         var popUps = document.getElementsByClassName('participants');
                         var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
-                        popUps[i].innerHTML = `Sport: ${data[i].sport}, Date: ${data[i].date}, Time: ${time}, ${content}`;
+                        popUps[i].innerHTML = `<div id ="rectangle3">
+                            <i class="fa fa-close" style="font-size: 50px" onclick="document.getElementById('${data[i].match_id}').style.display= 'none'"></i>
+                </div>
+                <div class = "matchDetails">
+                    <div class = "sport">${data[i].sport}</div>
+                    <div class = "time">${time}</div>
+                    <div class = "date">${data[i].date}</div>
+                    <div class = "players"> Players 
+                        <ul class = "scrollable">
+                                <li><div class = "playerDetail">Jas</div></li>
+                                <li><div class = "playerDetail">Jas</div></li>
+                                <li><div class = "playerDetail">Jas</div></li>
+                                <li><div class = "playerDetail">Jas</div></li>
+                                <li><div class = "playerDetail">Jas</div></li>
+                                <li><div class = "playerDetail">Jas</div></li>
+                        </ul>
+                    </div>
+                    <div class = "joinButton" id = "${'b' + data[i].match_id}">
+                            JOIN
+                    </div>
+                </div>`;
                     }
                         
                 },
