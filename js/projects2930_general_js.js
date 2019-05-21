@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('header').after('<div id="overlay"></div>');
     $('.navi-bar-mobile').append('<div id="naviwrap"></div>');
     
-    $('#naviwrap').append('<a href="#" onclick="firebase.auth().signOut()"><div class="sing-out">Sign-out</div></a>');
+    $('#naviwrap').append('<a href="#" onclick="firebase.auth().signOut()"><div class="sing-out">Sign-Out</div></a>');
     $('#naviwrap').append('<a href="aboutus.html"><div>About Us</div></a>');
     
     //Creates an animated hamburger menu which displays an overlay for 

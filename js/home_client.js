@@ -15,6 +15,7 @@ $(document).ready(function(){
 
                     var sport = document.createElement('div');
                     sport.className += 'sport' + " " + z;
+                    $(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
 
                     var scheduleData = document.createElement('div');
 
@@ -51,6 +52,7 @@ $(document).ready(function(){
 
                     var sport = document.createElement('div');
                     sport.className += 'sportOverLay' + " " + z;
+                    $(sport).css('background-image','url(../Pics/Home_Pics/female_4.jpg)');
 
                     var scheduleData = document.createElement('div');
 
@@ -92,6 +94,7 @@ $(document).ready(function(){
 
                     var avatar = document.createElement('div');
                     avatar.className += 'avatar' + " " + z;
+                    $(avatar).css('background-image','url(../Pics/Home_Pics/male2.jpg)');
 
                     var userNameData = document.createElement('div');
 
@@ -129,6 +132,7 @@ $(document).ready(function(){
 
                     var avatar = document.createElement('div');
                     avatar.className += 'avatarOverLay' + " " + z;
+                    $(avatar).css('background-image','url(../Pics/Home_Pics/male2.jpg)');
 
                     var userNameData = document.createElement('div');
 
@@ -171,6 +175,7 @@ $(document).ready(function(){
 
                     var matchAvatar = document.createElement('div');
                     matchAvatar.className += 'matchAvatar' + " " + z;
+                    $(matchAvatar).css('background-image','url(../Pics/Home_Pics/male2.jpg)');
 
                     var matchUserData = document.createElement('div');
                     matchUserData.className += 'matchUser' + " " + z;
@@ -209,6 +214,7 @@ $(document).ready(function(){
 
                     var matchAvatar = document.createElement('div');
                     matchAvatar.className += 'matchAvatarOverLay' + " " + z;
+                    $(matchAvatar).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
 
                     var matchUserData = document.createElement('div');
                     matchUserData.className += 'matchUserOverLay' + " " + z;

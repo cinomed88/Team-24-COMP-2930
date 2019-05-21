@@ -132,10 +132,11 @@ body {
 }
 .sport{
     position: relative;
-    top: 13px;
-    width: 15%;
-    height: 40px;
+    top: 2px;
+    width: 14%;
+    height: 45px;
     margin-left: 5%;
+    border-radius: 50%;
 }
 .scheduleData {
     display: flex;
@@ -181,10 +182,11 @@ body {
 }
 .avatar {
     position: relative;
-    top: 13px;
+    top: 2px;
     left: 4%;
-    width: 20%;    
+    width: 25%;    
     height: 40px;
+    border-radius: 50%;
 }
 .userName {
     position: relative;
@@ -245,10 +247,12 @@ body {
 }
 .matchAvatar {
     position: relative;
-    top: 13px;
+    top: 2px;
     left: 4%;
-    width: 20%;    
+    width: 25%;    
     height: 40px;
+    border-radius: 50%;
+
 }
 .matchUser {
     position: relative;
@@ -340,11 +344,13 @@ body {
 }
 .sportOverLay{
     position: relative;
-    top: 13px;
-    width: 15%;
+    top: 2px;
+    width: 13%;
     height: 50px;
     margin-left: 5%;
     z-index: 9001;
+    border-radius: 50%;
+
 }
 .scheduleDataOverLay {
     position: relative;
@@ -414,10 +420,12 @@ body {
 }
 .avatarOverLay {
     position: relative;
-    top: 13px;
+    top: 2px;
     left: 4%;
-    width: 20%;    
+    width: 13%;    
     height: 50px;
+    border-radius: 50%;
+
 }
 .userNameOverLay {
     position: relative;
@@ -478,10 +486,12 @@ body {
 }
 .matchAvatarOverLay {
     position: relative;
-    top: 13px;
+    top: 2px;
     left: 4%;
-    width: 10%;    
+    width: 13%;    
     height: 50px;
+    border-radius: 50%;
+
 }
 .matchUserOverLay {
     position: relative;
@@ -497,7 +507,6 @@ body {
 .recentButtonOverLay {
     margin: 0 auto;
 }
-
 
 
 @media only screen and (orientation:landscape) {
