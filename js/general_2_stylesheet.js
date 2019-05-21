@@ -1,3 +1,5 @@
+//Stylesheet that generates html for the back-button to be used by select
+//application pages.
 $(document).ready(function() {
     $('body').prepend('<header></header');   
     

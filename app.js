@@ -166,34 +166,6 @@ app.post('/create-match', (req, res) => {
 
 });
 
-
-
-
-
-app.get('/ajax-GET-data', function (req, res) {
-    let formatOfResponse = req.query['format'];
-    let dataList = null;
-
-    if (formatOfResponse == 'json-list') {
-        res.setHeader('Content-Type', 'text/html');
-        dataList = data.getJSON1();
-        res.send(dataList);
-        console.log(dataList);
-
-    } else if (formatOfResponse == 'json-list4') {
-        res.setHeader('Content-Type', 'text/html');
-        dataList = data.getJSON4();
-        res.send(dataList);
-        console.log(dataList);
-    } else {
-        res.send({
-            msg: 'Wrong Format'
-        });
-    }
-
-});
-
-
 // The below AJAX call takes the user's current selected sport and date,
 // and then queries to find relevant matches, before sending that data
 // back to the client-side to be placed on the map as markers.
@@ -260,7 +232,10 @@ app.get('/ajax-GET-Profile', function (req, res) {
 
 })
 
-
+// The below AJAX call takes the user's current selected sport and date,
+// and then queries to find relevant matches, before sending that data
+// back to the client-side to be placed on the relevant div container for
+// displaying a match/event list for the user on the homepage.
 app.get('/ajax-GET-match-data', function (req, res) {
         let formatOfResponse = req.query['format'];
         let dataList2 = null;
@@ -284,11 +259,27 @@ app.get('/ajax-GET-match-data', function (req, res) {
     
 });
 
+// The below AJAX call that queries for the users friends and associated 
+// avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user
+//on the homepage.
 app.get('/ajax-GET-friends-data', function (req, res) {
     let formatOfResponse = req.query['format'];
     let friendsData = null;
     
     if(formatOfResponse == 'json-friends-list') {
+        res.setHeader('Content-Type', 'text/html');
+//        sequelize.query(`liasuhiaubdg;iuasdu`)
+    } else {
+        res.send({msg: 'Wrong Format'});
+    }
+});
+
+// The below AJAX call that queries for the users recently played players and associated avatar, before sending that data back to the client-side to be //placed on the relevant div container for displaying a users friend list for //the user's on the homepage.
+app.get('/ajax-GET-recentlyPlayed-data', function (req, res) {
+    let formatOfResponse = req.query['format'];
+    let friendsData = null;
+    
+    if(formatOfResponse == 'json-recentlyPlayed-list') {
         res.setHeader('Content-Type', 'text/html');
 //        sequelize.query(`liasuhiaubdg;iuasdu`)
     } else {
