@@ -194,7 +194,7 @@ app.get('/get-match-participants', (req, res) => {
     
     let matchId = req.query['matchId'];
     
-    sequelize.query(`SELECT user_id FROM MATCH_PARTICIPANTS WHERE match_id IS ${matchId}`, {
+    sequelize.query(`SELECT * FROM USERS JOIN MATCH_PARTICIPANTS ON (USERS.user_id = MATCH_PARTICIPANTS.user_id) WHERE MATCH_PARTICIPANTS.match_id = ${matchId}`, {
         model: matchParticipants
     }).then(players => {
         console.log(players);
@@ -258,23 +258,18 @@ app.get('/ajax-GET-Profile', function (req, res) {
 app.get('/ajax-GET-match-data', function (req, res) {
         let formatOfResponse = req.query['format'];
         let dataList2 = null;
-        
-        if(formatOfResponse == 'json-match-list') {
-            res.setHeader('Content-Type', 'text/html');
-            sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
-                res.send(users);
-                console.log(users);
-                console.log(users[0].dataValues.user_id);
-            }).catch(function(err) {
-                console.log("Error occurred at Ajax-get2", err);
-                        // print the error details
-            });
+        let userId = req.query['userId'];
+        res.setHeader('Content-Type', 'text/html');
+        sequelize.query(`SELECT * FROM MATCH JOIN MATCH_PARTICIPANTS ON (MATCH.match_id = MATCH_PARTICIPANTS.match_id)
+WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(function(match) {
+            res.send(match);
+            console.log(match);
+        }).catch(function(err) {
+            console.log("Error occurred at Ajax-get2", err);
+                    // print the error details
+        });
 //            res.send(dataList2);
 //            console.log('testing', dataList2);
-            
-    } else {
-            res.send({msg: 'Wrong Format'});
-        }
     
 });
 

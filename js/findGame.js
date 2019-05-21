@@ -158,18 +158,18 @@
                     time: time,
                     date: date
                 },
-                success: function(data) {
+                success: function(matches) {
                     var content = 0;
-                    console.log(data);
+                    console.log(matches);
                     var marker = [];
-                    for(let i = 0; i < data.length; i++) {
+                    for(let i = 0; i < matches.length; i++) {
 
-                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        var latlng = new google.maps.LatLng(matches[i].lat, matches[i].lng);
                         var infoWindow = [];
                         
                         var participantsDiv = document.createElement('div');
                         participantsDiv.setAttribute('class', 'participants');
-                        participantsDiv.setAttribute('id', `${data[i].match_id}`);
+                        participantsDiv.setAttribute('id', `${matches[i].match_id}`);
                         var map = document.getElementById('map');
                         map.appendChild(participantsDiv);                        
 
@@ -181,7 +181,7 @@
                                 if (results[0]) {
                                     console.log(results[0].formatted_address);
                                     var address = results[0].formatted_address;
-                                    var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
+                                    var time = matches[i].time.substring(matches[i].time.indexOf('T') + 1, matches[i].time.length - 1);
                                     console.log(time);
                                     content = `Address: ${address}`;
                                 }
@@ -195,34 +195,31 @@
                             for(let i = 0; i < popUps.length; i++) {
                                 popUps[i].style.display = 'none';
                             }
-                            document.getElementById(`${data[i].match_id}`).style.display = 'block';
+                            document.getElementById(`${matches[i].match_id}`).style.display = 'block';
                         });
                     }
                     
-                    for (var i = 0; i < data.length; i++) {
+                    for (var i = 0; i < matches.length; i++) {
                         var popUps = document.getElementsByClassName('participants');
-                        var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
-                        popUps[i].innerHTML = `<div id ="rectangle3">
-                            <i class="fa fa-close" style="font-size: 50px" onclick="document.getElementById('${data[i].match_id}').style.display= 'none'"></i>
-                </div>
-                <div class = "matchDetails">
-                    <div class = "sport">${data[i].sport}</div>
-                    <div class = "time">${time}</div>
-                    <div class = "date">${data[i].date}</div>
-                    <div class = "players"> Players 
-                        <ul class = "scrollable">
-                                <li><div class = "playerDetail">Jas</div></li>
-                                <li><div class = "playerDetail">Jas</div></li>
-                                <li><div class = "playerDetail">Jas</div></li>
-                                <li><div class = "playerDetail">Jas</div></li>
-                                <li><div class = "playerDetail">Jas</div></li>
-                                <li><div class = "playerDetail">Jas</div></li>
-                        </ul>
-                    </div>
-                    <div class = "joinButton" id = "${'b' + data[i].match_id}">
-                            JOIN
-                    </div>
-                </div>`;
+                        var time = matches[i].time.substring(matches[i].time.indexOf('T') + 1, matches[i].time.length - 1);
+                        
+                        
+                        
+                        popUps[i].innerHTML = 
+                            `<div id ="rectangle3">
+                            <i class="fa fa-close" style="font-size: 50px" onclick="document.getElementById('${matches[i].match_id}').style.display= 'none'"></i>
+                            </div>
+                            <div class = "matchDetails">
+                                <div class = "sport">${matches[i].sport}</div>
+                                <div class = "time">${time}</div>
+                                <div class = "date">${matches[i].date}</div>
+                                <div class = "players"> Players 
+                                    <ul class = "scrollable"></ul>
+                                </div>
+                                <div class = "joinButton" id = "${'b' + matches[i].match_id}">
+                                        JOIN
+                                </div>
+                            </div>`;
                     }
                         
                 },
@@ -232,6 +229,9 @@
                 }                
 
             });
+            
+            
+            
         
         }
 
