@@ -63,10 +63,6 @@ img.backBTN {
 
 
 @media only screen and (orientation:landscape) {
-    img.backBTN {
-        display: none;
-    }
-    
     #biographies {
         flex-direction: row;
     }
