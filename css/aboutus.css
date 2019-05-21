@@ -380,3 +380,6 @@ bt {
 #g > div > div > h3 {
   margin-top: 0;
 } 
+#g > div > div > div.col-lg-8 > p {
+  text-align: center;
+}
