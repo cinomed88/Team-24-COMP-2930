@@ -52,8 +52,12 @@ body {
     margin: 20px;
     font-size: 2vmax;
 }
-#rank_body div {
+#rank_body > div {
     height: 100%;
+}
+
+#rank_body > div > div{
+    height: 50%;
 }
 
 #rank_body img {
