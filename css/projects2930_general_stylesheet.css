@@ -65,11 +65,12 @@ hamburger span:nth-child(1) {
 
 #naviwrap {
     position: absolute;
+    float: right;
     color: white;
     width: 150px;
     font-size: 26pt;
     z-index: 2;
-    right: 10px;
+/*    left: 10px;*/
     display: none;
 }
 #naviwrap a {
