@@ -138,10 +138,23 @@ $(document).ready(function(){
                         outerDiv = document.createElement('div');
                         outerDiv.className += 'scheduleOverLay' + " " + z;
 
-                        var sport = document.createElement('div');
-                        sport.className += 'sportOverLay' + " " + z;
-                        $(sport).css('background-image','url(../Pics/Home_Pics/female_4.jpg)');
+                        var sport = document.createElement('img');
+                            sport.className += 'sportOverLay' + " " + z;
 
+                            var sportCode;
+                            if( data[z].sport == "Soccer"){
+                                sportCode = 1;
+                            } else if (data[z].sport == "Basketball"){
+                                sportCode = 0;
+                            } else {
+                                sportCode = 2;
+                            }
+
+                            console.log(data[z].sport + "askjdgakwld");
+                            //$(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
+                            //$(sport).css('background-image','url(../Pics/Profile_Pics/sports' + z.toString() + '.png)');
+                            sport.src = "../Pics/Profile_Pics/sports" + sportCode.toString() + ".png";
+                    
                         var scheduleData = document.createElement('div');
 
                                 scheduleData.className += 'scheduleDataOverLay' + " " + z;
