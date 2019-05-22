@@ -78,6 +78,41 @@ $(document).ready(function(){
                 }
             });
             
+            //START - Recently played ajax
+            //Ansynchronous call to the database to request user's recently played
+            //players data.
+            $.ajax({
+                url: "/ajax-GET-recentlyPlayed-data",
+                type: "GET",
+                dataType: "json",
+                data: {date: date,
+                       userId: userId},
+                success: function(data) {
+                    console.log("SUCCESS JSON:", data); 
+                    for(let z = 0; z < data.length && z <= 3; z++){
+                        let outerRecentlyDiv = "";
+                            outerRecentlyDiv = document.createElement('div');
+                            outerRecentlyDiv.className += 'recentlyPlayed' + " " + z;
+
+                            var matchAvatar = document.createElement('div');
+                            matchAvatar.className += 'matchAvatar' + " " + z;
+                            $(matchAvatar).css('background-image','url(../Pics/Home_Pics/male2.jpg)');
+
+                            var matchUserData = document.createElement('div');
+                            matchUserData.className += 'matchUser' + " " + z;
+
+                            outerRecentlyDiv.appendChild(matchAvatar);
+                            outerRecentlyDiv.appendChild(matchUserData);
+
+                            $('.recentBTN').before(outerRecentlyDiv);
+
+        //                console.log(data[z].user_name);
+                        $(matchUserData).html(data[z].user_name + "  " + data[z].honor_point);
+                        }
+                        console.log('esketit', data);
+                }
+            });
+            
             
         }
     });
@@ -234,40 +269,8 @@ $(document).ready(function(){
     //END - friends list container ajax
     
     
-    //START - Recently played ajax
-    //Ansynchronous call to the database to request user's recently played
-    //players data.
-    $.ajax({
-        url: "/ajax-GET-match-data",
-        type: "GET",
-        dataType: "json",
-        data: {format: 'json-match-list'},
-        success: function(data) {
-            console.log("SUCCESS JSON:", data); 
-            for(let z = 0; z < data.length && z <= 3; z++){
-                let outerRecentlyDiv = "";
-                    outerRecentlyDiv = document.createElement('div');
-                    outerRecentlyDiv.className += 'recentlyPlayed' + " " + z;
 
-                    var matchAvatar = document.createElement('div');
-                    matchAvatar.className += 'matchAvatar' + " " + z;
-                    $(matchAvatar).css('background-image','url(../Pics/Home_Pics/male2.jpg)');
 
-                    var matchUserData = document.createElement('div');
-                    matchUserData.className += 'matchUser' + " " + z;
-                
-                    outerRecentlyDiv.appendChild(matchAvatar);
-                    outerRecentlyDiv.appendChild(matchUserData);
-
-                    $('.recentBTN').before(outerRecentlyDiv);
-                
-//                console.log(data[z].user_name);
-                $(matchUserData).html(data[z].user_name + "  " + data[z].honor_point);
-                }
-                console.log('esketit', data);
-        }
-    });
-    
     //Method that shows more of the users recently played players
     //Ansynchronous call to the database to request user's list of recently
     //played players.
