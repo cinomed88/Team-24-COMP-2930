@@ -305,9 +305,10 @@ app.get('/ajax-GET-match-data', function (req, res) {
 //            });
 
         let userId = req.query['userId'];
+        let date = req.query['date'];
         res.setHeader('Content-Type', 'text/html');
         sequelize.query(`SELECT * FROM MATCH JOIN MATCH_PARTICIPANTS ON (MATCH.match_id = MATCH_PARTICIPANTS.match_id)
-WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(function(match) {
+WHERE MATCH_PARTICIPANTS.user_id = '${userId}' AND MATCH.date >= '${date}'`, { model: matches }).then(function(match) {
             res.send(match);
             console.log(match);
         }).catch(function(err) {
