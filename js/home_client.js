@@ -58,6 +58,12 @@ $(document).ready(function(){
                         
                         console.log('esketit', data);
                         }
+                    let x = data.length;
+                    if(data.length < 3) {
+                        $('.scheduleButton').hide();
+                    } else {
+                        $('.scheduleButton').show();
+                    }
                 }
             });
             

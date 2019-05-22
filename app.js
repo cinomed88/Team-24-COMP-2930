@@ -319,8 +319,8 @@ WHERE MATCH_PARTICIPANTS.user_id = '${userId}' AND MATCH.date >= '${date}'`, { m
 
 //            res.send(dataList2);
 //            console.log('testing', dataList2);
-
-});
+    
+        });
 
 // The below AJAX call that queries for the users friends and associated 
 // avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user
