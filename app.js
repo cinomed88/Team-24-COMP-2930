@@ -318,14 +318,9 @@ WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(functi
 
 //            res.send(dataList2);
 //            console.log('testing', dataList2);
-<<<<<<< HEAD
     
         });
 
-=======
-    }    
-});
->>>>>>> 9d3c2ca7060d8b4be7aa31b2400e26ba10dee1d7
 
 // The below AJAX call that queries for the users friends and associated 
 // avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user
