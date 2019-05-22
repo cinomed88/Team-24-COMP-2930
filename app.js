@@ -172,7 +172,7 @@ app.post('/join-match', (req, res) => {
     sequelize.query(`SET IDENTITY_INSERT MATCH_PARTICIPANTS ON INSERT INTO MATCH_PARTICIPANTS (user_id, match_id, is_host) VALUES ('${req.body.user_id}', ${req.body.match_id}, 0)`, {
         model: matchParticipants
     }).then(function (match) {
-        console.log('SUCCESSFULLY JOINED MATCH!');
+        console.log('SUCCESSFULLY JOINED MATCH!', match);
     }).catch(function (err) {
        console.log('ERROR JOINING MATCH: ', err); 
     });
@@ -320,9 +320,6 @@ WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(functi
 //            console.log('testing', dataList2);
     
         });
-
-//    }    
-//});
 
 // The below AJAX call that queries for the users friends and associated 
 // avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user

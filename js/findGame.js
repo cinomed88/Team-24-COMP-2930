@@ -3,7 +3,7 @@
         // The below function creates the map and populates it with markers that fit the
         // user's wanted sport and times that make sense. The map's origin point is either
         // the user's current location or the centre of Downtown Vancouver, British Columbia.
-        function initMap() {
+        function initMap(userId) {
             
             
             if (localStorage.getItem('userSport') == null) {
@@ -48,7 +48,7 @@
 
             
             
-            retrieveUserMatch(map);
+            retrieveUserMatch(map, userId);
            // localStorage.clear();
             
             
@@ -111,7 +111,7 @@
         // user's current date and time.
         //
         // @param mapAppend - a Google Maps API Object.
-        function retrieveUserMatch(mapAppend) {
+        function retrieveUserMatch(mapAppend, userId) {
             
             
             // The below few lines of code take the current time and date and converts
@@ -209,7 +209,7 @@
                                         JOIN
                                 </div>
                             </div>`;
-                        addPlayers(popUps[i], i);
+                        addPlayers(popUps[i], i, userId);
                         
                     }
                         
@@ -226,7 +226,7 @@
         //
         //@params divMatch, a variable holding a div element.
         //@params int, the index of the divMatch's HTMLCollection pertaining to its class.
-        function addPlayers(divMatch, int) {
+        function addPlayers(divMatch, int, userId) {
             console.log(divMatch.id);
             $.ajax({
                 url: '/get-match-participants',
@@ -235,11 +235,15 @@
                 success: function(data) {
                     console.log(data);
                     var list = document.getElementsByClassName('scrollable');
+                    var joinButton = document.getElementById('b' + divMatch.id);
                     for (let k = 0; k < data.length; k++){
                         if (data[k].is_host === 1) {
                             list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name} <br> Host</div></li>`
                         } else {
                             list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name}</div></li>` 
+                        }
+                        if (data[k].user_id === userId) {
+                            joinButton.style.display = 'none';
                         }
                     }
                 },
@@ -270,6 +274,7 @@
                 success: function(userData) {
                     console.log("SUCCESS!");
                     var popUps = document.getElementsByClassName('participants');
+                    console.log(popUps);
                     for(let i = 0; i < popUps.length; i++) {
                         popUps[i].style.display = 'none';
                     }
@@ -289,7 +294,8 @@
         // Runs the map, if, and only if, the user is logged in.
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                initMap();
+                var uid = firebase.auth().currentUser.uid;
+                initMap(uid);
             }
         });
     
