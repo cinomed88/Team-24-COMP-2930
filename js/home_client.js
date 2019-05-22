@@ -46,9 +46,22 @@ $(document).ready(function(){
                             outerDiv = document.createElement('div');
                             outerDiv.className += 'schedule' + " " + z;
 
-                            var sport = document.createElement('div');
+                            var sport = document.createElement('img');
                             sport.className += 'sport' + " " + z;
-                            $(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
+
+                            var sportCode;
+                            if( data[z].sport == "Soccer"){
+                                sportCode = 1;
+                            } else if (data[z].sport == "Basketball"){
+                                sportCode = 0;
+                            } else {
+                                sportCode = 2;
+                            }
+
+                            console.log(data[z].sport + "askjdgakwld");
+                            //$(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
+                            //$(sport).css('background-image','url(../Pics/Profile_Pics/sports' + z.toString() + '.png)');
+                            sport.src = "../Pics/Profile_Pics/sports" + sportCode.toString() + ".png";
 
                             var scheduleData = document.createElement('div');
                             scheduleData.className += 'scheduleData';
