@@ -1,4 +1,3 @@
-const data = require('./js/home_data');
 const express = require('express');
 const path = require('path');
 const Sequelize = require('sequelize');
