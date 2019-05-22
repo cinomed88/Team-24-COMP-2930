@@ -65,10 +65,12 @@ body {
     font-size: 2.5em;
     color: white;
     position: relative;
-    left: 14%;
     bottom: 40px; 
     z-index: 1;
     text-decoration: none;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .store {
     display: flex;
