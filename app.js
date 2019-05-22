@@ -210,7 +210,6 @@ app.get('/get-matches', (req, res) => {
 // The below AJAX call gets the details for the current user, using their firebase UID as the
 // primary key.
 app.get('/ajax-GET-Profile', function (req, res) {
-
     //aa
     let q = url.parse(req.url, true);
     console.log(q.query["name"]);
@@ -228,9 +227,27 @@ app.get('/ajax-GET-Profile', function (req, res) {
         }).catch(function (err) {
             console.log('ERROR ENCOUNTERED WHEN OBTAINING USERS: ', err);
             res.sendStatus(500);
-        });
+    });
+    
+});
 
-})
+app.get('/ajax-GET-History', function (req, res) {
+    //aa
+    let q = url.parse(req.url, true);
+    console.log(q.query["name"]);
+    // set the type of response:
+    res.setHeader('Content-Type', 'application/json');
+
+    let qs2 = 'SELECT MATCH.match_id, lat, lng, time, date, sport FROM MATCH LEFT JOIN MATCH_PARTICIPANTS ON MATCH_PARTICIPANTS.match_id = MATCH.match_id WHERE MATCH_PARTICIPANTS.user_id =' + '\'' + q.query["name"] + '\'' + 'ORDER BY date, time DESC';
+    sequelize.query(qs2, { model: matches })
+    .then(function (matchdata) {
+        console.log(matchdata);
+        res.send({"stuff": matchdata});
+    }).catch(function (err) {
+        console.log('ERROR ENCOUNTERED WHEN OBTAINING USERS: ', err);
+        res.sendStatus(500);
+    });
+});
 
 // The below AJAX call takes the user's current selected sport and date,
 // and then queries to find relevant matches, before sending that data

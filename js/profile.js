@@ -50,7 +50,25 @@ $(document).ready(function () {
                     $("#user_honor_pt").text((data.honor_point) % 100 + " pt");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    $("#user_name").text(jqXHR.statusText);
+                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                }
+    
+            })
+
+            $.ajax({
+                url: "/ajax-GET-History?name=" + userId,
+                dataType: "json",
+                type: "GET",
+                beforeSend: function () {
+                    //console.log("beforeSend function");
+                },
+                success: function (data) {
+                    console.log("SUCCESS:", data);
+                    console.log(data.stuff[0].date);
+                    console.log(data["stuff"][1].date);                   
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
                     console.log("ERROR:", jqXHR, textStatus, errorThrown);
                 }
     
