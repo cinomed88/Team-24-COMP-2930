@@ -93,12 +93,16 @@ $(document).ready(function () {
                     };
                     //print results
                     for (var i = 0; i < data.stuff.length && i < 3; i++){
-                        if(!isNull(data.stuff[i].score)){
-                            if()
-
-                            
+                        if(data.stuff[i].score !== null){
+                            if(data.stuff[i].does_win === 1) {
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + "  WIN");
+                            } else {
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + "  LOSE");
+                            }
                         }
-                        $("#match_result" + i.toString()).text(data.stuff[i].score + " "+ res);
+                        else {
+                            // not played yet
+                        }                        
                     }
                     //result? its db? or dummy?
                     
