@@ -46,7 +46,7 @@ $(document).ready(function () {
                     honor_lev = (honor_lev > 5) ? 5 : honor_lev;
 
                     document.getElementById("honor_img").src="../Pics/Profile_Pics/honor_rank0" + honor_lev.toString() + ".png";
-                    $("#user_honor_lev").text("Honer Lev. " + honor_lev);
+                    $("#user_honor_lev").text("Honor Lev. " + honor_lev);
                     $("#user_honor_pt").text((data.honor_point) % 100 + " pt");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -93,12 +93,16 @@ $(document).ready(function () {
                     };
                     //print results
                     for (var i = 0; i < data.stuff.length && i < 3; i++){
-                        if(!isNull(data.stuff[i].score)){
-                            if()
-
-                            
+                        if(data.stuff[i].score !== null){
+                            if(data.stuff[i].does_win === 1) {
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + " - WIN");
+                            } else {
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + " - LOSE");
+                            }
                         }
-                        $("#match_result" + i.toString()).text(data.stuff[i].score + " "+ res);
+                        else {
+                            // not played yet
+                        }                        
                     }
                     //result? its db? or dummy?
                     
