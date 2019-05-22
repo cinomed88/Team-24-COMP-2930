@@ -64,17 +64,32 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     console.log("SUCCESS:", data);
-                    //ex
-                    //console.log(data.stuff[0].date);
-                    //console.log(data["stuff"][1].date);
+                    console.log("array length: " + data.stuff.length);
 
-                    // js for statement
-                    
-                    for (var i = 0; i < data.stuff.length && i < 3; i++){ //check
-                        document.getElementById("history_sport" + i.toString()).src="../Pics/Profile_Pics/sports0" + i.toString() + ".png";
-                        $("#match_history_time" +i.toString()).text(data.stuff[i].date + ", " + data.stuff[i].time);
-                        $("#match_history_location" +i.toString()).text(data.stuff[i].lat + ", " + data.stuff[i].lng); //modify
-                    }
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){
+                        document.getElementById("history_sport" + i.toString()).src="../Pics/Profile_Pics/sports" + i.toString() + ".png";
+
+                        $("#match_history_time" +i.toString()).text(data.stuff[i].date + ", " + (data.stuff[i].time).toString().substring(11,11+5));
+
+                    };
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){
+                        var latlng = new google.maps.LatLng(data.stuff[i].lat, data.stuff[i].lng);
+                        var geocoder = new google.maps.Geocoder;
+                        var j = 0;
+                        geocoder.geocode({'latLng': latlng}, (results, status) => {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                console.log(results);
+                                if (results[0]) {
+                                    var address = results[0].formatted_address;
+                                    console.log(results[0].formatted_address);
+                                    var short_address = address.split(",");
+                                    console.log(res);
+                                    $("#match_history_location" + j.toString()).text(short_address[0]);
+                                }
+                            }
+                            j++;
+                        });
+                    };
                     //result? its db? or dummy?
                     
                 },
