@@ -21,7 +21,7 @@ $(document).ready(function(){
                 date = `${todayDate.getFullYear()}-0${month}-${todayDate.getDate()}`;
             } else {
                 date = `${todayDate.getFullYear()}-${month}-${todayDate.getDate()}`;
-            }
+            };
             
             
             $.ajax({
@@ -32,6 +32,15 @@ $(document).ready(function(){
                        date: date},
                 success: function(data) {
                     console.log("SUCCESSFUL JSON:", data); 
+                    
+                    let x = data.length;
+                    
+                    if(x <= 4) {
+                        $('.scheduleButton').css('visibility', 'hidden');
+                    } else {
+                        $('.scheduleButton').css('visibility', 'visible');
+                    }
+                    
                     for(let z = 0; z < data.length && z <= 3; z++){
                         let outerDiv = "";
                             outerDiv = document.createElement('div');
@@ -58,12 +67,14 @@ $(document).ready(function(){
                         
                         console.log('esketit', data);
                         }
-                    let x = data.length;
-                    if(data.length < 3) {
-                        $('.scheduleButton').hide();
-                    } else {
-                        $('.scheduleButton').show();
-                    }
+                    
+//                    let x = data.length;
+//                    
+//                    if(x < 5) {
+//                        $('.scheduleButton').css('visibility', 'hidden');
+//                    } else {
+//                        $('.scheduleButton').css('visibility', 'visible');
+//                    }
                 }
             });
             
