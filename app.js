@@ -172,7 +172,7 @@ app.post('/join-match', (req, res) => {
     sequelize.query(`SET IDENTITY_INSERT MATCH_PARTICIPANTS ON INSERT INTO MATCH_PARTICIPANTS (user_id, match_id, is_host) VALUES ('${req.body.user_id}', ${req.body.match_id}, 0)`, {
         model: matchParticipants
     }).then(function (match) {
-        console.log('SUCCESSFULLY JOINED MATCH!');
+        console.log('SUCCESSFULLY JOINED MATCH!', match);
     }).catch(function (err) {
        console.log('ERROR JOINING MATCH: ', err); 
     });
