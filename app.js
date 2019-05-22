@@ -166,6 +166,22 @@ app.post('/create-match', (req, res) => {
 
 });
 
+
+app.post('/join-match', (req, res) => {
+    console.log(req.body);
+    sequelize.query(`SET IDENTITY_INSERT MATCH_PARTICIPANTS ON INSERT INTO MATCH_PARTICIPANTS (user_id, match_id, is_host) VALUES ('${req.body.user_id}', ${req.body.match_id}, 0)`, {
+        model: matchParticipants
+    }).then(function (match) {
+        console.log('SUCCESSFULLY JOINED MATCH!');
+    }).catch(function (err) {
+       console.log('ERROR JOINING MATCH: ', err); 
+    });
+    // Query to insert the current user into the match being played.
+    
+
+    
+});
+
 // The below AJAX call takes the user's current selected sport and date,
 // and then queries to find relevant matches, before sending that data
 // back to the client-side to be placed on the map as markers.
@@ -194,7 +210,7 @@ app.get('/get-match-participants', (req, res) => {
     
     let matchId = req.query['matchId'];
     
-    sequelize.query(`SELECT * FROM USERS JOIN MATCH_PARTICIPANTS ON (USERS.user_id = MATCH_PARTICIPANTS.user_id) WHERE MATCH_PARTICIPANTS.match_id = ${matchId}`, {
+    sequelize.query(`SELECT *, MATCH_PARTICIPANTS.is_host FROM USERS JOIN MATCH_PARTICIPANTS ON (USERS.user_id = MATCH_PARTICIPANTS.user_id) WHERE MATCH_PARTICIPANTS.match_id = ${matchId}`, {
         model: matchParticipants
     }).then(players => {
         console.log(players);

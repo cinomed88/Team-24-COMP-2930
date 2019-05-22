@@ -1,3 +1,5 @@
+
+
         // The below function creates the map and populates it with markers that fit the
         // user's wanted sport and times that make sense. The map's origin point is either
         // the user's current location or the centre of Downtown Vancouver, British Columbia.
@@ -203,7 +205,7 @@
                                 <div class = "players"> Players 
                                     <ul class = "scrollable"></ul>
                                 </div>
-                                <div class = "joinButton" id = "${'b' + matches[i].match_id}">
+                                <div class = "joinButton" id = "${'b' + matches[i].match_id}" onclick="joinMatch(${matches[i].match_id})">
                                         JOIN
                                 </div>
                             </div>`;
@@ -231,7 +233,11 @@
                     console.log(data);
                     var list = document.getElementsByClassName('scrollable');
                     for (let k = 0; k < data.length; k++){
-                        list[int].innerHTML += `<li><div class = "playerDetails">${data[k].user_name}</div></li>` 
+                        if (data[k].is_host === 1) {
+                            list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name} <br> Host</div></li>`
+                        } else {
+                            list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name}</div></li>` 
+                        }
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -243,13 +249,43 @@
             });
         }
 
+
+
+        function joinMatch(matchId) {
+            var id = firebase.auth().currentUser.uid;
+            var userData = {
+                user_id: id,
+                match_id: matchId
+            };
+            $.ajax({
+                url: '/join-match',
+                dataType: "json",
+                type: "POST",
+                data: userData,
+                success: function(userData) {
+                    console.log("SUCCESS!");
+                    var popUps = document.getElementsByClassName('participants');
+                    for(let i = 0; i < popUps.length; i++) {
+                        popUps[i].style.display = 'none';
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                          $("#p2").text(jqXHR.statusText);
+                          console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                      }
+            });
+        }
+        
+
+        
+        
+
+                    
+        
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                userId = firebase.auth().currentUser.uid;
+                initMap();
+            }
+        });
     
-
-
-
-        
-        
-
-
-        initMap();
-        addPlayers();
