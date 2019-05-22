@@ -1,5 +1,3 @@
-import { isNull } from "util";
-
 $(document).ready(function () {
     console.log("request start");
     firebase.auth().onAuthStateChanged(function (user) {
