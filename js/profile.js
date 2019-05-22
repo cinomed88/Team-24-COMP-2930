@@ -1,3 +1,5 @@
+import { isNull } from "util";
+
 $(document).ready(function () {
     console.log("request start");
     firebase.auth().onAuthStateChanged(function (user) {
@@ -64,14 +66,15 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     console.log("SUCCESS:", data);
-                    console.log("array length: " + data.stuff.length);
-
+                    console.log("Match Array length: " + data.stuff.length);
+                    //print time                   
                     for (var i = 0; i < data.stuff.length && i < 3; i++){
                         document.getElementById("history_sport" + i.toString()).src="../Pics/Profile_Pics/sports" + i.toString() + ".png";
 
                         $("#match_history_time" +i.toString()).text(data.stuff[i].date + ", " + (data.stuff[i].time).toString().substring(11,11+5));
 
                     };
+                    //print location
                     for (var i = 0; i < data.stuff.length && i < 3; i++){
                         var latlng = new google.maps.LatLng(data.stuff[i].lat, data.stuff[i].lng);
                         var geocoder = new google.maps.Geocoder;
@@ -83,13 +86,22 @@ $(document).ready(function () {
                                     var address = results[0].formatted_address;
                                     console.log(results[0].formatted_address);
                                     var short_address = address.split(",");
-                                    console.log(res);
+                                    console.log(short_address);
                                     $("#match_history_location" + j.toString()).text(short_address[0]);
                                 }
                             }
                             j++;
                         });
                     };
+                    //print results
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){
+                        if(!isNull(data.stuff[i].score)){
+                            if()
+
+                            
+                        }
+                        $("#match_result" + i.toString()).text(data.stuff[i].score + " "+ res);
+                    }
                     //result? its db? or dummy?
                     
                 },
