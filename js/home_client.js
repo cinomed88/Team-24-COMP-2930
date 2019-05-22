@@ -42,10 +42,10 @@ $(document).ready(function(){
                         console.log('esketit', data);
                         }
                     let x = data.length;
-                    if(data.length < 4) {
+                    if(data.length < 3) {
                         $('.scheduleButton').hide();
                     } else {
-                        $('.schedulebutton').show();
+                        $('.scheduleButton').show();
                     }
                 }
             });
