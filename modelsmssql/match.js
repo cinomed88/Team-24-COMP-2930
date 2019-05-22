@@ -27,7 +27,7 @@ module.exports = function(sequelize, Sequelize) {
            notEmpty: true,
        },
        score: {
-           type: SEQUELIZE.STRING(50),
+           type: Sequelize.STRING(50),
            notEmpty: true,
        }
    });
