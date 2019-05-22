@@ -570,12 +570,10 @@ body {
     .schedule {
         height: 70px;
     }
-    #sportTitle {
-        font-size: 20pt;
+    .scheduleData {
+        top: 5px;
     }
-    #dateTime {
-        font-size: 10pt;
-    }
+    
 }
     
 
