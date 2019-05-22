@@ -2,6 +2,82 @@ $(document).ready(function(){
     //START - Schedule container ajax
     //Ansynchronous call to the database to request user's match/event data.
     
+    if (firebase.auth().currentUser != null) {
+            var userId = firebase.auth().currentUser.uid;
+            console.log(userId + ": <--user id");
+                        
+            
+            // The below few lines of code take the current time and date and converts
+            // it to the time and date format used by Transact-SQL.
+            var todayDate = new Date();
+            var time = `${todayDate.getHours()}:00:00.0000000`;
+            var month = todayDate.getMonth() + 1;
+            var date = 0;
+            
+            // Checks if a trailing zero is required or not for the full SQL date.
+            if (month < 10) {
+                date = `${todayDate.getFullYear()}-0${month}-${todayDate.getDate()}`;
+            } else {
+                date = `${todayDate.getFullYear()}-${month}-${todayDate.getDate()}`;
+            };
+            
+            
+            $.ajax({
+                url: "/ajax-GET-match-data",
+                type: "GET",
+                dataType: "json",
+                data: {userId: userId,
+                       date: date},
+                success: function(data) {
+                    console.log("SUCCESSFUL JSON:", data); 
+                    
+                    let x = data.length;
+                    
+                    if(x <= 4) {
+                        $('.scheduleButton').css('visibility', 'hidden');
+                    } else {
+                        $('.scheduleButton').css('visibility', 'visible');
+                    }
+                    
+                    for(let z = 0; z < data.length && z <= 3; z++){
+                        let outerDiv = "";
+                            outerDiv = document.createElement('div');
+                            outerDiv.className += 'schedule' + " " + z;
+
+                            var sport = document.createElement('div');
+                            sport.className += 'sport' + " " + z;
+                            $(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
+
+                            var scheduleData = document.createElement('div');
+
+                            scheduleData.className += 'scheduleData' + " " + z;
+                            outerDiv.appendChild(sport);
+                            outerDiv.appendChild(scheduleData);
+
+                            $('.button').before(outerDiv);
+
+                        console.log(data[z].sport);
+                        
+                        let x = data[z].time;
+                        let time = x.substring(11, 16);
+                        
+                        $(scheduleData).html("<div>" + data[z].sport + "</div>" + "<div>" + "<b>Date: </b>" + data[z].date + "&nbsp" + "<b> Time: </b>" + time + "</div>");
+                        
+                        console.log('esketit', data);
+                        }
+                    
+//                    let x = data.length;
+//                    
+//                    if(x < 5) {
+//                        $('.scheduleButton').css('visibility', 'hidden');
+//                    } else {
+//                        $('.scheduleButton').css('visibility', 'visible');
+//                    }
+                }
+            });
+
+    }
+    
     
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -77,42 +153,6 @@ $(document).ready(function(){
 //                    }
                 }
             });
-            
-            //START - Recently played ajax
-            //Ansynchronous call to the database to request user's recently played
-            //players data.
-            $.ajax({
-                url: "/ajax-GET-recentlyPlayed-data",
-                type: "GET",
-                dataType: "json",
-                data: {date: date,
-                       userId: userId},
-                success: function(data) {
-                    console.log("SUCCESS JSON:", data); 
-                    for(let z = 0; z < data.length && z <= 3; z++){
-                        let outerRecentlyDiv = "";
-                            outerRecentlyDiv = document.createElement('div');
-                            outerRecentlyDiv.className += 'recentlyPlayed' + " " + z;
-
-                            var matchAvatar = document.createElement('div');
-                            matchAvatar.className += 'matchAvatar' + " " + z;
-                            $(matchAvatar).css('background-image','url(../Pics/Home_Pics/male2.jpg)');
-
-                            var matchUserData = document.createElement('div');
-                            matchUserData.className += 'matchUser' + " " + z;
-
-                            outerRecentlyDiv.appendChild(matchAvatar);
-                            outerRecentlyDiv.appendChild(matchUserData);
-
-                            $('.recentBTN').before(outerRecentlyDiv);
-
-        //                console.log(data[z].user_name);
-                        $(matchUserData).html(data[z].user_name + "  " + data[z].honor_point);
-                        }
-                        console.log('esketit', data);
-                }
-            });
-            
             
         }
     });
