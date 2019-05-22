@@ -140,12 +140,17 @@ body {
 }
 .scheduleData {
     display: flex;
+    flex-direction: column;
     position: relative;
-    top: 13px;
+    top: 10px;
     width: 75%;
     height: 40px;
     margin-left: 1%;
     
+}
+.scheduleData div {
+    display: flex;
+    justify-content: center;
 }
 #friendsContainer {
     display: flex;

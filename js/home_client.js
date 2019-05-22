@@ -14,7 +14,7 @@ $(document).ready(function(){
                 dataType: "json",
                 data: {userId: userId},
                 success: function(data) {
-                    console.log("SUCCESS JSON:", data); 
+                    console.log("SUCCESSFUL JSON:", data); 
                     for(let z = 0; z < data.length && z <= 3; z++){
                         let outerDiv = "";
                             outerDiv = document.createElement('div');
@@ -33,7 +33,12 @@ $(document).ready(function(){
                             $('.button').before(outerDiv);
 
                         console.log(data[z].sport);
-                        $(scheduleData).html(data[z].sport + "  " + data[z].time);
+                        
+                        let x = data[z].time;
+                        let time = x.substring(11, 16);
+                        
+                        $(scheduleData).html("<div>" + data[z].sport + "</div>" + "<div>" + "<b>Date: </b>" + data[z].date + "&nbsp" + "<b> Time: </b>" + time + "</div>");
+                        
                         console.log('esketit', data);
                         }
                 }
@@ -46,43 +51,52 @@ $(document).ready(function(){
     //Method that shows more match/event data.
     //Ansynchronous call to the database to request user's match data.
     $('.scheduleButton').on('click', () => {
-    $.ajax({
-        url: "/ajax-GET-match-data",
-        type: "GET",
-        dataType: "json",
-        data: {format: 'json-match-list'},
-        success: function(data) {
-            console.log("SUCCESS JSON:", data); 
-            let greaterOuterDiv = "";
-            greaterOuterDiv = document.createElement('div');
-            greaterOuterDiv.className += 'greaterOuterDiv';
-            
-            for(let z = 0; z < data.length; z++){
-                let outerDiv = "";
-                    outerDiv = document.createElement('div');
-                    outerDiv.className += 'scheduleOverLay' + " " + z;
+        firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var userId = firebase.auth().currentUser.uid;
+            console.log(userId + ": <--user id");
+        $.ajax({
+            url: "/ajax-GET-match-data",
+            type: "GET",
+            dataType: "json",
+            data: {userId: userId},
+            success: function(data) {
+                console.log("SUCCESSFUL JSON:", data); 
+                let greaterOuterDiv = "";
+                greaterOuterDiv = document.createElement('div');
+                greaterOuterDiv.className += 'greaterOuterDiv';
 
-                    var sport = document.createElement('div');
-                    sport.className += 'sportOverLay' + " " + z;
-                    $(sport).css('background-image','url(../Pics/Home_Pics/female_4.jpg)');
+                for(let z = 0; z < data.length; z++){
+                    let outerDiv = "";
+                        outerDiv = document.createElement('div');
+                        outerDiv.className += 'scheduleOverLay' + " " + z;
 
-                    var scheduleData = document.createElement('div');
+                        var sport = document.createElement('div');
+                        sport.className += 'sportOverLay' + " " + z;
+                        $(sport).css('background-image','url(../Pics/Home_Pics/female_4.jpg)');
 
-                            scheduleData.className += 'scheduleDataOverLay' + " " + z;
-                    outerDiv.appendChild(sport);
-                    outerDiv.appendChild(scheduleData);
-                    greaterOuterDiv.appendChild(outerDiv);
+                        var scheduleData = document.createElement('div');
 
-                    $('.scheduleTitleOverLay').after(greaterOuterDiv);
-                
-                console.log(data[z].user_name);
-                $(scheduleData).html(data[z].user_name + "  " + data[z].honor_point);
+                                scheduleData.className += 'scheduleDataOverLay' + " " + z;
+                        outerDiv.appendChild(sport);
+                        outerDiv.appendChild(scheduleData);
+                        greaterOuterDiv.appendChild(outerDiv);
+
+                        $('.scheduleTitleOverLay').after(greaterOuterDiv);
+
+                    console.log(data[z].sport);
+                    
+                    let x = data[z].time;
+                    let time = x.substring(11, 16);
+
+                    $(scheduleData).html("<span>" + data[z].sport + "</span>" + "<br>" +"<span>" + "<b>Date: </b>" + data[z].date + " <b> Time: <b>" + time + "</span>");
+                    console.log('esketit', data);
+                    }
+
                 }
-                console.log('esketit', data);
-
-            }
-        });
-    });
+            });
+    };
+});
     //Removes all divs from the schedule container --Raging--
     $('.scheduleButtonOverLay').on('click', () => {
         $('.greaterOuterDiv').html('');
@@ -252,5 +266,6 @@ $(document).ready(function(){
     //END - recently played ajax
 
     });
+});
     
 
