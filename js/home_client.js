@@ -49,9 +49,13 @@ $(document).ready(function(){
                             $(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
 
                             var scheduleData = document.createElement('div');
-
                             scheduleData.className += 'scheduleData' + " " + z;
+                            
+                            var location = document.createElement('div');
+                            location.className += 'location' + " " + z;
+
                             outerDiv.appendChild(sport);
+                            outerDiv.appendChild(location);
                             outerDiv.appendChild(scheduleData);
 
                             $('.button').before(outerDiv);
