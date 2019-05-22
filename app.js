@@ -1,4 +1,3 @@
-const data = require('./js/home_data');
 const express = require('express');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -273,7 +272,7 @@ app.get('/ajax-GET-History', function (req, res) {
     // set the type of response:
     res.setHeader('Content-Type', 'application/json');
 
-    let qs2 = 'SELECT MATCH.match_id, lat, lng, time, date, sport FROM MATCH LEFT JOIN MATCH_PARTICIPANTS ON MATCH_PARTICIPANTS.match_id = MATCH.match_id WHERE MATCH_PARTICIPANTS.user_id =' + '\'' + q.query["name"] + '\'' + 'ORDER BY date, time DESC';
+    let qs2 = 'SELECT MATCH.match_id, lat, lng, time, date, sport, score, does_win FROM MATCH LEFT JOIN MATCH_PARTICIPANTS ON MATCH_PARTICIPANTS.match_id = MATCH.match_id WHERE MATCH_PARTICIPANTS.user_id =' + '\'' + q.query["name"] + '\'' + 'ORDER BY date DESC, time DESC';
     sequelize.query(qs2, { model: matches })
     .then(function (matchdata) {
         console.log(matchdata);
@@ -339,15 +338,8 @@ app.get('/ajax-GET-friends-data', function (req, res) {
 
 // The below AJAX call that queries for the users recently played players and associated avatar, before sending that data back to the client-side to be //placed on the relevant div container for displaying a users friend list for //the user's on the homepage.
 app.get('/ajax-GET-recentlyPlayed-data', function (req, res) {
-    let formatOfResponse = req.query['format'];
-    let friendsData = null;
     
-    if(formatOfResponse == 'json-recentlyPlayed-list') {
-        res.setHeader('Content-Type', 'text/html');
-//        sequelize.query(`liasuhiaubdg;iuasdu`)
-    } else {
-        res.send({msg: 'Wrong Format'});
-    }
+    //TO BE FINISHED, COMING SOON
 });
 
 

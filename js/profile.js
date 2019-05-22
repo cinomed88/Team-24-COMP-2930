@@ -46,7 +46,7 @@ $(document).ready(function () {
                     honor_lev = (honor_lev > 5) ? 5 : honor_lev;
 
                     document.getElementById("honor_img").src="../Pics/Profile_Pics/honor_rank0" + honor_lev.toString() + ".png";
-                    $("#user_honor_lev").text("Honer Lev. " + honor_lev);
+                    $("#user_honor_lev").text("Honor Lev. " + honor_lev);
                     $("#user_honor_pt").text((data.honor_point) % 100 + " pt");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -64,16 +64,45 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     console.log("SUCCESS:", data);
-                    //ex
-                    //console.log(data.stuff[0].date);
-                    //console.log(data["stuff"][1].date);
+                    console.log("Match Array length: " + data.stuff.length);
+                    //print time                   
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){
+                        document.getElementById("history_sport" + i.toString()).src="../Pics/Profile_Pics/sports" + i.toString() + ".png";
 
-                    // js for statement
-                    
-                    for (var i = 0; i < data.stuff.length && i < 3; i++){ //check
-                        document.getElementById("history_sport" + i.toString()).src="../Pics/Profile_Pics/sports0" + i.toString() + ".png";
-                        $("#match_history_time" +i.toString()).text(data.stuff[i].date + ", " + data.stuff[i].time);
-                        $("#match_history_location" +i.toString()).text(data.stuff[i].lat + ", " + data.stuff[i].lng); //modify
+                        $("#match_history_time" +i.toString()).text(data.stuff[i].date + ", " + (data.stuff[i].time).toString().substring(11,11+5));
+
+                    };
+                    //print location
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){
+                        var latlng = new google.maps.LatLng(data.stuff[i].lat, data.stuff[i].lng);
+                        var geocoder = new google.maps.Geocoder;
+                        var j = 0;
+                        geocoder.geocode({'latLng': latlng}, (results, status) => {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                console.log(results);
+                                if (results[0]) {
+                                    var address = results[0].formatted_address;
+                                    console.log(results[0].formatted_address);
+                                    var short_address = address.split(",");
+                                    console.log(short_address);
+                                    $("#match_history_location" + j.toString()).text(short_address[0]);
+                                }
+                            }
+                            j++;
+                        });
+                    };
+                    //print results
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){
+                        if(data.stuff[i].score !== null){
+                            if(data.stuff[i].does_win === 1) {
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + " - WIN");
+                            } else {
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + " - LOSE");
+                            }
+                        }
+                        else {
+                            // not played yet
+                        }                        
                     }
                     //result? its db? or dummy?
                     

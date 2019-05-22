@@ -144,6 +144,7 @@
             if(date === 'Day' || time === 'Time') {
                 window.alert('Enter a valid day and time!');
             } else {
+                window.location.href = '/home.html';
                 var timeSQL = convertToSQLTimeFormat(time);
                 var dateSQL = convertToSQLDateFormat(date);
                 
@@ -168,6 +169,7 @@
                 data: matchMade,
                 success: function(userData) {
                     console.log("SUCCESS: ", matchMade);
+                
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $("#p2").text(jqXHR.statusText);

@@ -19,7 +19,8 @@
 <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
 <script src="../js/firebaseAuthCheck.js"></script>
 
-
+<!-- google Reverse Geocoding api -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChRxG0T2Jv9ljwSu31TgmDCo7e4Sgfpjc&libraries=places"></script>
 </head>
 <body>
     <div id="grid_container">
@@ -35,12 +36,12 @@
                 <!-- <span class="more">more</span> -->
             </div>
             <div id="rank_body">
-                <img src="../Pics/Profile_Pics/sports01.png"/>
-                <img src="../Pics/Profile_Pics/sports02.png"/>
-                <img src="../Pics/Profile_Pics/sports03.png"/>
-                <img id="user_rank01_img" />
-                <img id="user_rank02_img" />
-                <img id="user_rank03_img" />
+                <img alt="Basketball" src="../Pics/Profile_Pics/sports0.png"/>
+                <img alt="Soccer" src="../Pics/Profile_Pics/sports1.png"/>
+                <img alt="Tennis" src="../Pics/Profile_Pics/sports2.png"/>
+                <img alt="BBall Rank" id="user_rank01_img" />
+                <img alt="Soccer Rank" id="user_rank02_img" />
+                <img alt="Tennis Rank" id="user_rank03_img" />
                 <div><div id="user_rank01"></div><div id="user_rank01_LP"></div></div>
                 <div><div id="user_rank02"></div><div id="user_rank02_LP"></div></div>
                 <div><div id="user_rank03"></div><div id="user_rank03_LP"></div></div>
@@ -52,7 +53,7 @@
                 <h1> SPORTSMANSHIP </h1>
             </div>
             <div id="sportsmanship_body">
-                <img id="honor_img" />
+                <img alt="Honour" id="honor_img" />
                 <div id="user_honor_lev"></div>
                 <div id="user_honor_pt"></div>
             </div>
@@ -64,32 +65,26 @@
                 <!-- <span class="more">more</span> -->
             </div>
             <div id="history_body">
-                <img id = "history_sport1" src="../Pics/Profile_Pics/sports01.png"/>
+                <img alt="" id = "history_sport0" />
                 <div id="match_history01">
-                    <div id = "match_history_time1">MAY 12 (SUN), 15:00</div>
-                    <div id = "match_history_location1">Collingwood Park</div>
+                    <div id = "match_history_time0"></div>
+                    <div id = "match_history_location0"></div>
                 </div>
-                <div id="match_result01" class="game_result">
-                    35:22  WIN 
-                </div>
+                <div id="match_result0" class="game_result"></div>
                 
-                <img id = "history_sport2" src="../Pics/Profile_Pics/sports02.png"/>
+                <img alt="" id = "history_sport1" />
                 <div id="match_history02">
-                    <div id = "match_history_time2">MAY 1 (WED), 14:00</div>
-                    <div id = "match_history_location2">Killarney Park</div>
+                    <div id = "match_history_time1"></div>
+                    <div id = "match_history_location1"></div>
                 </div>
-                <div id="match_result02" class="game_result">
-                    1:2  LOSE 
-                </div>
+                <div id="match_result1" class="game_result"></div>
                 
-                <img id = "history_sport3" src="../Pics/Profile_Pics/sports03.png"/>
+                <img alt="" id = "history_sport2" />
                 <div id="match_history03">
-                    <div id = "match_history_time3">APR 5 (FRI), 11:00</div>
-                    <div id = "match_history_location3">BCIT Burnaby Ground</div>
+                    <div id = "match_history_time2"></div>
+                    <div id = "match_history_location2"></div>
                 </div>
-                <div id="match_result03" class="game_result">
-                    5:0  WIN 
-                </div>
+                <div id="match_result2" class="game_result"></div>
                 
             </div>
         </div>
@@ -98,7 +93,8 @@
     </div>
     <!--The JQuery library and the js-stylesheet for the landscape navi-bar --Raging---->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script rel="stylesheet" src="../js/general_2_stylesheet.js"></script>
+    <script src="../js/general_2_stylesheet.js"></script>
     <script src="../js/profile.js"></script>
-</body>
+
+    </body>
 </html>
