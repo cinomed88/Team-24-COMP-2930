@@ -7,12 +7,29 @@ $(document).ready(function(){
         if (user) {
             var userId = firebase.auth().currentUser.uid;
             console.log(userId + ": <--user id");
+                        
+            
+            // The below few lines of code take the current time and date and converts
+            // it to the time and date format used by Transact-SQL.
+            var todayDate = new Date();
+            var time = `${todayDate.getHours()}:00:00.0000000`;
+            var month = todayDate.getMonth() + 1;
+            var date = 0;
+            
+            // Checks if a trailing zero is required or not for the full SQL date.
+            if (month < 10) {
+                date = `${todayDate.getFullYear()}-0${month}-${todayDate.getDate()}`;
+            } else {
+                date = `${todayDate.getFullYear()}-${month}-${todayDate.getDate()}`;
+            }
+            
             
             $.ajax({
                 url: "/ajax-GET-match-data",
                 type: "GET",
                 dataType: "json",
-                data: {userId: userId},
+                data: {userId: userId,
+                       date: date},
                 success: function(data) {
                     console.log("SUCCESSFUL JSON:", data); 
                     for(let z = 0; z < data.length && z <= 3; z++){
@@ -41,6 +58,12 @@ $(document).ready(function(){
                         
                         console.log('esketit', data);
                         }
+                    let x = data.length;
+                    if(data.length < 3) {
+                        $('.scheduleButton').hide();
+                    } else {
+                        $('.scheduleButton').show();
+                    }
                 }
             });
             
@@ -55,11 +78,27 @@ $(document).ready(function(){
         if (user) {
             var userId = firebase.auth().currentUser.uid;
             console.log(userId + ": <--user id");
+            // The below few lines of code take the current time and date and converts
+            // it to the time and date format used by Transact-SQL.
+            var todayDate = new Date();
+            var time = `${todayDate.getHours()}:00:00.0000000`;
+            var month = todayDate.getMonth() + 1;
+            var date = 0;
+            
+            // Checks if a trailing zero is required or not for the full SQL date.
+            if (month < 10) {
+                date = `${todayDate.getFullYear()}-0${month}-${todayDate.getDate()}`;
+            } else {
+                date = `${todayDate.getFullYear()}-${month}-${todayDate.getDate()}`;
+            }
+            
+                        
         $.ajax({
             url: "/ajax-GET-match-data",
             type: "GET",
             dataType: "json",
-            data: {userId: userId},
+            data: {userId: userId,
+                  date: date},
             success: function(data) {
                 console.log("SUCCESSFUL JSON:", data); 
                 let greaterOuterDiv = "";
