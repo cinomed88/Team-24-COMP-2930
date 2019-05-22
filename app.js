@@ -343,7 +343,7 @@ app.get('/ajax-GET-recentlyPlayed-data', function (req, res) {
 
     res.setHeader('Content-Type', 'text/html');
     sequelize.query(`SELECT TOP (10) * FROM MATCH JOIN MATCH_PARTICIPANTS ON (MATCH_PARTICIPANTS.match_id = MATCH.match_id)
-WHERE MATCH_PARTICIPANTS.user_id = '${userId}' AND MATCH.date < '${date}'`, { model: matches }).then(function(match){
+WHERE MATCH_PARTICIPANTS.user_id = '${userId}' AND MATCH.date < '${date}' ORDER BY MATCH.date DESC`, { model: matches }).then(function(match){
         console.log('SUCCESSFUL QUERY FOR RECENT MATCHES', match);
         res.send(match);
         console.log(match);
