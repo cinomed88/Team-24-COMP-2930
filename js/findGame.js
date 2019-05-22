@@ -222,7 +222,10 @@
             });            
         }
                 
-                
+        // The method that populates a div with the users that are apart of that match.
+        //
+        //@params divMatch, a variable holding a div element.
+        //@params int, the index of the divMatch's HTMLCollection pertaining to its class.
         function addPlayers(divMatch, int) {
             console.log(divMatch.id);
             $.ajax({
@@ -250,7 +253,9 @@
         }
 
 
-
+        // The method that adds the current user to a specified match.
+        //
+        // @param matchId the id of the match to add the user to.
         function joinMatch(matchId) {
             var id = firebase.auth().currentUser.uid;
             var userData = {
@@ -281,10 +286,9 @@
         
 
                     
-        
+        // Runs the map, if, and only if, the user is logged in.
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                userId = firebase.auth().currentUser.uid;
                 initMap();
             }
         });
