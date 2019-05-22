@@ -5,7 +5,6 @@ $(document).ready(function() {
     $('header').append('<div class="navi-bar-desktop"></div>');
     
     $('.navi-bar-desktop').append('<a href="profile.html"><div>Profile</div></a>');
-    $('.navi-bar-desktop').append('<a><div>Store</div></a>');
     $('.navi-bar-desktop').append('<a href="aboutus.html"><div>About Us</div></a>');
     $('.navi-bar-desktop').append('<a href="#" onclick="firebase.auth().signOut()"><div>Sign-out</div></a>');
     
@@ -27,7 +26,6 @@ $(document).ready(function() {
             $('#naviwrap').hide();
             //Normalizes the visibility of Store, Profile, etc when overlay is hidden --Raging--//
             $('.profileLink').css("opacity", "1");
-            $('.storeLink').css("opacity", "1");
             $('.startGameLink').css("opacity","1");
             $('.scheduleData').css("opacity", "1");
             $('.sport').css("opacity", "1");
@@ -43,7 +41,6 @@ $(document).ready(function() {
             $('#overlay').show();
             //Decreases the visibility of Store, Profile, etc when overlay is shown --Raging--//
             $('.profileLink').css("opacity", ".5");
-            $('.storeLink').css("opacity", ".5");
             $('.startGameLink').css("opacity",".5");
             $('.scheduleData').css("opacity", ".25");
             $('.sport').css("opacity", ".25");
@@ -63,7 +60,6 @@ $(document).ready(function() {
             $('#scheduleWrapperOverLay').hide();
             //Normalizes the visibility of Store, Profile, etc when overlay is hidden --Raging--//
             $('.profileLink').css("opacity", "1");
-            $('.storeLink').css("opacity", "1");
             $('.startGameLink').css("opacity","1");
             $('.scheduleData').css("opacity", "1");
             $('.sport').css("opacity", "1");
@@ -79,7 +75,6 @@ $(document).ready(function() {
             $('#scheduleWrapperOverLay').show();
             //Decreases the visibility of Store, Profile, etc when overlay is shown --Raging--//
             $('.profileLink').css("opacity", ".5");
-            $('.storeLink').css("opacity", ".5");
             $('.startGameLink').css("opacity",".5");
             $('.scheduleData').css("opacity", ".25");
             $('.sport').css("opacity", ".25");
@@ -102,7 +97,6 @@ $(document).ready(function() {
             $('#scheduleWrapperOverLay').hide();
             //Normalizes the visibility of Store, Profile, etc when overlay is hidden --Raging--//
             $('.profileLink').css("opacity", "1");
-            $('.storeLink').css("opacity", "1");
             $('.startGameLink').css("opacity","1");
             $('.scheduleData').css("opacity", "1");
             $('.sport').css("opacity", "1");
@@ -117,7 +111,6 @@ $(document).ready(function() {
             $('#scheduleWrapperOverLay').show();
             //Decreases the visibility of Store, Profile, etc when overlay is shown --Raging--//
             $('.profileLink').css("opacity", ".5");
-            $('.storeLink').css("opacity", ".5");
             $('.startGameLink').css("opacity",".5");
             $('.scheduleData').css("opacity", ".25");
             $('.sport').css("opacity", ".25");
@@ -137,7 +130,6 @@ $(document).ready(function() {
             $('#friendsWrapperOverLay').hide();
             //Normalizes the visibility of Store, Profile, etc when overlay is hidden --Raging--//
             $('.profileLink').css("opacity", "1");
-            $('.storeLink').css("opacity", "1");
             $('.startGameLink').css("opacity","1");
             $('.scheduleData').css("opacity", "1");
             $('.sport').css("opacity", "1");
@@ -153,7 +145,6 @@ $(document).ready(function() {
             $('#friendsWrapperOverLay').show();
             //Decreases the visibility of Store, Profile, etc when overlay is shown --Raging--//
             $('.profileLink').css("opacity", ".5");
-            $('.storeLink').css("opacity", ".5");
             $('.startGameLink').css("opacity",".5");
             $('.scheduleData').css("opacity", ".25");
             $('.sport').css("opacity", ".25");
@@ -176,7 +167,6 @@ $(document).ready(function() {
             $('#friendsWrapperOverLay').hide();
             //Normalizes the visibility of Store, Profile, etc when overlay is hidden --Raging--//
             $('.profileLink').css("opacity", "1");
-            $('.storeLink').css("opacity", "1");
             $('.startGameLink').css("opacity","1");
             $('.scheduleData').css("opacity", "1");
             $('.sport').css("opacity", "1");
@@ -191,7 +181,6 @@ $(document).ready(function() {
             $('#friendsWrapperOverLay').show();
             //Decreases the visibility of tore, Profile, etc when overlay is shown --Raging--//
             $('.profileLink').css("opacity", ".5");
-            $('.storeLink').css("opacity", ".5");
             $('.startGameLink').css("opacity",".5");
             $('.scheduleData').css("opacity", ".25");
             $('.sport').css("opacity", ".25");
@@ -211,7 +200,6 @@ $(document).ready(function() {
             $('#recentlyWrapperOverLay').hide();
             //Normalizes the visibility of Store, Profile, etc when overlay is hidden --Raging--//
             $('.profileLink').css("opacity", "1");
-            $('.storeLink').css("opacity", "1");
             $('.startGameLink').css("opacity","1");
             $('.scheduleData').css("opacity", "1");
             $('.sport').css("opacity", "1");
@@ -227,7 +215,6 @@ $(document).ready(function() {
             $('#recentlyWrapperOverLay').show();
             //Decreases the visibility of Store, Profile, etc when overlay is shown --Raging--//
             $('.profileLink').css("opacity", ".5");
-            $('.storeLink').css("opacity", ".5");
             $('.startGameLink').css("opacity",".5");
             $('.scheduleData').css("opacity", ".25");
             $('.sport').css("opacity", ".25");
@@ -250,7 +237,6 @@ $(document).ready(function() {
             $('#recentlyWrapperOverLay').hide();
             //Normalizes the visibility of Store, Profile, etc when overlay is hidden --Raging--//
             $('.profileLink').css("opacity", "1");
-            $('.storeLink').css("opacity", "1");
             $('.startGameLink').css("opacity","1");
             $('.scheduleData').css("opacity", "1");
             $('.sport').css("opacity", "1");
@@ -265,7 +251,6 @@ $(document).ready(function() {
             $('#recentlyWrapperOverLay').show();
             //Decreases the visibility of Store, Profile, etcwhen overlay is shown --Raging--//
             $('.profileLink').css("opacity", ".5");
-            $('.storeLink').css("opacity", ".5");
             $('.startGameLink').css("opacity",".5");
             $('.scheduleData').css("opacity", ".25");
             $('.sport').css("opacity", ".25");
