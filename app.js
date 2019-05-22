@@ -322,6 +322,10 @@ WHERE MATCH_PARTICIPANTS.user_id = '${userId}' AND MATCH.date > '${date}'`, { mo
     
         });
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> b5cb84dfaeb8ad98932782944c83e1421b3978cf
 // The below AJAX call that queries for the users friends and associated 
 // avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user
 //on the homepage.
