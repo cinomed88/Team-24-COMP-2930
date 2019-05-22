@@ -64,8 +64,18 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     console.log("SUCCESS:", data);
-                    console.log(data.stuff[0].date);
-                    console.log(data["stuff"][1].date);                   
+                    //ex
+                    //console.log(data.stuff[0].date);
+                    //console.log(data["stuff"][1].date);
+
+                    // js for statement
+                    
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){ //check
+                        document.getElementById("history_sport" + i.toString()).src="../Pics/Profile_Pics/sports0" + i.toString() + ".png";
+                        $("#match_history_time" +i.toString()).text(data.stuff[i].date + ", " + data.stuff[i].time);
+                        $("#match_history_location" +i.toString()).text(data.stuff[i].lat + ", " + data.stuff[i].lng); //modify
+                    }
+                    //result? its db? or dummy?
                     
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
