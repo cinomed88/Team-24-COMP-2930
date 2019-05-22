@@ -205,7 +205,7 @@
                                 <div class = "players"> Players 
                                     <ul class = "scrollable"></ul>
                                 </div>
-                                <div class = "joinButton" id = "${'b' + matches[i].match_id}" onclick="joinMatch(${matches[i].match_id}); this.style.display = 'none'">
+                                <div class = "joinButton" id = "${'b' + matches[i].match_id}" onclick="joinMatch(${matches[i].match_id}); document.getElementById(${matches[i].match_id}).style.display = 'none'; this.style.display = 'none'">
                                         JOIN
                                 </div>
                             </div>`;
