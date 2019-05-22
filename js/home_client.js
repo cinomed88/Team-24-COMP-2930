@@ -41,6 +41,12 @@ $(document).ready(function(){
                         
                         console.log('esketit', data);
                         }
+                    let x = data.length;
+                    if(data.length < 4) {
+                        $('.scheduleButton').hide();
+                    } else {
+                        $('.schedulebutton').show();
+                    }
                 }
             });
             
