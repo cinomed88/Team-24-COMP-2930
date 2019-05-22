@@ -1,3 +1,5 @@
+
+
         // The below function creates the map and populates it with markers that fit the
         // user's wanted sport and times that make sense. The map's origin point is either
         // the user's current location or the centre of Downtown Vancouver, British Columbia.
@@ -28,23 +30,9 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     });
-                    userMarker.setPosition(map.getCenter());
-                    });
-                    
-            }
-            
-            // Geo-location to find the user's current location and set the centre of the map
-            // to it accordingly.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    map.setCenter({
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    });
                 });
-                    
             }
-            
+
             
 
 
@@ -62,6 +50,7 @@
             
             retrieveUserMatch(map);
            // localStorage.clear();
+            
             
             
             var markers = [];
@@ -164,7 +153,6 @@
                     var marker = [];
                     for(let i = 0; i < matches.length; i++) {
 
-                        var latlng = new google.maps.LatLng(matches[i].lat, matches[i].lng);
                         var infoWindow = [];
                         
                         var participantsDiv = document.createElement('div');
@@ -175,6 +163,7 @@
 
                         // Converts the address into a readable, human-friendly version.
                         // And then adds an infoWindow to the relevant marker.
+                        var latlng = new google.maps.LatLng(matches[i].lat, matches[i].lng);
                         var geocoder = new google.maps.Geocoder;
                         geocoder.geocode({'latLng': latlng}, (results, status) => {
                             if (status == google.maps.GeocoderStatus.OK) {
@@ -216,10 +205,12 @@
                                 <div class = "players"> Players 
                                     <ul class = "scrollable"></ul>
                                 </div>
-                                <div class = "joinButton" id = "${'b' + matches[i].match_id}">
+                                <div class = "joinButton" id = "${'b' + matches[i].match_id}" onclick="joinMatch(${matches[i].match_id})">
                                         JOIN
                                 </div>
                             </div>`;
+                        addPlayers(popUps[i], i);
+                        
                     }
                         
                 },
@@ -228,13 +219,77 @@
                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
                 }                
 
+            });            
+        }
+                
+        // The method that populates a div with the users that are apart of that match.
+        //
+        //@params divMatch, a variable holding a div element.
+        //@params int, the index of the divMatch's HTMLCollection pertaining to its class.
+        function addPlayers(divMatch, int) {
+            console.log(divMatch.id);
+            $.ajax({
+                url: '/get-match-participants',
+                dataType: 'json',
+                data: {matchId: divMatch.id},
+                success: function(data) {
+                    console.log(data);
+                    var list = document.getElementsByClassName('scrollable');
+                    for (let k = 0; k < data.length; k++){
+                        if (data[k].is_host === 1) {
+                            list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name} <br> Host</div></li>`
+                        } else {
+                            list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name}</div></li>` 
+                        }
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $("#p2").text(jqXHR.statusText);
+                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                }                
+
+
             });
-            
-            
-            
-        
         }
 
 
-        initMap();
+        // The method that adds the current user to a specified match.
+        //
+        // @param matchId the id of the match to add the user to.
+        function joinMatch(matchId) {
+            var id = firebase.auth().currentUser.uid;
+            var userData = {
+                user_id: id,
+                match_id: matchId
+            };
+            $.ajax({
+                url: '/join-match',
+                dataType: "json",
+                type: "POST",
+                data: userData,
+                success: function(userData) {
+                    console.log("SUCCESS!");
+                    var popUps = document.getElementsByClassName('participants');
+                    for(let i = 0; i < popUps.length; i++) {
+                        popUps[i].style.display = 'none';
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                          $("#p2").text(jqXHR.statusText);
+                          console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                      }
+            });
+        }
+        
 
+        
+        
+
+                    
+        // Runs the map, if, and only if, the user is logged in.
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                initMap();
+            }
+        });
+    

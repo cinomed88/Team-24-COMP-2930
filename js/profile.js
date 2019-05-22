@@ -50,7 +50,35 @@ $(document).ready(function () {
                     $("#user_honor_pt").text((data.honor_point) % 100 + " pt");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    $("#user_name").text(jqXHR.statusText);
+                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                }
+    
+            })
+
+            $.ajax({
+                url: "/ajax-GET-History?name=" + userId,
+                dataType: "json",
+                type: "GET",
+                beforeSend: function () {
+                    //console.log("beforeSend function");
+                },
+                success: function (data) {
+                    console.log("SUCCESS:", data);
+                    //ex
+                    //console.log(data.stuff[0].date);
+                    //console.log(data["stuff"][1].date);
+
+                    // js for statement
+                    
+                    for (var i = 0; i < data.stuff.length && i < 3; i++){ //check
+                        document.getElementById("history_sport" + i.toString()).src="../Pics/Profile_Pics/sports0" + i.toString() + ".png";
+                        $("#match_history_time" +i.toString()).text(data.stuff[i].date + ", " + data.stuff[i].time);
+                        $("#match_history_location" +i.toString()).text(data.stuff[i].lat + ", " + data.stuff[i].lng); //modify
+                    }
+                    //result? its db? or dummy?
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
                     console.log("ERROR:", jqXHR, textStatus, errorThrown);
                 }
     

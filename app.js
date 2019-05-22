@@ -166,6 +166,22 @@ app.post('/create-match', (req, res) => {
 
 });
 
+
+app.post('/join-match', (req, res) => {
+    console.log(req.body);
+    sequelize.query(`SET IDENTITY_INSERT MATCH_PARTICIPANTS ON INSERT INTO MATCH_PARTICIPANTS (user_id, match_id, is_host) VALUES ('${req.body.user_id}', ${req.body.match_id}, 0)`, {
+        model: matchParticipants
+    }).then(function (match) {
+        console.log('SUCCESSFULLY JOINED MATCH!');
+    }).catch(function (err) {
+       console.log('ERROR JOINING MATCH: ', err); 
+    });
+    // Query to insert the current user into the match being played.
+    
+
+    
+});
+
 // The below AJAX call takes the user's current selected sport and date,
 // and then queries to find relevant matches, before sending that data
 // back to the client-side to be placed on the map as markers.
@@ -194,13 +210,13 @@ app.get('/get-match-participants', (req, res) => {
     
     let matchId = req.query['matchId'];
     
-    sequelize.query(`SELECT * FROM USERS JOIN MATCH_PARTICIPANTS ON (USERS.user_id = MATCH_PARTICIPANTS.user_id) WHERE MATCH_PARTICIPANTS.match_id = ${matchId}`, {
+    sequelize.query(`SELECT *, MATCH_PARTICIPANTS.is_host FROM USERS JOIN MATCH_PARTICIPANTS ON (USERS.user_id = MATCH_PARTICIPANTS.user_id) WHERE MATCH_PARTICIPANTS.match_id = ${matchId}`, {
         model: matchParticipants
     }).then(players => {
         console.log(players);
         res.send(players);
     }).catch(err => {
-        console.log(`ERROR CAUGHT WHILE TRYING TO GET PARTICIPANTS FOR ${matchID}`);
+        console.log(`ERROR CAUGHT WHILE TRYING TO GET PARTICIPANTS FOR ${matchID}`, err);
     });
     
     
@@ -229,7 +245,6 @@ app.get('/get-match-participants', (req, res) => {
 // The below AJAX call gets the details for the current user, using their firebase UID as the
 // primary key.
 app.get('/ajax-GET-Profile', function (req, res) {
-
     //aa
     let q = url.parse(req.url, true);
     console.log(q.query["name"]);
@@ -247,9 +262,27 @@ app.get('/ajax-GET-Profile', function (req, res) {
         }).catch(function (err) {
             console.log('ERROR ENCOUNTERED WHEN OBTAINING USERS: ', err);
             res.sendStatus(500);
-        });
+    });
+    
+});
 
-})
+app.get('/ajax-GET-History', function (req, res) {
+    //aa
+    let q = url.parse(req.url, true);
+    console.log(q.query["name"]);
+    // set the type of response:
+    res.setHeader('Content-Type', 'application/json');
+
+    let qs2 = 'SELECT MATCH.match_id, lat, lng, time, date, sport FROM MATCH LEFT JOIN MATCH_PARTICIPANTS ON MATCH_PARTICIPANTS.match_id = MATCH.match_id WHERE MATCH_PARTICIPANTS.user_id =' + '\'' + q.query["name"] + '\'' + 'ORDER BY date, time DESC';
+    sequelize.query(qs2, { model: matches })
+    .then(function (matchdata) {
+        console.log(matchdata);
+        res.send({"stuff": matchdata});
+    }).catch(function (err) {
+        console.log('ERROR ENCOUNTERED WHEN OBTAINING USERS: ', err);
+        res.sendStatus(500);
+    });
+});
 
 // The below AJAX call takes the user's current selected sport and date,
 // and then queries to find relevant matches, before sending that data
@@ -285,9 +318,14 @@ WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(functi
 
 //            res.send(dataList2);
 //            console.log('testing', dataList2);
+<<<<<<< HEAD
     
         });
 
+=======
+    }    
+});
+>>>>>>> 9d3c2ca7060d8b4be7aa31b2400e26ba10dee1d7
 
 // The below AJAX call that queries for the users friends and associated 
 // avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user

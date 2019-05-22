@@ -118,7 +118,11 @@
         display:none;
     }
     #googleMap {
-        height:98vh;
+        height:100%;
     }
+    #pac-input {
+        height: 70px;
+    }
+    
 
 }   
