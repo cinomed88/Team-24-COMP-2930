@@ -272,7 +272,7 @@ app.get('/ajax-GET-History', function (req, res) {
     // set the type of response:
     res.setHeader('Content-Type', 'application/json');
 
-    let qs2 = 'SELECT MATCH.match_id, lat, lng, time, date, sport, score, does_win FROM MATCH LEFT JOIN MATCH_PARTICIPANTS ON MATCH_PARTICIPANTS.match_id = MATCH.match_id WHERE MATCH_PARTICIPANTS.user_id =' + '\'' + q.query["name"] + '\'' + 'ORDER BY date, time DESC';
+    let qs2 = 'SELECT MATCH.match_id, lat, lng, time, date, sport, score, does_win FROM MATCH LEFT JOIN MATCH_PARTICIPANTS ON MATCH_PARTICIPANTS.match_id = MATCH.match_id WHERE MATCH_PARTICIPANTS.user_id =' + '\'' + q.query["name"] + '\'' + 'ORDER BY date DESC, time DESC';
     sequelize.query(qs2, { model: matches })
     .then(function (matchdata) {
         console.log(matchdata);
