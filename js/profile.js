@@ -95,9 +95,9 @@ $(document).ready(function () {
                     for (var i = 0; i < data.stuff.length && i < 3; i++){
                         if(data.stuff[i].score !== null){
                             if(data.stuff[i].does_win === 1) {
-                                $("#match_result" + i.toString()).text(data.stuff[i].score + "  WIN");
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + " - WIN");
                             } else {
-                                $("#match_result" + i.toString()).text(data.stuff[i].score + "  LOSE");
+                                $("#match_result" + i.toString()).text(data.stuff[i].score + " - LOSE");
                             }
                         }
                         else {
