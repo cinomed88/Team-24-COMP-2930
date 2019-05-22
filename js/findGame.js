@@ -205,7 +205,7 @@
                                 <div class = "players"> Players 
                                     <ul class = "scrollable"></ul>
                                 </div>
-                                <div class = "joinButton" id = "${'b' + matches[i].match_id}" onclick="joinMatch(${matches[i].match_id})">
+                                <div class = "joinButton" id = "${'b' + matches[i].match_id}" onclick="joinMatch(${matches[i].match_id}); this.style.display = 'none'">
                                         JOIN
                                 </div>
                             </div>`;
@@ -273,11 +273,6 @@
                 data: userData,
                 success: function(userData) {
                     console.log("SUCCESS!");
-                    var popUps = document.getElementsByClassName('participants');
-                    console.log(popUps);
-                    for(let i = 0; i < popUps.length; i++) {
-                        popUps[i].style.display = 'none';
-                    }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                           $("#p2").text(jqXHR.statusText);
