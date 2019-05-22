@@ -172,7 +172,7 @@ app.post('/join-match', (req, res) => {
     sequelize.query(`SET IDENTITY_INSERT MATCH_PARTICIPANTS ON INSERT INTO MATCH_PARTICIPANTS (user_id, match_id, is_host) VALUES ('${req.body.user_id}', ${req.body.match_id}, 0)`, {
         model: matchParticipants
     }).then(function (match) {
-        console.log('SUCCESSFULLY JOINED MATCH!');
+        console.log('SUCCESSFULLY JOINED MATCH!', match);
     }).catch(function (err) {
        console.log('ERROR JOINING MATCH: ', err); 
     });
@@ -293,32 +293,34 @@ app.get('/ajax-GET-match-data', function (req, res) {
         let dataList2 = null;
 
         
-        if(formatOfResponse == 'json-match-list') {
-            res.setHeader('Content-Type', 'text/html');
-            sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
-                res.send(users);
-                console.log(users);
-                console.log(users[0].dataValues.user_id);
-            }).catch(function(err) {
-                console.log("Error occurred at Ajax-get", err);
-                        // print the error details
-            });
+//        if(formatOfResponse == 'json-match-list') {
+//            res.setHeader('Content-Type', 'text/html');
+//            sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
+//                res.send(users);
+//                console.log(users);
+//                console.log(users[0].dataValues.user_id);
+//            }).catch(function(err) {
+//                console.log("Error occurred at Ajax-get", err);
+//                        // print the error details
+//            });
 
         let userId = req.query['userId'];
+        let date = req.query['date'];
         res.setHeader('Content-Type', 'text/html');
         sequelize.query(`SELECT * FROM MATCH JOIN MATCH_PARTICIPANTS ON (MATCH.match_id = MATCH_PARTICIPANTS.match_id)
-WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(function(match) {
+WHERE MATCH_PARTICIPANTS.user_id = '${userId}' AND MATCH.date > '${date}'`, { model: matches }).then(function(match) {
             res.send(match);
             console.log(match);
         }).catch(function(err) {
-            console.log("Error occurred at Ajax-get2", err);
+            console.log("Error occurred at Ajax-get", err);
                     // print the error details
         });
+//        }
 
 //            res.send(dataList2);
 //            console.log('testing', dataList2);
-    }    
-});
+    
+        });
 
 // The below AJAX call that queries for the users friends and associated 
 // avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user

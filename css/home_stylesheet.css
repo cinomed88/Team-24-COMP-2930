@@ -85,7 +85,6 @@ body {
     bottom: 20px;
     left: 65%;
     z-index: 1;
-    
 }
 .startGameLink:hover {
     text-decoration: underline;
@@ -140,12 +139,17 @@ body {
 }
 .scheduleData {
     display: flex;
+    flex-direction: column;
     position: relative;
-    top: 13px;
+    top: 10px;
     width: 75%;
     height: 40px;
     margin-left: 1%;
     
+}
+.scheduleData div {
+    display: flex;
+    justify-content: center;
 }
 #friendsContainer {
     display: flex;
@@ -274,7 +278,10 @@ body {
     height:40px;
     border-radius:10px;
     background-color: green;
-    font-size:20pt;
+    font-size: 20pt;
+}
+.scheduleButton {
+    display: none;
 }
 .friendsBTN {
     margin-left: 30%;
