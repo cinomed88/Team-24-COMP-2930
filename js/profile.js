@@ -46,7 +46,7 @@ $(document).ready(function () {
                     honor_lev = (honor_lev > 5) ? 5 : honor_lev;
 
                     document.getElementById("honor_img").src="../Pics/Profile_Pics/honor_rank0" + honor_lev.toString() + ".png";
-                    $("#user_honor_lev").text("Honer Lev. " + honor_lev);
+                    $("#user_honor_lev").text("Honor Lev. " + honor_lev);
                     $("#user_honor_pt").text((data.honor_point) % 100 + " pt");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
