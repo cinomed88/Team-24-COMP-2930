@@ -26,6 +26,10 @@ module.exports = function(sequelize, Sequelize) {
            type: Sequelize.STRING(50),
            notEmpty: true,
        },
+       score: {
+           type: Sequelize.STRING(50),
+           notEmpty: true,
+       }
    });
 
    return match;

@@ -12,6 +12,9 @@ module.exports = function(sequelize, Sequelize) {
        },
        is_host: {
            type: Sequelize.INTEGER,
+       },
+       does_win: {
+           type: Sequelize.INTEGER,
        }
    });
 
