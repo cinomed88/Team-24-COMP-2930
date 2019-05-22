@@ -1,3 +1,5 @@
+
+
         // The below function creates the map and populates it with markers that fit the
         // user's wanted sport and times that make sense. The map's origin point is either
         // the user's current location or the centre of Downtown Vancouver, British Columbia.
@@ -28,23 +30,9 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     });
-                    userMarker.setPosition(map.getCenter());
-                    });
-                    
-            }
-            
-            // Geo-location to find the user's current location and set the centre of the map
-            // to it accordingly.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    map.setCenter({
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    });
                 });
-                    
             }
-            
+
             
 
 
@@ -62,6 +50,7 @@
             
             retrieveUserMatch(map);
            // localStorage.clear();
+            
             
             
             var markers = [];
@@ -158,38 +147,70 @@
                     time: time,
                     date: date
                 },
-                success: function(data) {
+                success: function(matches) {
                     var content = 0;
-                    console.log(data);
+                    console.log(matches);
                     var marker = [];
-                    for(let i = 0; i < data.length; i++) {
+                    for(let i = 0; i < matches.length; i++) {
 
-                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                        marker[i] = new google.maps.Marker({position: latlng});
-                        marker[i].setMap(mapAppend);
                         var infoWindow = [];
                         
+                        var participantsDiv = document.createElement('div');
+                        participantsDiv.setAttribute('class', 'participants');
+                        participantsDiv.setAttribute('id', `${matches[i].match_id}`);
+                        var map = document.getElementById('map');
+                        map.appendChild(participantsDiv);                        
+
                         // Converts the address into a readable, human-friendly version.
                         // And then adds an infoWindow to the relevant marker.
+                        var latlng = new google.maps.LatLng(matches[i].lat, matches[i].lng);
                         var geocoder = new google.maps.Geocoder;
                         geocoder.geocode({'latLng': latlng}, (results, status) => {
                             if (status == google.maps.GeocoderStatus.OK) {
                                 if (results[0]) {
                                     console.log(results[0].formatted_address);
                                     var address = results[0].formatted_address;
-                                    var time = data[i].time.substring(data[i].time.indexOf('T') + 1, data[i].time.length - 1);
+                                    var time = matches[i].time.substring(matches[i].time.indexOf('T') + 1, matches[i].time.length - 1);
                                     console.log(time);
-                                    var contentString = `Sport: ${data[i].sport}, Date: ${date}, Time: ${time}, Address: ${address}`;
-                                    infoWindow[i] = new google.maps.InfoWindow({
-                                        content: contentString
-                                    });
+                                    content = `Address: ${address}`;
                                 }
                             }  
                         });
                         
+                        marker[i] = new google.maps.Marker({position: latlng});
+                        marker[i].setMap(mapAppend);
                         marker[i].addListener('click', function() {
-                            infoWindow[i].open(mapAppend, marker[i]);
+                            var popUps = document.getElementsByClassName('participants');
+                            for(let i = 0; i < popUps.length; i++) {
+                                popUps[i].style.display = 'none';
+                            }
+                            document.getElementById(`${matches[i].match_id}`).style.display = 'block';
                         });
+                    }
+                    
+                    for (var i = 0; i < matches.length; i++) {
+                        var popUps = document.getElementsByClassName('participants');
+                        var time = matches[i].time.substring(matches[i].time.indexOf('T') + 1, matches[i].time.length - 1);
+                        
+                        
+                        
+                        popUps[i].innerHTML = 
+                            `<div id ="rectangle3">
+                            <i class="fa fa-close" style="font-size: 50px" onclick="document.getElementById('${matches[i].match_id}').style.display= 'none'"></i>
+                            </div>
+                            <div class = "matchDetails">
+                                <div class = "sport">${matches[i].sport}</div>
+                                <div class = "time">${time}</div>
+                                <div class = "date">${matches[i].date}</div>
+                                <div class = "players"> Players 
+                                    <ul class = "scrollable"></ul>
+                                </div>
+                                <div class = "joinButton" id = "${'b' + matches[i].match_id}" onclick="joinMatch(${matches[i].match_id})">
+                                        JOIN
+                                </div>
+                            </div>`;
+                        addPlayers(popUps[i], i);
+                        
                     }
                         
                 },
@@ -198,10 +219,77 @@
                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
                 }                
 
+            });            
+        }
+                
+        // The method that populates a div with the users that are apart of that match.
+        //
+        //@params divMatch, a variable holding a div element.
+        //@params int, the index of the divMatch's HTMLCollection pertaining to its class.
+        function addPlayers(divMatch, int) {
+            console.log(divMatch.id);
+            $.ajax({
+                url: '/get-match-participants',
+                dataType: 'json',
+                data: {matchId: divMatch.id},
+                success: function(data) {
+                    console.log(data);
+                    var list = document.getElementsByClassName('scrollable');
+                    for (let k = 0; k < data.length; k++){
+                        if (data[k].is_host === 1) {
+                            list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name} <br> Host</div></li>`
+                        } else {
+                            list[int].innerHTML += `<li><div class = "playerDetail">${data[k].user_name}</div></li>` 
+                        }
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $("#p2").text(jqXHR.statusText);
+                    console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                }                
+
+
             });
-        
         }
 
 
-        initMap();
+        // The method that adds the current user to a specified match.
+        //
+        // @param matchId the id of the match to add the user to.
+        function joinMatch(matchId) {
+            var id = firebase.auth().currentUser.uid;
+            var userData = {
+                user_id: id,
+                match_id: matchId
+            };
+            $.ajax({
+                url: '/join-match',
+                dataType: "json",
+                type: "POST",
+                data: userData,
+                success: function(userData) {
+                    console.log("SUCCESS!");
+                    var popUps = document.getElementsByClassName('participants');
+                    for(let i = 0; i < popUps.length; i++) {
+                        popUps[i].style.display = 'none';
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                          $("#p2").text(jqXHR.statusText);
+                          console.log("ERROR:", jqXHR, textStatus, errorThrown);
+                      }
+            });
+        }
+        
 
+        
+        
+
+                    
+        // Runs the map, if, and only if, the user is logged in.
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                initMap();
+            }
+        });
+    

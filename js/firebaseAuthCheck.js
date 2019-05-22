@@ -45,7 +45,9 @@
               
                         
               
-              
+              // Checks if it is currently the user's first time logging in. If so, it will take the firebase-generated UID and
+              // import it into our SQL database as a primary key, using an AJAX call. If the user isn't signed in at all,
+              // it will redirect to the landing-page for the user to sign in again.
               if (firebase.auth().currentUser.metadata.creationTime === firebase.auth().currentUser.metadata.lastSignInTime) {
                   $.ajax({
                       url: "/create-user",

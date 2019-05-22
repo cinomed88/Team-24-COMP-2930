@@ -1,36 +1,48 @@
 $(document).ready(function(){
     //START - Schedule container ajax
     //Ansynchronous call to the database to request user's match/event data.
-    $.ajax({
-        url: "/ajax-GET-match-data",
-        type: "GET",
-        dataType: "json",
-        data: {format: 'json-match-list'},
-        success: function(data) {
-            console.log("SUCCESS JSON:", data); 
-            for(let z = 0; z < data.length && z <= 3; z++){
-                let outerDiv = "";
-                    outerDiv = document.createElement('div');
-                    outerDiv.className += 'schedule' + " " + z;
+    
+    
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var userId = firebase.auth().currentUser.uid;
+            console.log(userId + ": <--user id");
+            
+            $.ajax({
+                url: "/ajax-GET-match-data",
+                type: "GET",
+                dataType: "json",
+                data: {userId: userId},
+                success: function(data) {
+                    console.log("SUCCESS JSON:", data); 
+                    for(let z = 0; z < data.length && z <= 3; z++){
+                        let outerDiv = "";
+                            outerDiv = document.createElement('div');
+                            outerDiv.className += 'schedule' + " " + z;
 
-                    var sport = document.createElement('div');
-                    sport.className += 'sport' + " " + z;
-                    $(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
+                            var sport = document.createElement('div');
+                            sport.className += 'sport' + " " + z;
+                            $(sport).css('background-image','url(../Pics/Home_Pics/female3.jpg)');
 
-                    var scheduleData = document.createElement('div');
+                            var scheduleData = document.createElement('div');
 
-                    scheduleData.className += 'scheduleData' + " " + z;
-                    outerDiv.appendChild(sport);
-                    outerDiv.appendChild(scheduleData);
+                            scheduleData.className += 'scheduleData' + " " + z;
+                            outerDiv.appendChild(sport);
+                            outerDiv.appendChild(scheduleData);
 
-                    $('.button').before(outerDiv);
-                
-//                console.log(data[z].user_name);
-                $(scheduleData).html(data[z].user_name + "  " + data[z].honor_point);
+                            $('.button').before(outerDiv);
+
+                        console.log(data[z].sport);
+                        $(scheduleData).html(data[z].sport + "  " + data[z].time);
+                        console.log('esketit', data);
+                        }
                 }
-                console.log('esketit', data);
+            });
+            
+            
         }
     });
+
     //Method that shows more match/event data.
     //Ansynchronous call to the database to request user's match data.
     $('.scheduleButton').on('click', () => {
@@ -240,3 +252,5 @@ $(document).ready(function(){
     //END - recently played ajax
 
     });
+    
+
