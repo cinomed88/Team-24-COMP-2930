@@ -18,15 +18,15 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";  
     if(slideIndex === 1) {
         console.log('soccer');
-        localStorage.setItem('userSport', 'Basketball')
+        localStorage.setItem('userSport', 'Soccer')
     }
     if(slideIndex === 2) {
         console.log('tennis');
-        localStorage.setItem('userSport', 'Golf');
+        localStorage.setItem('userSport', 'Tennis');
     }
     if(slideIndex === 3) {
         console.log('basketball');
-        localStorage.setItem('userSport', 'Soccer');
+        localStorage.setItem('userSport', 'Basketball');
     }
     
     console.log(localStorage.getItem('userSport'));
