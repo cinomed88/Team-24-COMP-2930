@@ -35,13 +35,13 @@ body {
     width: 70%;
     height: 75px;
     margin: 0 auto;
-    opacity: .50;
+    opacity: .70;
 }
 #rectangle a {
     display: flex;
     align-items: center;
     position: relative;
-    color: white;
+    color: red;
     opacity: 0.95;
     font-size: 3em;
     z-index: 1;
@@ -567,7 +567,15 @@ body {
         height:35px;
         font-size:18pt;
     }
-    
+    .schedule {
+        height: 70px;
+    }
+    #sportTitle {
+        font-size: 20pt;
+    }
+    #dateTime {
+        font-size: 10pt;
+    }
 }
     
 
