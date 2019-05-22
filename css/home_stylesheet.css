@@ -360,7 +360,7 @@ body {
     height: 50px;
     margin-left: 5%;
     z-index: 9001;
-    border-radius: 50%;
+    border-radius: 0;
 
 }
 .scheduleDataOverLay {
