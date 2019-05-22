@@ -260,16 +260,16 @@ app.get('/ajax-GET-match-data', function (req, res) {
         let dataList2 = null;
 
         
-        if(formatOfResponse == 'json-match-list') {
-            res.setHeader('Content-Type', 'text/html');
-            sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
-                res.send(users);
-                console.log(users);
-                console.log(users[0].dataValues.user_id);
-            }).catch(function(err) {
-                console.log("Error occurred at Ajax-get", err);
-                        // print the error details
-            });
+//        if(formatOfResponse == 'json-match-list') {
+//            res.setHeader('Content-Type', 'text/html');
+//            sequelize.query(`SELECT * FROM USERS`, { model: users }).then(function(users) {
+//                res.send(users);
+//                console.log(users);
+//                console.log(users[0].dataValues.user_id);
+//            }).catch(function(err) {
+//                console.log("Error occurred at Ajax-get", err);
+//                        // print the error details
+//            });
 
         let userId = req.query['userId'];
         res.setHeader('Content-Type', 'text/html');
@@ -278,14 +278,16 @@ WHERE MATCH_PARTICIPANTS.user_id = '${userId}'`, { model: matches }).then(functi
             res.send(match);
             console.log(match);
         }).catch(function(err) {
-            console.log("Error occurred at Ajax-get2", err);
+            console.log("Error occurred at Ajax-get", err);
                     // print the error details
         });
+//        }
 
 //            res.send(dataList2);
 //            console.log('testing', dataList2);
     
-});
+        });
+
 
 // The below AJAX call that queries for the users friends and associated 
 // avatar, before sending that data back to the client-side to be placed on //the relevant div container for displaying a users friend list for the user
