@@ -389,3 +389,6 @@ img {
   width: 120px;
   height: auto;
 }
+.img-circle {
+  border-radius: 50%;
+}

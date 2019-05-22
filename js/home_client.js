@@ -65,7 +65,7 @@ $(document).ready(function(){
                         let x = data[z].time;
                         let time = x.substring(11, 16);
                         
-                        $(scheduleData).html("<div>" + data[z].sport + "</div>" + "<div>" + "<b>Date: </b>" + data[z].date + "&nbsp" + "<b> Time: </b>" + time + "</div>");
+                        $(scheduleData).html("<div id='sportTitle'>" + data[z].sport + "</div>" + "<div>" + "<b>Date: </b>" + data[z].date + "&nbsp" + "<b> Time: </b>" + time + "</div>");
                         
                         console.log('esketit', data);                     
                     }
